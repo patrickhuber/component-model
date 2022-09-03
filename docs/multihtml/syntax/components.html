@@ -1,0 +1,287 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>Components &#8212; WebAssembly Component Model 0.0 (Draft 2022-09-02)</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/alabaster.css" />
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Validation" href="../valid/index.html" />
+    <link rel="prev" title="Types" href="types.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  <div class="document">
+    
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../index.html">WebAssembly Component Model</a></h1>
+
+
+
+<p class="blurb">WebAssembly Component Model Specification</p>
+
+
+
+
+
+
+<h3>Navigation</h3>
+<p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../intro/index.html">Introduction</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Structure</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="conventions.html">Conventions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="types.html">Types</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Components</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../valid/index.html">Validation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../exec/index.html">Execution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../binary/index.html">Binary Format</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../text/index.html">Text Format</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../appendix/index.html">Appendix</a></li>
+</ul>
+
+
+<hr />
+<ul>
+    
+    <li class="toctree-l1"><a href="../genindex.html">Index</a></li>
+    
+    <li class="toctree-l1"><a href="../../_download/webassemblycomponentmodel.pdf">Download as PDF</a></li>
+    
+</ul>
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+  <li><a href="index.html">Structure</a><ul>
+      <li>Previous: <a href="types.html" title="previous chapter">Types</a></li>
+      <li>Next: <a href="../valid/index.html" title="next chapter">Validation</a></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <section id="components">
+<h1>Components<a class="headerlink" href="#components" title="Permalink to this headline">¶</a></h1>
+<section id="sorts">
+<span id="syntax-sort"></span><span id="syntax-coresort"></span><h2>Sorts<a class="headerlink" href="#sorts" title="Permalink to this headline">¶</a></h2>
+<p>A component’s definitions define objects, each of which is of one of
+the following <em>sort</em>s:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{array}{llcl}
+\def\mathdef2256#1{{}}\mathdef2256{(coresort)} &amp; \href{../syntax/components.html#syntax-coresort}{\mathit{core{:}sort}} &amp;::=&amp;
+  \href{../syntax/components.html#syntax-coresort}{\mathsf{func}} | \href{../syntax/components.html#syntax-coresort}{\mathsf{table}} | \href{../syntax/components.html#syntax-coresort}{\mathsf{memory}} | \href{../syntax/components.html#syntax-coresort}{\mathsf{global}} | \href{../syntax/components.html#syntax-coresort}{\mathsf{type}} | \href{../syntax/components.html#syntax-coresort}{\mathsf{module}} | \href{../syntax/components.html#syntax-coresort}{\mathsf{instance}}\\
+\def\mathdef2256#1{{}}\mathdef2256{(sort)} &amp; \href{../syntax/components.html#syntax-sort}{\mathit{sort}} &amp;::=&amp;
+  \href{../syntax/components.html#syntax-sort}{\mathsf{core}}~\href{../syntax/components.html#syntax-coresort}{\mathit{core{:}sort}}\\&amp;&amp;|&amp;
+  \href{../syntax/components.html#syntax-sort}{\mathsf{func}} | \href{../syntax/components.html#syntax-sort}{\mathsf{value}} | \href{../syntax/components.html#syntax-sort}{\mathsf{type}} | \href{../syntax/components.html#syntax-sort}{\mathsf{component}} | \href{../syntax/components.html#syntax-sort}{\mathsf{instance}}
+\end{array}\end{split}\]</div>
+</section>
+<section id="indices">
+<span id="syntax-valueidx"></span><span id="syntax-coreinstanceidx"></span><span id="syntax-coresortidx"></span><span id="syntax-sortidx"></span><span id="syntax-coretypeidx"></span><span id="syntax-typeidx"></span><span id="syntax-corefuncidx"></span><span id="syntax-funcidx"></span><span id="syntax-instanceidx"></span><span id="syntax-componentidx"></span><span id="syntax-coremoduleidx"></span><h2>Indices<a class="headerlink" href="#indices" title="Permalink to this headline">¶</a></h2>
+<p>Each object defined by a component exists within an <em>index space</em> made
+up of all objects of the same sort. Unlike in Core WebAssembly, a
+component definition may only refer to objects that were defined prior
+to it in the current component. Future definitions refer to past
+definitions by means of an <em>index</em> into the appropriate index space:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{array}{llll}
+\def\mathdef2256#1{{}}\mathdef2256{(coremoduleidx)} &amp; \href{../syntax/components.html#syntax-coremoduleidx}{\mathit{core{:}moduleidx}} &amp;::=&amp; \href{../syntax/values.html#syntax-int}{\mathit{u32}}\\
+\def\mathdef2256#1{{}}\mathdef2256{(coreinstanceidx)} &amp; \href{../syntax/components.html#syntax-coreinstanceidx}{\mathit{core{:}instanceidx}} &amp;::=&amp; \href{../syntax/values.html#syntax-int}{\mathit{u32}}\\
+\def\mathdef2256#1{{}}\mathdef2256{(componentidx)} &amp; \href{../syntax/components.html#syntax-componentidx}{\mathit{componentidx}} &amp;::=&amp; \href{../syntax/values.html#syntax-int}{\mathit{u32}}\\
+\def\mathdef2256#1{{}}\mathdef2256{(instanceidx)} &amp; \href{../syntax/components.html#syntax-instanceidx}{\mathit{instanceidx}} &amp;::=&amp; \href{../syntax/values.html#syntax-int}{\mathit{u32}}\\
+\def\mathdef2256#1{{}}\mathdef2256{(funcidx)} &amp; \href{../syntax/components.html#syntax-funcidx}{\mathit{funcidx}} &amp;::=&amp; \href{../syntax/values.html#syntax-int}{\mathit{u32}}\\
+\def\mathdef2256#1{{}}\mathdef2256{(corefuncidx)} &amp; \href{../syntax/components.html#syntax-corefuncidx}{\mathit{core{:}funcidx}} &amp;::=&amp; \href{../syntax/values.html#syntax-int}{\mathit{u32}}\\
+\def\mathdef2256#1{{}}\mathdef2256{(valueidx)} &amp; \href{../syntax/components.html#syntax-valueidx}{\mathit{valueidx}} &amp;::=&amp; \href{../syntax/values.html#syntax-int}{\mathit{u32}}\\
+\def\mathdef2256#1{{}}\mathdef2256{(typeidx)} &amp; \href{../syntax/components.html#syntax-typeidx}{\mathit{typeidx}} &amp;::=&amp; \href{../syntax/values.html#syntax-int}{\mathit{u32}}\\
+\def\mathdef2256#1{{}}\mathdef2256{(coretypeidx)} &amp; \href{../syntax/components.html#syntax-coretypeidx}{\mathit{core{:}typeidx}} &amp;::=&amp; \href{../syntax/values.html#syntax-int}{\mathit{u32}}
+\end{array}\end{split}\]</div>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{array}{llll}
+\def\mathdef2256#1{{}}\mathdef2256{(coresortidx)} &amp; \href{../syntax/components.html#syntax-coresortidx}{\mathit{core{:}sortidx}} &amp;::=&amp; \{ \href{../syntax/components.html#syntax-coretypeidx}{\mathsf{sort}}~\href{../syntax/components.html#syntax-coresort}{\mathit{core{:}sort}}, \href{../syntax/components.html#syntax-coretypeidx}{\mathsf{idx}}~\href{../syntax/values.html#syntax-int}{\mathit{u32}} \}\\
+\def\mathdef2256#1{{}}\mathdef2256{(sortidx)} &amp; \href{../syntax/components.html#syntax-sortidx}{\mathit{sortidx}} &amp;::=&amp; \{ \href{../syntax/components.html#syntax-sortidx}{\mathsf{sort}}~\href{../syntax/components.html#syntax-sort}{\mathit{sort}}, \href{../syntax/components.html#syntax-sortidx}{\mathsf{idx}}~\href{../syntax/values.html#syntax-int}{\mathit{u32}} \}
+\end{array}\end{split}\]</div>
+</section>
+<section id="definitions">
+<span id="syntax-definition"></span><h2>Definitions<a class="headerlink" href="#definitions" title="Permalink to this headline">¶</a></h2>
+<p>Each object within a component is defined by a <em>definition</em>, of which
+there are several kinds:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{array}{llcl}
+\def\mathdef2256#1{{}}\mathdef2256{(definition)} &amp; \href{../syntax/components.html#syntax-definition}{\mathit{definition}} &amp;::=&amp;
+\href{../syntax/components.html#syntax-definition}{\mathsf{core\_module}}~\href{https://webassembly.github.io/spec/core/syntax/modules.html#syntax-module}{\mathit{core{:}}\mathit{module}}\\&amp;&amp;|&amp;
+\href{../syntax/components.html#syntax-definition}{\mathsf{core\_instance}}~\href{../syntax/components.html#syntax-coreinstance}{\mathit{core{:}instance}}\\&amp;&amp;|&amp;
+\href{../syntax/components.html#syntax-definition}{\mathsf{core\_type}}~\href{../syntax/types.html#syntax-coredeftype}{\mathit{core{:}deftype}}\\&amp;&amp;|&amp;
+\href{../syntax/components.html#syntax-definition}{\mathsf{component}}~\href{../syntax/components.html#syntax-component}{\mathit{component}}\\&amp;&amp;|&amp;
+\href{../syntax/components.html#syntax-definition}{\mathsf{instance}}~\href{../syntax/components.html#syntax-instance}{\mathit{instance}}\\&amp;&amp;|&amp;
+\href{../syntax/components.html#syntax-definition}{\mathsf{alias}}~\href{../syntax/types.html#syntax-alias}{\mathit{alias}}\\&amp;&amp;|&amp;
+\href{../syntax/components.html#syntax-definition}{\mathsf{type}}~\href{../syntax/types.html#syntax-deftype}{\mathit{deftype}}\\&amp;&amp;|&amp;
+\href{../syntax/components.html#syntax-definition}{\mathsf{canon}}~\href{../syntax/components.html#syntax-canon}{\mathit{canon}}\\&amp;&amp;|&amp;
+\href{../syntax/components.html#syntax-definition}{\mathsf{start}}~\href{../syntax/components.html#syntax-start}{\mathit{start}}\\&amp;&amp;|&amp;
+\href{../syntax/components.html#syntax-definition}{\mathsf{import}}~\href{../syntax/components.html#syntax-import}{\mathit{import}}\\&amp;&amp;|&amp;
+\href{../syntax/components.html#syntax-definition}{\mathsf{export}}~\href{../syntax/components.html#syntax-export}{\mathit{export}}\\
+\end{array}\end{split}\]</div>
+</section>
+<section id="core-instances">
+<span id="syntax-coreexport"></span><span id="syntax-coreinstantiatearg"></span><span id="syntax-coreinstance"></span><h2>Core instances<a class="headerlink" href="#core-instances" title="Permalink to this headline">¶</a></h2>
+<p>A core instance may be defined either by instantiating a core module
+with other core instances taking the place of its first-level imports,
+or by creating a core module from whole cloth by combining core
+definitions already present in our index space:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{array}{llcl}
+\def\mathdef2256#1{{}}\mathdef2256{(coreinstance)} &amp; \href{../syntax/components.html#syntax-coreinstance}{\mathit{core{:}instance}} &amp;::=&amp;
+\href{../syntax/components.html#syntax-coreinstance}{\mathsf{instantiate}}~\href{../syntax/components.html#syntax-coremoduleidx}{\mathit{core{:}moduleidx}}~\href{../syntax/components.html#syntax-coreinstantiatearg}{\mathit{core{:}instantiatearg}}^{*}\\&amp;&amp;|&amp;
+\href{../syntax/components.html#syntax-coreinstance}{\mathsf{exports}}~\href{../syntax/components.html#syntax-coreexport}{\mathit{core{:}export}}^{*}\\
+\def\mathdef2256#1{{}}\mathdef2256{(coreinstantiatearg)} &amp; \href{../syntax/components.html#syntax-coreinstantiatearg}{\mathit{core{:}instantiatearg}} &amp;::=&amp;
+\{ \href{../syntax/components.html#syntax-coreinstantiatearg}{\mathsf{name}}~\href{../syntax/values.html#syntax-name}{\mathit{name}}, \href{../syntax/components.html#syntax-coreinstantiatearg}{\mathsf{instance}}~\href{../syntax/components.html#syntax-coreinstanceidx}{\mathit{core{:}instanceidx}} \}\\
+\def\mathdef2256#1{{}}\mathdef2256{(coreexport)} &amp; \href{../syntax/components.html#syntax-coreexport}{\mathit{core{:}export}} &amp;::=&amp; \{ \href{../syntax/components.html#syntax-coreexport}{\mathsf{name}}~\href{../syntax/values.html#syntax-name}{\mathit{name}}, \href{../syntax/components.html#syntax-coreexport}{\mathsf{def}}~\href{../syntax/components.html#syntax-coresortidx}{\mathit{core{:}sortidx}} \}\\
+\end{array}\end{split}\]</div>
+</section>
+<section id="syntax-component">
+<span id="id1"></span><h2>Components<a class="headerlink" href="#syntax-component" title="Permalink to this headline">¶</a></h2>
+<p>A component is merely a sequence of definitions:</p>
+<div class="math notranslate nohighlight">
+\[\begin{array}{llll}
+\def\mathdef2256#1{{}}\mathdef2256{(component)} &amp; \href{../syntax/components.html#syntax-component}{\mathit{component}} &amp;::=&amp; \href{../syntax/components.html#syntax-definition}{\mathit{definition}}^{*}
+\end{array}\]</div>
+</section>
+<section id="instances">
+<span id="syntax-instantiatearg"></span><span id="syntax-instance"></span><h2>Instances<a class="headerlink" href="#instances" title="Permalink to this headline">¶</a></h2>
+<p>Component-level instance declarations are nearly identical to
+core-level instance declarations, with the caveat that more sorts of
+definitions may be supplied as imports:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{array}{llcl}
+\def\mathdef2256#1{{}}\mathdef2256{(instance)} &amp; \href{../syntax/components.html#syntax-instance}{\mathit{instance}} &amp;::=&amp;
+\href{../syntax/components.html#syntax-instance}{\mathsf{instantiate}}~\href{../syntax/components.html#syntax-componentidx}{\mathit{componentidx}}~\href{../syntax/components.html#syntax-instantiatearg}{\mathit{instantiatearg}}^{*}\\&amp;&amp;|&amp;
+\href{../syntax/components.html#syntax-instance}{\mathsf{exports}}~\href{../syntax/components.html#syntax-export}{\mathit{export}}^{*}\\
+\def\mathdef2256#1{{}}\mathdef2256{(instantiatearg)} &amp; \href{../syntax/components.html#syntax-instantiatearg}{\mathit{instantiatearg}} &amp;::=&amp;
+\{ \href{../syntax/components.html#syntax-instantiatearg}{\mathsf{name}}~\href{../syntax/values.html#syntax-name}{\mathit{name}}, \href{../syntax/components.html#syntax-instantiatearg}{\mathsf{arg}}~\href{../syntax/components.html#syntax-sortidx}{\mathit{sortidx}} \}
+\end{array}\end{split}\]</div>
+</section>
+<section id="aliases">
+<span id="syntax-aliastarget"></span><span id="syntax-alias"></span><h2>Aliases<a class="headerlink" href="#aliases" title="Permalink to this headline">¶</a></h2>
+<p>An alias definition copies a definition from some other module,
+component, or instance into an index space of the current component:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{array}{llcl}
+\def\mathdef2256#1{{}}\mathdef2256{(alias)} &amp; \href{../syntax/types.html#syntax-alias}{\mathit{alias}} &amp;::=&amp; \{ \href{../syntax/types.html#syntax-alias}{\mathsf{sort}}~\href{../syntax/components.html#syntax-sort}{\mathit{sort}}, \href{../syntax/types.html#syntax-alias}{\mathsf{target}}~\href{../syntax/components.html#syntax-aliastarget}{\mathit{aliastarget}} \}\\
+\def\mathdef2256#1{{}}\mathdef2256{(aliastarget)} &amp; \href{../syntax/components.html#syntax-aliastarget}{\mathit{aliastarget}} &amp;::=&amp;
+\href{../syntax/components.html#syntax-aliastarget}{\mathsf{export}}~\href{../syntax/components.html#syntax-instanceidx}{\mathit{instanceidx}}~\href{../syntax/values.html#syntax-name}{\mathit{name}}\\&amp;&amp;|&amp;
+\href{../syntax/components.html#syntax-aliastarget}{\mathsf{core\_export}}~\href{../syntax/components.html#syntax-coreinstanceidx}{\mathit{core{:}instanceidx}}~\href{../syntax/values.html#syntax-name}{\mathit{name}}\\&amp;&amp;|&amp;
+\href{../syntax/components.html#syntax-aliastarget}{\mathsf{outer}}~\href{../syntax/values.html#syntax-int}{\mathit{u32}}~\href{../syntax/values.html#syntax-int}{\mathit{u32}}\\
+\end{array}\end{split}\]</div>
+</section>
+<section id="canonical-definitions">
+<span id="syntax-canonopt"></span><span id="syntax-canon"></span><h2>Canonical definitions<a class="headerlink" href="#canonical-definitions" title="Permalink to this headline">¶</a></h2>
+<p>Canonical definitions are the only way to convert between Core
+WebAssembly functions and component-level shared-nothing functions
+which produce and consume values of type <span class="math notranslate nohighlight">\(valtype\)</span>. A <em>canon
+lift</em> definition converts a core WebAssembly function into a
+component-level function which may be exported or used to satisfy the
+imports of another component; a <em>canon lower</em> definition converts an
+lifted function (often imported) into a core function.</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{array}{llcl}
+\def\mathdef2256#1{{}}\mathdef2256{(canon)} &amp; \href{../syntax/components.html#syntax-canon}{\mathit{canon}} &amp;::=&amp;
+\href{../syntax/components.html#syntax-canon}{\mathsf{lift}}~\href{https://webassembly.github.io/spec/core/syntax/modules.html#syntax-funcidx}{\mathit{core{:}}\mathit{funcidx}}~\href{../syntax/components.html#syntax-canonopt}{\mathit{canonopt}}^{*}~\href{../syntax/components.html#syntax-typeidx}{\mathit{typeidx}}\\&amp;&amp;|&amp;
+\href{../syntax/components.html#syntax-canon}{\mathsf{lower}}~\href{../syntax/components.html#syntax-funcidx}{\mathit{funcidx}}~\href{../syntax/components.html#syntax-canonopt}{\mathit{canonopt}}^{*}\\
+\def\mathdef2256#1{{}}\mathdef2256{(canonopt)} &amp; \href{../syntax/components.html#syntax-canonopt}{\mathit{canonopt}} &amp;::=&amp;
+\href{../syntax/components.html#syntax-canonopt}{\mathsf{string\_encoding\_utf8}}\\&amp;&amp;|&amp;
+\href{../syntax/components.html#syntax-canonopt}{\mathsf{string\_encoding\_utf16}}\\&amp;&amp;|&amp;
+\href{../syntax/components.html#syntax-canonopt}{\mathsf{string\_encoding\_latin1{+}utf16}}\\&amp;&amp;|&amp;
+\href{../syntax/components.html#syntax-canonopt}{\mathsf{memory}}~\href{https://webassembly.github.io/spec/core/syntax/modules.html#syntax-memidx}{\mathit{core{:}}\mathit{memidx}}\\&amp;&amp;|&amp;
+\href{../syntax/components.html#syntax-canonopt}{\mathsf{realloc}}~\href{https://webassembly.github.io/spec/core/syntax/modules.html#syntax-funcidx}{\mathit{core{:}}\mathit{funcidx}}\\&amp;&amp;|&amp;
+\href{../syntax/components.html#syntax-canonopt}{\mathsf{post\_return}}~\href{https://webassembly.github.io/spec/core/syntax/modules.html#syntax-funcidx}{\mathit{core{:}}\mathit{funcidx}}\\
+\end{array}\end{split}\]</div>
+</section>
+<section id="start-definitions">
+<span id="syntax-start"></span><h2>Start definitions<a class="headerlink" href="#start-definitions" title="Permalink to this headline">¶</a></h2>
+<p>A start definition specifies a component function which this component
+would like to see called at instantiation type in order to do some
+sort of initialization.</p>
+<div class="math notranslate nohighlight">
+\[\begin{array}{llcl}
+\def\mathdef2256#1{{}}\mathdef2256{(start)} &amp; \href{../syntax/components.html#syntax-start}{\mathit{start}} &amp;::=&amp; \{ \href{../syntax/components.html#syntax-start}{\mathsf{func}}~\href{../syntax/components.html#syntax-funcidx}{\mathit{funcidx}}, \href{../syntax/components.html#syntax-start}{\mathsf{args}}~\href{../syntax/components.html#syntax-valueidx}{\mathit{valueidx}}^{*} \}
+\end{array}\]</div>
+</section>
+<section id="imports">
+<span id="syntax-import"></span><h2>Imports<a class="headerlink" href="#imports" title="Permalink to this headline">¶</a></h2>
+<p>Since an imported value is described entirely by its type, an actual
+import definition is effectively the same thing as an import
+declaration:</p>
+<div class="math notranslate nohighlight">
+\[\begin{array}{llcl}
+\def\mathdef2256#1{{}}\mathdef2256{(import)} &amp; \href{../syntax/components.html#syntax-import}{\mathit{import}} &amp;::=&amp; \href{../syntax/types.html#syntax-importdecl}{\mathit{importdecl}}
+\end{array}\]</div>
+</section>
+<section id="exports">
+<span id="syntax-export"></span><h2>Exports<a class="headerlink" href="#exports" title="Permalink to this headline">¶</a></h2>
+<p>An export definition is simply a name and a reference to another
+definition to export:</p>
+<div class="math notranslate nohighlight">
+\[\begin{array}{llll}
+\def\mathdef2256#1{{}}\mathdef2256{(export)} &amp; \href{../syntax/components.html#syntax-export}{\mathit{export}} &amp;::=&amp; \{ \href{../syntax/components.html#syntax-export}{\mathsf{name}}~\href{../syntax/values.html#syntax-name}{\mathit{name}}, \href{../syntax/components.html#syntax-export}{\mathsf{def}}~\href{../syntax/components.html#syntax-sortidx}{\mathit{sortidx}} \}
+\end{array}\]</div>
+</section>
+</section>
+
+
+          </div>
+          
+        </div>
+      </div>
+    <div class="clearer"></div>
+  </div>
+    <div class="footer">
+      &copy;2022 WebAssembly Community Group.
+      
+    </div>
+
+    
+
+    
+  </body>
+</html>

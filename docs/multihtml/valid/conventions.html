@@ -1,0 +1,184 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>Conventions &#8212; WebAssembly Component Model 0.0 (Draft 2022-09-02)</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/alabaster.css" />
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Types" href="types.html" />
+    <link rel="prev" title="Validation" href="index.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  <div class="document">
+    
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../index.html">WebAssembly Component Model</a></h1>
+
+
+
+<p class="blurb">WebAssembly Component Model Specification</p>
+
+
+
+
+
+
+<h3>Navigation</h3>
+<p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../intro/index.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../syntax/index.html">Structure</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Validation</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Conventions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="types.html">Types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="subtyping.html">Subtyping</a></li>
+<li class="toctree-l2"><a class="reference internal" href="components.html">Components</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../exec/index.html">Execution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../binary/index.html">Binary Format</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../text/index.html">Text Format</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../appendix/index.html">Appendix</a></li>
+</ul>
+
+
+<hr />
+<ul>
+    
+    <li class="toctree-l1"><a href="../genindex.html">Index</a></li>
+    
+    <li class="toctree-l1"><a href="../../_download/webassemblycomponentmodel.pdf">Download as PDF</a></li>
+    
+</ul>
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+  <li><a href="index.html">Validation</a><ul>
+      <li>Previous: <a href="index.html" title="previous chapter">Validation</a></li>
+      <li>Next: <a href="types.html" title="next chapter">Types</a></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <section id="conventions">
+<h1>Conventions<a class="headerlink" href="#conventions" title="Permalink to this headline">¶</a></h1>
+<p>As in Core WebAssembly, a <em>validation</em> stage checks that a component
+is well-formed, and only valid components may be instantiated.</p>
+<p>Similarly to Core WebAssembly, a <em>type system</em> over the abstract
+syntax of a component is used to specify which modules are valid, and
+the rules governing the validity of a component are given in both
+prose and formal mathematical notation.</p>
+<section id="contexts">
+<span id="syntax-coretyctx"></span><span id="syntax-tyctx"></span><h2>Contexts<a class="headerlink" href="#contexts" title="Permalink to this headline">¶</a></h2>
+<p>Validation rules for individual definitions are interpreted within a
+particular <em>context</em>, which contains the information about the
+surrounding component and environment needed to validae a particular
+definition. The validation contexts used in the component model
+contain the types of every definition in every index space currently
+accessible (including the index spaces of parent components, which may
+be accessed via <span class="math notranslate nohighlight">\(\href{../syntax/components.html#syntax-aliastarget}{\mathsf{outer}}\)</span> aliases).</p>
+<p>Concretely, a validation context is defined as a record with the
+following abstract syntax:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{array}{llcl}
+\def\mathdef4964#1{{}}\mathdef4964{(coretyctx)} &amp; \href{../valid/conventions.html#syntax-coretyctx}{\Gamma_c} &amp;::=&amp;
+  \{
+    \begin{array}[t]{l&#64;{~}ll}
+      \href{../valid/conventions.html#syntax-coretyctx}{\mathsf{types}} &amp; \href{../valid/types.html#syntax-ecoredeftype}{\mathit{core{:}deftype}_e}^\ast, \\
+      \href{../valid/conventions.html#syntax-coretyctx}{\mathsf{funcs}} &amp; \href{https://webassembly.github.io/spec/core/syntax/types.html#syntax-functype}{\mathit{core{:}}\mathit{functype}}^\ast, \\
+      \href{../valid/conventions.html#syntax-coretyctx}{\mathsf{modules}} &amp; \href{../valid/types.html#syntax-ecoremoduletype}{\mathit{core{:}moduletype}_e}^\ast, \\
+      \href{../valid/conventions.html#syntax-coretyctx}{\mathsf{instances}} &amp; \href{../valid/types.html#syntax-ecoreinstancetype}{\mathit{core{:}instancetype}_e}^\ast, \\
+      \href{../valid/conventions.html#syntax-coretyctx}{\mathsf{tables}} &amp; \href{https://webassembly.github.io/spec/core/syntax/types.html#syntax-tabletype}{\mathit{core{:}}\mathit{tabletype}}^\ast, \\
+      \href{../valid/conventions.html#syntax-coretyctx}{\mathsf{mems}} &amp; \href{https://webassembly.github.io/spec/core/syntax/types.html#syntax-memtype}{\mathit{core{:}}\mathit{memtype}}^\ast, \\
+      \href{../valid/conventions.html#syntax-coretyctx}{\mathsf{globals}} &amp; \href{https://webassembly.github.io/spec/core/syntax/types.html#syntax-globaltype}{\mathit{core{:}}\mathit{globaltype}}^\ast\} \\
+    \end{array}\\
+\def\mathdef4964#1{{}}\mathdef4964{(tyctx)} &amp; \href{../valid/conventions.html#syntax-tyctx}{\Gamma} &amp;::=&amp;
+  \{
+    \begin{array}[t]{l&#64;{~}ll}
+      \href{../valid/conventions.html#syntax-tyctx}{\mathsf{parent}} &amp; \href{../valid/conventions.html#syntax-tyctx}{\Gamma}, \\
+      \href{../valid/conventions.html#syntax-tyctx}{\mathsf{core}} &amp; \href{../valid/conventions.html#syntax-coretyctx}{\Gamma_c}, \\
+      \href{../valid/conventions.html#syntax-tyctx}{\mathsf{vars}} &amp; \href{../valid/types.html#syntax-boundedtyvar}{\mathit{boundedtyvar}}^\ast, \\
+      \href{../valid/conventions.html#syntax-tyctx}{\mathsf{types}} &amp; \href{../valid/types.html#syntax-edeftype}{\mathit{deftype}_e}^\ast, \\
+      \href{../valid/conventions.html#syntax-tyctx}{\mathsf{components}} &amp; \href{../valid/types.html#syntax-ecomponenttype}{\mathit{componenttype}_e}^\ast, \\
+      \href{../valid/conventions.html#syntax-tyctx}{\mathsf{instances}} &amp; {\href{../valid/types.html#syntax-einstancetype}{\mathit{instancetype}_e}^\dagger}^\ast, \\
+      \href{../valid/conventions.html#syntax-tyctx}{\mathsf{funcs}} &amp; \href{../valid/types.html#syntax-efunctype}{\mathit{functype}_e}^\ast, \\
+      \href{../valid/conventions.html#syntax-tyctx}{\mathsf{values}} &amp; \href{../valid/types.html#syntax-evaltypead}{{\mathit{valtype}_e^?}}^\ast, \} \\
+    \end{array}\\
+\end{array}\end{split}\]</div>
+</section>
+<section id="notation">
+<h2>Notation<a class="headerlink" href="#notation" title="Permalink to this headline">¶</a></h2>
+<p>Both the formal and prose notation share a number of constructs:</p>
+<ul class="simple">
+<li><p>When writing a value of the abstract syntax, any component of the
+abstract syntax which has the form <span class="math notranslate nohighlight">\(\mathit{nonterminal}^n\)</span>,
+<span class="math notranslate nohighlight">\(\mathit{nonterminal}^\ast\)</span>, <span class="math notranslate nohighlight">\(\mathit{nonterminal}^{+}\)</span>, or
+<span class="math notranslate nohighlight">\(\mathit{nonterminal}^{?}\)</span>, we may write
+<span class="math notranslate nohighlight">\(\overline{\dots_i}^n\)</span> to mean that this position is filled by
+a series of <span class="math notranslate nohighlight">\(n\)</span> abstract values, named <span class="math notranslate nohighlight">\(\dots_1\)</span> to
+<span class="math notranslate nohighlight">\(\dots_n\)</span>.</p></li>
+</ul>
+</section>
+</section>
+
+
+          </div>
+          
+        </div>
+      </div>
+    <div class="clearer"></div>
+  </div>
+    <div class="footer">
+      &copy;2022 WebAssembly Community Group.
+      
+    </div>
+
+    
+
+    
+  </body>
+</html>

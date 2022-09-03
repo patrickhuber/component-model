@@ -1,0 +1,174 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>Validation &#8212; WebAssembly Component Model 0.0 (Draft 2022-09-02)</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/alabaster.css" />
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Conventions" href="conventions.html" />
+    <link rel="prev" title="Components" href="../syntax/components.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  <div class="document">
+    
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../index.html">WebAssembly Component Model</a></h1>
+
+
+
+<p class="blurb">WebAssembly Component Model Specification</p>
+
+
+
+
+
+
+<h3>Navigation</h3>
+<p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../intro/index.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../syntax/index.html">Structure</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Validation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="conventions.html">Conventions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="types.html">Types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="subtyping.html">Subtyping</a></li>
+<li class="toctree-l2"><a class="reference internal" href="components.html">Components</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../exec/index.html">Execution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../binary/index.html">Binary Format</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../text/index.html">Text Format</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../appendix/index.html">Appendix</a></li>
+</ul>
+
+
+<hr />
+<ul>
+    
+    <li class="toctree-l1"><a href="../genindex.html">Index</a></li>
+    
+    <li class="toctree-l1"><a href="../../_download/webassemblycomponentmodel.pdf">Download as PDF</a></li>
+    
+</ul>
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="../syntax/components.html" title="previous chapter">Components</a></li>
+      <li>Next: <a href="conventions.html" title="next chapter">Conventions</a></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <section id="validation">
+<span id="valid"></span><h1>Validation<a class="headerlink" href="#validation" title="Permalink to this headline">¶</a></h1>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="conventions.html">Conventions</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="conventions.html#contexts">Contexts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="conventions.html#notation">Notation</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="types.html">Types</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="types.html#primitive-value-types">Primitive value types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="types.html#record-fields">Record fields</a></li>
+<li class="toctree-l2"><a class="reference internal" href="types.html#variant-cases">Variant cases</a></li>
+<li class="toctree-l2"><a class="reference internal" href="types.html#definition-value-types">Definition value types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="types.html#value-types">Value types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="types.html#result-types">Result types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="types.html#function-types">Function types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="types.html#type-bound">Type bound</a></li>
+<li class="toctree-l2"><a class="reference internal" href="types.html#instance-types">Instance types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="types.html#instance-declarators">Instance declarators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="types.html#import-descriptors">Import descriptors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="types.html#component-types">Component types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="types.html#component-declarators">Component declarators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="types.html#definition-types">Definition types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="types.html#core-instance-types">Core instance types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="types.html#core-module-types">Core module types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="types.html#core-module-declarators">Core module declarators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="types.html#core-definition-types">Core definition types</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="subtyping.html">Subtyping</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="subtyping.html#value-types">Value types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="subtyping.html#result-types">Result types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="subtyping.html#function-types">Function types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="subtyping.html#type-bound">Type bound</a></li>
+<li class="toctree-l2"><a class="reference internal" href="subtyping.html#extern-descriptors">Extern descriptors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="subtyping.html#instance-types">Instance types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="subtyping.html#component-types">Component types</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="components.html">Components</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="components.html#no-live-values-in-context-xref-valid-types-auxiliary-novalues-vdash-mathsf-mkern-20mu-neg-v-xref-valid-conventions-syntax-tyctx-gamma">No live values in context: <span class="math notranslate nohighlight">\(\href{../valid/types.html#auxiliary-novalues}{\vdash^\mathsf{\mkern-20mu\neg v}}\href{../valid/conventions.html#syntax-tyctx}{\Gamma}\)</span></a></li>
+<li class="toctree-l2"><a class="reference internal" href="components.html#overline-xref-syntax-components-syntax-definition-mathit-definition-i"><span class="math notranslate nohighlight">\(\overline{\href{../syntax/components.html#syntax-definition}{\mathit{definition}}_i}\)</span></a></li>
+<li class="toctree-l2"><a class="reference internal" href="components.html#core-sort-indices-xref-valid-conventions-syntax-tyctx-gamma-vdash-xref-syntax-components-syntax-coresortidx-mathit-core-sortidx-core-xref-syntax-modules-syntax-importdesc-mathit-core-mathit-importdesc">Core sort indices: <span class="math notranslate nohighlight">\(\href{../valid/conventions.html#syntax-tyctx}{\Gamma} \vdash \href{../syntax/components.html#syntax-coresortidx}{\mathit{core{:}sortidx}} : \href{https://webassembly.github.io/spec/core/syntax/modules.html#syntax-importdesc}{\mathit{core{:}}\mathit{importdesc}}\)</span></a></li>
+<li class="toctree-l2"><a class="reference internal" href="components.html#instantiate-arguments-xref-valid-conventions-syntax-tyctx-gamma-vdash-xref-syntax-components-syntax-sortidx-mathit-sortidx-xref-valid-types-syntax-eexterndesc-mathit-externdesc-e">Instantiate arguments: <span class="math notranslate nohighlight">\(\href{../valid/conventions.html#syntax-tyctx}{\Gamma} \vdash \href{../syntax/components.html#syntax-sortidx}{\mathit{sortidx}} : \href{../valid/types.html#syntax-eexterndesc}{\mathit{externdesc}_e}\)</span>.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="components.html#start-arguments-xref-valid-conventions-syntax-tyctx-gamma-vdash-overline-xref-syntax-components-syntax-valueidx-mathit-valueidx-i-xref-syntax-types-syntax-resulttype-mathit-resulttype">Start arguments <span class="math notranslate nohighlight">\(\href{../valid/conventions.html#syntax-tyctx}{\Gamma} \vdash \overline{\href{../syntax/components.html#syntax-valueidx}{\mathit{valueidx}}_i} : \href{../syntax/types.html#syntax-resulttype}{\mathit{resulttype}}\)</span></a></li>
+<li class="toctree-l2"><a class="reference internal" href="components.html#definitions">Definitions</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+
+
+          </div>
+          
+        </div>
+      </div>
+    <div class="clearer"></div>
+  </div>
+    <div class="footer">
+      &copy;2022 WebAssembly Community Group.
+      
+    </div>
+
+    
+
+    
+  </body>
+</html>
