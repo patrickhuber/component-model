@@ -110,23 +110,25 @@ parent components.
    \production{(instancedecl)} & \instancedecl &::=&
    \IDALIAS~\alias\\&&|&
    \IDCORETYPE~\core:type\\&&|&
-   \IDTYPE~\typebound\\&&|&
-   \IDCOREMODULE~\core:typeidx\\&&|&
-   \IDFUNC~\typeidx\\&&|&
-   \IDVALUE~\typeidx\\&&|&
-   \IDINSTANCE~\typeidx\\&&|&
-   \IDCOMPONENT~\typeidx\\&&|&
+   \IDTYPE~\deftype\\&&|&
    \IDEXPORT~\exportdecl\\
+   \production{(externdesc)} & \externdesc &::=&
+     \EDTYPE~\typebound\\&&|&
+     \EDCOREMODULE~\core:typeidx\\&&|&
+     \EDFUNC~\typeidx\\&&|&
+     \EDVALUE~\valtype\\&&|&
+     \EDINSTANCE~\typeidx\\&&|&
+     \EDCOMPONENT~\typeidx\\
    \production{(typebound)} & \typebound &::=&
    \TBEQ~\deftype\\&&|&
    \dots\\
-   \production{(exportdecl)} & \exportdecl &::=& \{ \EDNAME~\name, \EDDEF~\sortidx \}
+   \production{(exportdecl)} & \exportdecl &::=& \{ \EDNAME~\name, \EDDESC~\externdesc \}
    \end{array}
 
 .. _syntax-componenttype:
 .. _syntax-componentdecl:
 .. _syntax-importdecl:
-.. _syntax-importdesc:
+.. _syntax-externdesc:
 
 Component types
 ~~~~~~~~~~~~~~~
@@ -142,14 +144,7 @@ allowing also for imports.
    \production{(componentdecl)} & \componentdecl &::=&
    \instancedecl\\&&|&
    \CDIMPORT~\importdecl\\
-   \production{(importdecl)} & \importdecl &::=& \{ \IDNAME~\name, \IDDESC~\importdesc \}\\
-   \production{(importdesc)} & \importdesc &::=&
-     \IMDTYPE~\typebound\\&&|&
-     \IMDCOREMODULE~\core:typeidx\\&&|&
-     \IMDFUNC~\typeidx\\&&|&
-     \IMDVALUE~\valtype\\&&|&
-     \IMDINSTANCE~\typeidx\\&&|&
-     \IMDCOMPONENT~\typeidx\\
+   \production{(importdecl)} & \importdecl &::=& \{ \IDNAME~\name, \IDDESC~\externdesc \}\\
    \end{array}
 
 .. _syntax-deftype:

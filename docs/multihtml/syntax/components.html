@@ -1,17 +1,18 @@
 
 <!DOCTYPE html>
 
-<html>
+<html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
-    <title>Components &#8212; WebAssembly Component Model 0.0 (Draft 2022-09-02)</title>
+    <title>Components &#8212; WebAssembly Component Model 0.0 (Draft 2022-10-18)</title>
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../_static/alabaster.css" />
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../_static/doctools.js"></script>
     <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
@@ -86,7 +87,7 @@
     </form>
     </div>
 </div>
-<script>$('#searchbox').show(0);</script>
+<script>document.getElementById('searchbox').style.display = "block"</script>
 
 
 
@@ -104,9 +105,9 @@
           <div class="body" role="main">
             
   <section id="components">
-<h1>Components<a class="headerlink" href="#components" title="Permalink to this headline">¶</a></h1>
+<h1>Components<a class="headerlink" href="#components" title="Permalink to this heading">¶</a></h1>
 <section id="sorts">
-<span id="syntax-sort"></span><span id="syntax-coresort"></span><h2>Sorts<a class="headerlink" href="#sorts" title="Permalink to this headline">¶</a></h2>
+<span id="syntax-sort"></span><span id="syntax-coresort"></span><h2>Sorts<a class="headerlink" href="#sorts" title="Permalink to this heading">¶</a></h2>
 <p>A component’s definitions define objects, each of which is of one of
 the following <em>sort</em>s:</p>
 <div class="math notranslate nohighlight">
@@ -119,7 +120,7 @@ the following <em>sort</em>s:</p>
 \end{array}\end{split}\]</div>
 </section>
 <section id="indices">
-<span id="syntax-valueidx"></span><span id="syntax-coreinstanceidx"></span><span id="syntax-coresortidx"></span><span id="syntax-sortidx"></span><span id="syntax-coretypeidx"></span><span id="syntax-typeidx"></span><span id="syntax-corefuncidx"></span><span id="syntax-funcidx"></span><span id="syntax-instanceidx"></span><span id="syntax-componentidx"></span><span id="syntax-coremoduleidx"></span><h2>Indices<a class="headerlink" href="#indices" title="Permalink to this headline">¶</a></h2>
+<span id="syntax-valueidx"></span><span id="syntax-coreinstanceidx"></span><span id="syntax-coresortidx"></span><span id="syntax-sortidx"></span><span id="syntax-coretypeidx"></span><span id="syntax-typeidx"></span><span id="syntax-corefuncidx"></span><span id="syntax-funcidx"></span><span id="syntax-instanceidx"></span><span id="syntax-componentidx"></span><span id="syntax-coremoduleidx"></span><h2>Indices<a class="headerlink" href="#indices" title="Permalink to this heading">¶</a></h2>
 <p>Each object defined by a component exists within an <em>index space</em> made
 up of all objects of the same sort. Unlike in Core WebAssembly, a
 component definition may only refer to objects that were defined prior
@@ -144,7 +145,7 @@ definitions by means of an <em>index</em> into the appropriate index space:</p>
 \end{array}\end{split}\]</div>
 </section>
 <section id="definitions">
-<span id="syntax-definition"></span><h2>Definitions<a class="headerlink" href="#definitions" title="Permalink to this headline">¶</a></h2>
+<span id="syntax-definition"></span><h2>Definitions<a class="headerlink" href="#definitions" title="Permalink to this heading">¶</a></h2>
 <p>Each object within a component is defined by a <em>definition</em>, of which
 there are several kinds:</p>
 <div class="math notranslate nohighlight">
@@ -164,7 +165,7 @@ there are several kinds:</p>
 \end{array}\end{split}\]</div>
 </section>
 <section id="core-instances">
-<span id="syntax-coreexport"></span><span id="syntax-coreinstantiatearg"></span><span id="syntax-coreinstance"></span><h2>Core instances<a class="headerlink" href="#core-instances" title="Permalink to this headline">¶</a></h2>
+<span id="syntax-coreexport"></span><span id="syntax-coreinstantiatearg"></span><span id="syntax-coreinstance"></span><h2>Core instances<a class="headerlink" href="#core-instances" title="Permalink to this heading">¶</a></h2>
 <p>A core instance may be defined either by instantiating a core module
 with other core instances taking the place of its first-level imports,
 or by creating a core module from whole cloth by combining core
@@ -180,7 +181,7 @@ definitions already present in our index space:</p>
 \end{array}\end{split}\]</div>
 </section>
 <section id="syntax-component">
-<span id="id1"></span><h2>Components<a class="headerlink" href="#syntax-component" title="Permalink to this headline">¶</a></h2>
+<span id="id1"></span><h2>Components<a class="headerlink" href="#syntax-component" title="Permalink to this heading">¶</a></h2>
 <p>A component is merely a sequence of definitions:</p>
 <div class="math notranslate nohighlight">
 \[\begin{array}{llll}
@@ -188,7 +189,7 @@ definitions already present in our index space:</p>
 \end{array}\]</div>
 </section>
 <section id="instances">
-<span id="syntax-instantiatearg"></span><span id="syntax-instance"></span><h2>Instances<a class="headerlink" href="#instances" title="Permalink to this headline">¶</a></h2>
+<span id="syntax-instantiatearg"></span><span id="syntax-instance"></span><h2>Instances<a class="headerlink" href="#instances" title="Permalink to this heading">¶</a></h2>
 <p>Component-level instance declarations are nearly identical to
 core-level instance declarations, with the caveat that more sorts of
 definitions may be supplied as imports:</p>
@@ -202,7 +203,7 @@ definitions may be supplied as imports:</p>
 \end{array}\end{split}\]</div>
 </section>
 <section id="aliases">
-<span id="syntax-aliastarget"></span><span id="syntax-alias"></span><h2>Aliases<a class="headerlink" href="#aliases" title="Permalink to this headline">¶</a></h2>
+<span id="syntax-aliastarget"></span><span id="syntax-alias"></span><h2>Aliases<a class="headerlink" href="#aliases" title="Permalink to this heading">¶</a></h2>
 <p>An alias definition copies a definition from some other module,
 component, or instance into an index space of the current component:</p>
 <div class="math notranslate nohighlight">
@@ -215,7 +216,7 @@ component, or instance into an index space of the current component:</p>
 \end{array}\end{split}\]</div>
 </section>
 <section id="canonical-definitions">
-<span id="syntax-canonopt"></span><span id="syntax-canon"></span><h2>Canonical definitions<a class="headerlink" href="#canonical-definitions" title="Permalink to this headline">¶</a></h2>
+<span id="syntax-canonopt"></span><span id="syntax-canon"></span><h2>Canonical definitions<a class="headerlink" href="#canonical-definitions" title="Permalink to this heading">¶</a></h2>
 <p>Canonical definitions are the only way to convert between Core
 WebAssembly functions and component-level shared-nothing functions
 which produce and consume values of type <span class="math notranslate nohighlight">\(valtype\)</span>. A <em>canon
@@ -238,7 +239,7 @@ lifted function (often imported) into a core function.</p>
 \end{array}\end{split}\]</div>
 </section>
 <section id="start-definitions">
-<span id="syntax-start"></span><h2>Start definitions<a class="headerlink" href="#start-definitions" title="Permalink to this headline">¶</a></h2>
+<span id="syntax-start"></span><h2>Start definitions<a class="headerlink" href="#start-definitions" title="Permalink to this heading">¶</a></h2>
 <p>A start definition specifies a component function which this component
 would like to see called at instantiation type in order to do some
 sort of initialization.</p>
@@ -248,7 +249,7 @@ sort of initialization.</p>
 \end{array}\]</div>
 </section>
 <section id="imports">
-<span id="syntax-import"></span><h2>Imports<a class="headerlink" href="#imports" title="Permalink to this headline">¶</a></h2>
+<span id="syntax-import"></span><h2>Imports<a class="headerlink" href="#imports" title="Permalink to this heading">¶</a></h2>
 <p>Since an imported value is described entirely by its type, an actual
 import definition is effectively the same thing as an import
 declaration:</p>
@@ -258,7 +259,7 @@ declaration:</p>
 \end{array}\]</div>
 </section>
 <section id="exports">
-<span id="syntax-export"></span><h2>Exports<a class="headerlink" href="#exports" title="Permalink to this headline">¶</a></h2>
+<span id="syntax-export"></span><h2>Exports<a class="headerlink" href="#exports" title="Permalink to this heading">¶</a></h2>
 <p>An export definition is simply a name and a reference to another
 definition to export:</p>
 <div class="math notranslate nohighlight">

@@ -680,253 +680,159 @@ Each instance declarator elaborates to a (partial)
     \exists\varnothing. \varnothing \dashv \tyctx \oplus \{ \TCCORE~\CTCTYPES~\ecoredeftype \}
   }
 
-:math:`\IDTYPE~\typebound`
+:math:`\IDTYPE~\deftype`
 ..........................
 
-* The type bound :math:`\typebound` must elaborate to some elaborated
-  definition type :math:`\etypebound`.
+* The definition type :math:`\deftype` must elaborate to some
+  elaborated definition type :math:`\edeftype`.
 
 * Let :math:`\tyvar` be a fresh type variable.
 
-* Then the instance declarator :math:`\IDTYPE~\typebound` elaborates
-  to the empty list of exports behind an existential quantifier
-  associating :math:`\tyvar` with :math:`\etypebound`, and sets
+* Then the instance declarator :math:`\IDTYPE~\deftype` elaborates to
+  the empty list of exports behind an existential quantifier
+  associating :math:`\tyvar` with :math:`\edeftype`, and sets
   :math:`\TCTYPES` in the context to the original
   :math:`\tyctx.\TCTYPES` followed by the :math:`\tyvar`.
 
 .. math::
   \frac{
-    \tyctx \vdash \typebound \leadsto \etypebound
+    \tyctx \vdash \deftype \leadsto \edeftype
   }{
-    \tyctx \vdash \IDTYPE~\typebound \leadsto
-    \exists(\tyvar :\etypebound). \varnothing
-    \dashv \tyctx \oplus \{ \TCVARS~(\tyvar :\etypebound), \TCTYPES~\tyvar \}
+    \tyctx \vdash \IDTYPE~\deftype \leadsto
+    \exists(\tyvar : \ETBEQ~\etypebound). \varnothing
+    \dashv \tyctx \oplus \{ \TCVARS~(\tyvar :\ETBEQ~\etypebound), \TCTYPES~\tyvar \}
   }
 
-:math:`\IDCOREMODULE~\core:typeidx`
-...................................
-
-* The type :math:`\tyctx.\TCCORE.\CTCTYPES[\core:typeidx]` must be
-  defined in the context.
-
-* Then the instance declarator :math:`\IDCOREMODULE~\typeidx`
-  elaborates to the empty list of exports, and sets
-  :math:`\TCCORE.\CTCMODULES` in the context to the original
-  :math:`\tyctx.\TCCORE.\CTCMODULES` followed by
-  :math:`\tyctx.\TCCORE.\CTCTYPES[\core:typeidx]`
-
-.. math::
-  \frac{
-    \tyctx.\TCCORE.\CTCTYPES[\core:typeidx] = \ecoremoduletype
-  }{
-    \tyctx \vdash \IDCOREMODULE~\core:typeidx \leadsto
-    \exists\varnothing. \varnothing
-    \dashv \tyctx \oplus \{ \TCCORE~\CTCMODULES~\ecoremoduletype \}
-  }
-
-:math:`\IDFUNC~\typeidx`
-........................
-
-* The type :math:`\tyctx.\TCTYPES[\typeidx]` must be defined in the
-  context, and must be of the form :math:`\efunctype`.
-
-* Then the instance declarator :math:`\IDFUNC~\typeidx` elaborates to
-  the empty list of expots, and sets :math:`\TCFUNCS` in the context
-  to the original :math:`\tyctx.\TCFUNCS` followed by
-  :math:`\tyctx.\TCTYPES[\typeidx]`.
-
-.. math::
-  \frac{
-    \tyctx.\TCFUNCS[\typeidx] = \efunctype
-  }{
-    \tyctx \vdash \IDFUNC~\typeidx \leadsto
-    \exists\varnothing. \varnothing.
-    \dashv \tyctx \oplus \{ \TCFUNCS~~\efunctype \}
-  }
-
-:math:`\IDVALUE~\typeidx`
-.........................
-
-* The type :math:`\tyctx.\TCTYPES[\typeidx]` must be defined in the
-  context, and must be of the form :math:`\evaltype`.
-
-* Then the instance declarator :math:`\IDVALUE~\typeidx` elaborates to
-  the empty list of expots, and sets :math:`\TCVALUES` in the context
-  to the original :math:`\tyctx.\TCVALUES` followed by
-  :math:`\tyctx.\TCTYPES[\typeidx]`.
-
-.. math::
-  \frac{
-    \tyctx.\TCVALUES[\typeidx] = \evaltype
-  }{
-    \tyctx \vdash \IDVALUE~\typeidx \leadsto
-    \exists\varnothing. \varnothing.
-    \dashv \tyctx \oplus \{ \TCVALUES~~\evaltype \}
-  }
-
-:math:`\IDINSTANCE~\typeidx`
-............................
-
-* The type :math:`\tyctx.\TCTYPES[\typeidx]` must be defined in the
-  context, and must be of the form :math:`\einstancetype`.
-
-* Then the instance declarator :math:`\IDINSTANCE~\typeidx` elaborates to
-  the empty list of expots, and sets :math:`\TCINSTANCES` in the context
-  to the original :math:`\tyctx.\TCINSTANCES` followed by
-  :math:`\tyctx.\TCTYPES[\typeidx]`.
-
-.. math::
-  \frac{
-    \tyctx.\TCINSTANCES[\typeidx] = \einstancetype
-  }{
-    \tyctx \vdash \IDINSTANCE~\typeidx \leadsto
-    \exists\varnothing. \varnothing.
-    \dashv \tyctx \oplus \{ \TCINSTANCES~~\einstancetype \}
-  }
-
-:math:`\IDCOMPONENT~\typeidx`
-.............................
-
-* The type :math:`\tyctx.\TCTYPES[\typeidx]` must be defined in the
-  context, and must be of the form :math:`\ecomponenttype`.
-
-* Then the instance declarator :math:`\IDCOMPONENT~\typeidx` elaborates to
-  the empty list of expots, and sets :math:`\TCCOMPONENTS` in the context
-  to the original :math:`\tyctx.\TCCOMPONENTS` followed by
-  :math:`\tyctx.\TCTYPES[\typeidx]`.
-
-.. math::
-  \frac{
-    \tyctx.\TCCOMPONENTS[\typeidx] = \ecomponenttype
-  }{
-    \tyctx \vdash \IDCOMPONENT~\typeidx \leadsto
-    \exists\varnothing. \varnothing.
-    \dashv \tyctx \oplus \{ \TCCOMPONENTS~~\ecomponenttype \}
-  }
+* Notice that because this type variable is equality-bounded and not
+  exported, it will always be inlined by :math:`\lifinalize
+  \einstancetype \rifinalize`.
 
 :math:`\IDEXPORT~\exportdecl`
 .............................
 
-* The instance declarator :math:`\IDEXPORT~\exportdecl` elaborates to
-  the singleton list of exports containing
-  :math:`\{\EEDNAME~\exportdecl.\EDNAME, \EEDDESC~\F{extern\_constructor}(\exportdecl.\EDDEF.\SISORT)~\tyctx.\F{index\_space}(\exportdecl.\EDDEF.\SISORT)[\exportdecl.\EDDEF.\SIIDX] \}` and
-  does not modify the context.
+* The extern descriptor :math:`\exportdecl.\EDDESC` must elaborate to
+  some :math:`\forall\boundedtyvar^\ast.\eexterndesc`.
+
+* Then the instance declarator :math:`\IDEXPORT~\exportdecl`
+  elaborates to the singleton list of exports containing
+  :math:`\{\EEDNAME~\exportdecl.\EDNAME, \EEDDESC~\eexterndesc \}` and
+  quantified by :math:`\boundedtyvar`, and adds an appropriately typed
+  entry to the context.
 
 .. math::
   \frac{
+    \tyctx \vdash \exportdecl.\EDDESC \leadsto \forall\boundedtyvar^\ast.\eexterndesc
   }{
     \begin{aligned}
     \tyctx \vdash{}& \exportdecl\\
-    \leadsto{}&\begin{aligned}\{
-      \EEDNAME~&\exportdecl.\EDNAME,\\
-      \EEDDESC~&\begin{aligned}&\F{extern\_constructor}(\exportdecl.\EDDEF.\SISORT)\\&\tyctx.\F{index\_space}(\exportdecl.\EDDEF.\SISORT)[\exportdecl.\EDDEF.\SIIDX]\}\end{aligned}\end{aligned}\\
-    \dashv{}&\tyctx
+    \leadsto{}&\exists\boundedtyvar^\ast. \{ \EEDNAME~\exportdecl.\EDNAME, \EEDDESC~\eexterndesc \}\\
+    \dashv{}&\tyctx \oplus \{ \TCVARS~\boundedtyvar^\ast, \eexterndesc \}
     \end{aligned}
   }
 
-.. _syntax-eimportdesc:
+.. _syntax-eexterndesc:
 
-Import descriptors
+Extern descriptors
 ~~~~~~~~~~~~~~~~~~
 
-An import descriptor elaborates to a quantified :math:`\eexterndesc`
+An extern descriptor elaborates to a quantified :math:`\eexterndesc`
 with the following abstract syntax:
 
-:math:`\IMDTYPE~\typebound`
-...........................
+:math:`\EDTYPE~\deftype`
+........................
 
-* The :math:`\typebound` must elaborate to some :math:`\etypebound`.
+* The :math:`\deftype` must elaborate to some :math:`\edeftype`.
 
 * Let :math:`\tyvar` be a fresh type variable.
 
-* Then the import descriptor :math:`\IMDTYPE~\etypebound` elaborates to
-  :math:`\forall(\tyvar :\etypebound).\EEMDTYPE~\tyvar`.
+* Then the import descriptor :math:`\EDTYPE~\deftype` elaborates to
+  :math:`\forall(\tyvar : \ETBEQ~\edeftype).\EEMDTYPE~\tyvar`.
 
 .. math::
   \frac{
     \tyctx \vdash \typebound \leadsto \etypebound
   }{
-    \tyctx \vdash \IMDTYPE~\typebound \leadsto \forall(\tyvar :\etypebound).\EEMDTYPE~\tyvar
+    \tyctx \vdash \EDTYPE~\deftype \leadsto \forall(\tyvar : \ETBEQ~\edeftype).\EEMDTYPE~\tyvar
   }
 
-:math:`\IMDCOREMODULE~\core:typeidx`
-....................................
+:math:`\EDCOREMODULE~\core:typeidx`
+...................................
 
 * The type :math:`\tyctx.\TCCORE.\CTCTYPES[\core:typeidx]` must be
   defined in the context, and must be of the form
   :math:`\ecoremoduletype`.
 
-* Then the import descriptor :math:`\IMDCOREMODULE~\core:typeidx`
+* Then the import descriptor :math:`\EDCOREMODULE~\core:typeidx`
   elaborates to :math:`\forall\varnothing.\EEMDCOREMODULE~\ecoremoduletype`.
 
 .. math::
   \frac{
     \tyctx.\TCCORE.\CTCTYPES[\core:typeidx] = \ecoremoduletype
   }{
-    \tyctx \vdash \forall\varnothing.\IMDCOREMODULE~\core:typeidx \leadsto \EEMDCOREMODULE~\ecoremoduletype
+    \tyctx \vdash \forall\varnothing.\EDCOREMODULE~\core:typeidx \leadsto \EEMDCOREMODULE~\ecoremoduletype
   }
 
-:math:`\IMDFUNC~\typeidx`
-.........................
+:math:`\EDFUNC~\typeidx`
+........................
 
 * The type :math:`\tyctx.\TCTYPES[\typeidx]` must be defined in the
   context, and must be of the form :math:`\efunctype`.
 
-* Then the import descriptor :math:`\IMDFUNC~\typeidx` elaborates to
+* Then the import descriptor :math:`\EDFUNC~\typeidx` elaborates to
   :math:`\forall\varnothing.\EEMDFUNC~\efunctype`
 
 .. math::
   \frac{
     \tyctx.\TCTYPES[\typeidx] = \efunctype
   }{
-    \tyctx \vdash \IMDFUNC~\typeidx \leadsto \forall\varnothing.\EEMDFUNC~\efunctype
+    \tyctx \vdash \EDFUNC~\typeidx \leadsto \forall\varnothing.\EEMDFUNC~\efunctype
   }
 
-:math:`\IMDVALUE~\typeidx`
-..........................
+:math:`\EDVALUE~\typeidx`
+.........................
 
 * The type bound :math:`\typebound` must elaborate to some :math:`\etypebound`.
 
-* Then the import descriptor :math:`\IMDVALUE~\typebound` elaborates to
+* Then the import descriptor :math:`\EDVALUE~\typebound` elaborates to
   :math:`\forall\varnothing.\EEMDVALUE~\evaltype`
 
 .. math::
   \frac{
     \tyctx.\TCTYPES[typeidx] = \evaltype
   }{
-    \tyctx \vdash \IMDVALUE~\typeidx \leadsto \EEMDVALUE~\evaltype
+    \tyctx \vdash \EDVALUE~\typeidx \leadsto \EEMDVALUE~\evaltype
   }
 
-:math:`\IMDINSTANCE~\typeidx`
-.............................
+:math:`\EDINSTANCE~\typeidx`
+............................
 
 * The type :math:`\tyctx.\TCTYPES[\typeidx]` must be defined in the
   context, and must be of the form :math:`\exists\boundedtyvar^\ast.\eexterndecl^\ast`.
 
-* Then the import descriptor :math:`\IMDINSTANCE~\typeidx` elaborates
+* Then the import descriptor :math:`\EDINSTANCE~\typeidx` elaborates
   to :math:`\forall\boundedtyvar^\ast.\EEMDINSTANCE~\exists\varnothing.\eexterndecl^\ast`
 
 .. math::
   \frac{
     \tyctx.\TCTYPES[typeidx] = \exists\boundedtyvar^\ast.\eexterndecl^\ast
   }{
-    \tyctx \vdash \IMDINSTANCE~\typeidx \leadsto \forall\boundedtyvar^\ast.\EEMDINSTANCE~\exists\varnothing.\eexterndecl^\ast
+    \tyctx \vdash \EDINSTANCE~\typeidx \leadsto \forall\boundedtyvar^\ast.\EEMDINSTANCE~\exists\varnothing.\eexterndecl^\ast
   }
 
-:math:`\IMDCOMPONENT~\typeidx`
-..............................
+:math:`\EDCOMPONENT~\typeidx`
+.............................
 
 * The type :math:`\tyctx.\TCTYPES[\typeidx]` must be defined in the
   context, and must be of the form :math:`\ecomponenttype`.
 
-* Then the import descriptor :math:`\IMDCOMPONENT~\typeidx` elaborates
+* Then the import descriptor :math:`\EDCOMPONENT~\typeidx` elaborates
   to :math:`\forall\varnothing.\EEMDCOMPONENT~\ecomponenttype`
 
 .. math::
   \frac{
     \tyctx.\TCTYPES[\typeidx] = \ecomponenttype
   }{
-    \tyctx \vdash \IMDCOMPONENT~\typeidx \leadsto \forall\varnothing.\EEMDCOMPONENT~\ecomponenttype
+    \tyctx \vdash \EDCOMPONENT~\typeidx \leadsto \forall\varnothing.\EEMDCOMPONENT~\ecomponenttype
   }
 
 .. _syntax-ecomponenttype:
@@ -1077,7 +983,7 @@ Each component declarator elaborates to a (partial)
   component type with no results, the same quantifiers, and a
   singleton list of imports containing
   :math:`\{\EEDNAME~\importdecl.\IDNAME, \EEDDESC~\eexterndesc\}`, and
-  does not modify the context.
+  updates the context with :math:`\eexterndesc`.
 
 .. math::
   \frac{
@@ -1086,7 +992,7 @@ Each component declarator elaborates to a (partial)
     \begin{aligned}
     \tyctx \vdash{}&\importdecl\\
     \leadsto{}&\forall\boundedtyvar^\ast. \{\EEDNAME~\importdecl.\IDNAME, \EEDDESC~\eexterndesc\} \to \varnothing\\
-    \dashv{}&\tyctx \oplus \{ \TCVARS~\boundedtyvar^\ast \}
+    \dashv{}&\tyctx \oplus \{ \TCVARS~\boundedtyvar^\ast, \eexterndesc \}
     \end{aligned}
   }
 

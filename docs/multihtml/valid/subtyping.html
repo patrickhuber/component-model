@@ -1,17 +1,18 @@
 
 <!DOCTYPE html>
 
-<html>
+<html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
-    <title>Subtyping &#8212; WebAssembly Component Model 0.0 (Draft 2022-09-02)</title>
+    <title>Subtyping &#8212; WebAssembly Component Model 0.0 (Draft 2022-10-18)</title>
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../_static/alabaster.css" />
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../_static/doctools.js"></script>
     <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
@@ -87,7 +88,7 @@
     </form>
     </div>
 </div>
-<script>$('#searchbox').show(0);</script>
+<script>document.getElementById('searchbox').style.display = "block"</script>
 
 
 
@@ -105,15 +106,15 @@
           <div class="body" role="main">
             
   <section id="subtyping">
-<h1>Subtyping<a class="headerlink" href="#subtyping" title="Permalink to this headline">¶</a></h1>
+<h1>Subtyping<a class="headerlink" href="#subtyping" title="Permalink to this heading">¶</a></h1>
 <p>Subtyping defines when a value of one type may be used when a value of
 another type is expected.</p>
 <p>TODO: This is not complete, pending further discussion, especially in
 re the special treatment that may or may not be required or specialized value types.</p>
 <section id="value-types">
-<h2>Value types<a class="headerlink" href="#value-types" title="Permalink to this headline">¶</a></h2>
+<h2>Value types<a class="headerlink" href="#value-types" title="Permalink to this heading">¶</a></h2>
 <section id="reflexivity">
-<h3>Reflexivity<a class="headerlink" href="#reflexivity" title="Permalink to this headline">¶</a></h3>
+<h3>Reflexivity<a class="headerlink" href="#reflexivity" title="Permalink to this heading">¶</a></h3>
 <ul class="simple">
 <li><p>Any value type is a subtype of itself</p></li>
 </ul>
@@ -124,7 +125,7 @@ re the special treatment that may or may not be required or specialized value ty
 }\]</div>
 </section>
 <section id="numeric-types">
-<h3>Numeric types<a class="headerlink" href="#numeric-types" title="Permalink to this headline">¶</a></h3>
+<h3>Numeric types<a class="headerlink" href="#numeric-types" title="Permalink to this heading">¶</a></h3>
 <ul class="simple">
 <li><p><span class="math notranslate nohighlight">\(\href{../valid/types.html#syntax-evaltype}{\mathsf{s8}}\)</span> is a subtype of <span class="math notranslate nohighlight">\(\href{../valid/types.html#syntax-evaltype}{\mathsf{s16}}\)</span>, <span class="math notranslate nohighlight">\(\href{../valid/types.html#syntax-evaltype}{\mathsf{s32}}\)</span>, and
 <span class="math notranslate nohighlight">\(\href{../valid/types.html#syntax-evaltype}{\mathsf{s64}}\)</span>.</p></li>
@@ -163,7 +164,7 @@ re the special treatment that may or may not be required or specialized value ty
 }\]</div>
 </section>
 <section id="records">
-<h3>Records<a class="headerlink" href="#records" title="Permalink to this headline">¶</a></h3>
+<h3>Records<a class="headerlink" href="#records" title="Permalink to this heading">¶</a></h3>
 <ul class="simple">
 <li><p>A type <span class="math notranslate nohighlight">\(\href{../valid/types.html#syntax-evaltype2}{\mathsf{record}}~\overline{{\href{../valid/types.html#syntax-erecordfield}{\mathit{record\_field}_e}}_i}\)</span> is a subtype
 of a type <span class="math notranslate nohighlight">\(\href{../valid/types.html#syntax-evaltype2}{\mathsf{record}}~\overline{{\href{../valid/types.html#syntax-erecordfield}{\mathit{record\_field}_e}'}_j}\)</span> if, for
@@ -183,7 +184,7 @@ subtype of the type of the field in the latter.</p></li>
 }\end{split}\]</div>
 </section>
 <section id="variants">
-<h3>Variants<a class="headerlink" href="#variants" title="Permalink to this headline">¶</a></h3>
+<h3>Variants<a class="headerlink" href="#variants" title="Permalink to this heading">¶</a></h3>
 <ul class="simple">
 <li><p>A type <span class="math notranslate nohighlight">\(\href{../valid/types.html#syntax-evaltype2}{\mathsf{variant}}~\overline{{\href{../valid/types.html#syntax-evariantcase}{\mathit{variant\_case}_e}}_i}\)</span> is a subtype
 of a type <span class="math notranslate nohighlight">\(\href{../valid/types.html#syntax-evaltype2}{\mathsf{variant}}~\overline{{\href{../valid/types.html#syntax-evariantcase}{\mathit{variant\_case}_e}'}_j}\)</span> if, or
@@ -209,7 +210,7 @@ in the former contains a <span class="math notranslate nohighlight">\(\href{../v
 }\end{split}\]</div>
 </section>
 <section id="lists">
-<h3>Lists<a class="headerlink" href="#lists" title="Permalink to this headline">¶</a></h3>
+<h3>Lists<a class="headerlink" href="#lists" title="Permalink to this heading">¶</a></h3>
 <ul class="simple">
 <li><p>A type <span class="math notranslate nohighlight">\(\href{../valid/types.html#syntax-evaltype}{\mathsf{list}}~\href{../valid/types.html#syntax-evaltype}{\mathit{valtype}_e}\)</span> is a subtype of a type
 <span class="math notranslate nohighlight">\(\href{../valid/types.html#syntax-evaltype}{\mathsf{list}}~\href{../valid/types.html#syntax-evaltype}{\mathit{valtype}_e}'\)</span> if <span class="math notranslate nohighlight">\(\href{../valid/types.html#syntax-evaltype}{\mathit{valtype}_e}\)</span> is a subtype of
@@ -224,7 +225,7 @@ in the former contains a <span class="math notranslate nohighlight">\(\href{../v
 </section>
 </section>
 <section id="result-types">
-<h2>Result types<a class="headerlink" href="#result-types" title="Permalink to this headline">¶</a></h2>
+<h2>Result types<a class="headerlink" href="#result-types" title="Permalink to this heading">¶</a></h2>
 <ul>
 <li><p>A result type of the form <span class="math notranslate nohighlight">\(\href{../valid/types.html#syntax-evaltype}{\mathit{valtype}_e}\)</span> is a subtype of a result
 type of te form <span class="math notranslate nohighlight">\(\href{../valid/types.html#syntax-evaltype}{\mathit{valtype}_e}'\)</span> if <span class="math notranslate nohighlight">\(\href{../valid/types.html#syntax-evaltype}{\mathit{valtype}_e}\)</span> is a subtype
@@ -257,7 +258,7 @@ when:</p>
 </ul>
 </section>
 <section id="function-types">
-<h2>Function types<a class="headerlink" href="#function-types" title="Permalink to this headline">¶</a></h2>
+<h2>Function types<a class="headerlink" href="#function-types" title="Permalink to this heading">¶</a></h2>
 <ul class="simple">
 <li><p>A function type <span class="math notranslate nohighlight">\({\href{../valid/types.html#syntax-eresulttype}{\mathit{resulttype}_e}}_1 \to {\href{../valid/types.html#syntax-eresulttype}{\mathit{resulttype}_e}}_2\)</span> is a
 subtype of a function <span class="math notranslate nohighlight">\({\href{../valid/types.html#syntax-eresulttype}{\mathit{resulttype}_e}'}_1 \to
@@ -278,9 +279,9 @@ subtype of a function <span class="math notranslate nohighlight">\({\href{../val
 }\end{split}\]</div>
 </section>
 <section id="type-bound">
-<h2>Type bound<a class="headerlink" href="#type-bound" title="Permalink to this headline">¶</a></h2>
+<h2>Type bound<a class="headerlink" href="#type-bound" title="Permalink to this heading">¶</a></h2>
 <section id="xref-valid-types-syntax-etypebound-mathsf-eq-xref-valid-types-syntax-edeftype-mathit-deftype-e">
-<h3><span class="math notranslate nohighlight">\(\href{../valid/types.html#syntax-etypebound}{\mathsf{eq}}~\href{../valid/types.html#syntax-edeftype}{\mathit{deftype}_e}\)</span><a class="headerlink" href="#xref-valid-types-syntax-etypebound-mathsf-eq-xref-valid-types-syntax-edeftype-mathit-deftype-e" title="Permalink to this headline">¶</a></h3>
+<h3><span class="math notranslate nohighlight">\(\href{../valid/types.html#syntax-etypebound}{\mathsf{eq}}~\href{../valid/types.html#syntax-edeftype}{\mathit{deftype}_e}\)</span><a class="headerlink" href="#xref-valid-types-syntax-etypebound-mathsf-eq-xref-valid-types-syntax-edeftype-mathit-deftype-e" title="Permalink to this heading">¶</a></h3>
 <ul class="simple">
 <li><p>A type bound <span class="math notranslate nohighlight">\(\href{../valid/types.html#syntax-etypebound}{\mathsf{eq}}~\href{../valid/types.html#syntax-edeftype}{\mathit{deftype}_e}\)</span> is a subtype of
 <span class="math notranslate nohighlight">\(\href{../valid/types.html#syntax-etypebound}{\mathsf{eq}}~\href{../valid/types.html#syntax-edeftype}{\mathit{deftype}_e}'\)</span> if <span class="math notranslate nohighlight">\(\href{../valid/types.html#syntax-edeftype}{\mathit{deftype}_e}\)</span> is a subtype of
@@ -295,9 +296,9 @@ subtype of a function <span class="math notranslate nohighlight">\({\href{../val
 </section>
 </section>
 <section id="extern-descriptors">
-<h2>Extern descriptors<a class="headerlink" href="#extern-descriptors" title="Permalink to this headline">¶</a></h2>
+<h2>Extern descriptors<a class="headerlink" href="#extern-descriptors" title="Permalink to this heading">¶</a></h2>
 <section id="xref-valid-types-syntax-eexterndesc-mathsf-core-module-xref-valid-types-syntax-ecoremoduletype-mathit-core-moduletype-e">
-<h3><span class="math notranslate nohighlight">\(\href{../valid/types.html#syntax-eexterndesc}{\mathsf{core\_module}}~\href{../valid/types.html#syntax-ecoremoduletype}{\mathit{core{:}moduletype}_e}\)</span><a class="headerlink" href="#xref-valid-types-syntax-eexterndesc-mathsf-core-module-xref-valid-types-syntax-ecoremoduletype-mathit-core-moduletype-e" title="Permalink to this headline">¶</a></h3>
+<h3><span class="math notranslate nohighlight">\(\href{../valid/types.html#syntax-eexterndesc}{\mathsf{core\_module}}~\href{../valid/types.html#syntax-ecoremoduletype}{\mathit{core{:}moduletype}_e}\)</span><a class="headerlink" href="#xref-valid-types-syntax-eexterndesc-mathsf-core-module-xref-valid-types-syntax-ecoremoduletype-mathit-core-moduletype-e" title="Permalink to this heading">¶</a></h3>
 <ul class="simple">
 <li><p>A extern descriptor <span class="math notranslate nohighlight">\(\href{../valid/types.html#syntax-eexterndesc}{\mathsf{core\_module}}~\href{../valid/types.html#syntax-ecoremoduletype}{\mathit{core{:}moduletype}_e}\)</span> is a
 subtype of <span class="math notranslate nohighlight">\(\href{../valid/types.html#syntax-eexterndesc}{\mathsf{core\_module}}~\href{../valid/types.html#syntax-ecoremoduletype}{\mathit{core{:}moduletype}_e}'\)</span> if
@@ -312,7 +313,7 @@ subtype of <span class="math notranslate nohighlight">\(\href{../valid/types.htm
 }\]</div>
 </section>
 <section id="xref-valid-types-syntax-eexterndesc-mathsf-func-xref-valid-types-syntax-efunctype-mathit-functype-e">
-<h3><span class="math notranslate nohighlight">\(\href{../valid/types.html#syntax-eexterndesc}{\mathsf{func}}~\href{../valid/types.html#syntax-efunctype}{\mathit{functype}_e}\)</span><a class="headerlink" href="#xref-valid-types-syntax-eexterndesc-mathsf-func-xref-valid-types-syntax-efunctype-mathit-functype-e" title="Permalink to this headline">¶</a></h3>
+<h3><span class="math notranslate nohighlight">\(\href{../valid/types.html#syntax-eexterndesc}{\mathsf{func}}~\href{../valid/types.html#syntax-efunctype}{\mathit{functype}_e}\)</span><a class="headerlink" href="#xref-valid-types-syntax-eexterndesc-mathsf-func-xref-valid-types-syntax-efunctype-mathit-functype-e" title="Permalink to this heading">¶</a></h3>
 <ul class="simple">
 <li><p>An extern descriptor <span class="math notranslate nohighlight">\(\href{../valid/types.html#syntax-eexterndesc}{\mathsf{func}}~\href{../valid/types.html#syntax-efunctype}{\mathit{functype}_e}\)</span> is a subtype of
 <span class="math notranslate nohighlight">\(\href{../valid/types.html#syntax-eexterndesc}{\mathsf{func}}~\href{../valid/types.html#syntax-efunctype}{\mathit{functype}_e}'\)</span> if <span class="math notranslate nohighlight">\(\href{../valid/types.html#syntax-efunctype}{\mathit{functype}_e}\)</span> is a subtype of
@@ -326,7 +327,7 @@ subtype of <span class="math notranslate nohighlight">\(\href{../valid/types.htm
 }\]</div>
 </section>
 <section id="xref-valid-types-syntax-eexterndesc-mathsf-value-xref-valid-types-syntax-evaltype-mathit-valtype-e">
-<h3><span class="math notranslate nohighlight">\(\href{../valid/types.html#syntax-eexterndesc}{\mathsf{value}}~\href{../valid/types.html#syntax-evaltype}{\mathit{valtype}_e}\)</span><a class="headerlink" href="#xref-valid-types-syntax-eexterndesc-mathsf-value-xref-valid-types-syntax-evaltype-mathit-valtype-e" title="Permalink to this headline">¶</a></h3>
+<h3><span class="math notranslate nohighlight">\(\href{../valid/types.html#syntax-eexterndesc}{\mathsf{value}}~\href{../valid/types.html#syntax-evaltype}{\mathit{valtype}_e}\)</span><a class="headerlink" href="#xref-valid-types-syntax-eexterndesc-mathsf-value-xref-valid-types-syntax-evaltype-mathit-valtype-e" title="Permalink to this heading">¶</a></h3>
 <ul class="simple">
 <li><p>An extern descriptor <span class="math notranslate nohighlight">\(\href{../valid/types.html#syntax-eexterndesc}{\mathsf{value}}~\href{../valid/types.html#syntax-evaltype}{\mathit{valtype}_e}\)</span> is a subtype of
 <span class="math notranslate nohighlight">\(\href{../valid/types.html#syntax-eexterndesc}{\mathsf{value}}~\href{../valid/types.html#syntax-evaltype}{\mathit{valtype}_e}'\)</span> if <span class="math notranslate nohighlight">\(\href{../valid/types.html#syntax-evaltype}{\mathit{valtype}_e}\)</span> is a subtype of
@@ -340,7 +341,7 @@ subtype of <span class="math notranslate nohighlight">\(\href{../valid/types.htm
 }\]</div>
 </section>
 <section id="xref-valid-types-syntax-eexterndesc-mathsf-type-xref-valid-types-syntax-etypebound-mathit-typebound-e">
-<h3><span class="math notranslate nohighlight">\(\href{../valid/types.html#syntax-eexterndesc}{\mathsf{type}}~\href{../valid/types.html#syntax-etypebound}{\mathit{typebound}_e}\)</span><a class="headerlink" href="#xref-valid-types-syntax-eexterndesc-mathsf-type-xref-valid-types-syntax-etypebound-mathit-typebound-e" title="Permalink to this headline">¶</a></h3>
+<h3><span class="math notranslate nohighlight">\(\href{../valid/types.html#syntax-eexterndesc}{\mathsf{type}}~\href{../valid/types.html#syntax-etypebound}{\mathit{typebound}_e}\)</span><a class="headerlink" href="#xref-valid-types-syntax-eexterndesc-mathsf-type-xref-valid-types-syntax-etypebound-mathit-typebound-e" title="Permalink to this heading">¶</a></h3>
 <ul class="simple">
 <li><p>An extern descriptor <span class="math notranslate nohighlight">\(\href{../valid/types.html#syntax-eexterndesc}{\mathsf{type}}~\href{../valid/types.html#syntax-etypebound}{\mathit{typebound}_e}\)</span> is a subtype of
 <span class="math notranslate nohighlight">\(\href{../valid/types.html#syntax-eexterndesc}{\mathsf{type}}~\href{../valid/types.html#syntax-etypebound}{\mathit{typebound}_e}'\)</span> if <span class="math notranslate nohighlight">\(\href{../valid/types.html#syntax-etypebound}{\mathit{typebound}_e}\)</span> is a subtype of
@@ -354,7 +355,7 @@ subtype of <span class="math notranslate nohighlight">\(\href{../valid/types.htm
 }\]</div>
 </section>
 <section id="xref-valid-types-syntax-eexterndesc-mathsf-instance-xref-valid-types-syntax-einstancetype-mathit-instancetype-e">
-<h3><span class="math notranslate nohighlight">\(\href{../valid/types.html#syntax-eexterndesc}{\mathsf{instance}}~\href{../valid/types.html#syntax-einstancetype}{\mathit{instancetype}_e}\)</span><a class="headerlink" href="#xref-valid-types-syntax-eexterndesc-mathsf-instance-xref-valid-types-syntax-einstancetype-mathit-instancetype-e" title="Permalink to this headline">¶</a></h3>
+<h3><span class="math notranslate nohighlight">\(\href{../valid/types.html#syntax-eexterndesc}{\mathsf{instance}}~\href{../valid/types.html#syntax-einstancetype}{\mathit{instancetype}_e}\)</span><a class="headerlink" href="#xref-valid-types-syntax-eexterndesc-mathsf-instance-xref-valid-types-syntax-einstancetype-mathit-instancetype-e" title="Permalink to this heading">¶</a></h3>
 <ul class="simple">
 <li><p>An extern descriptor <span class="math notranslate nohighlight">\(\href{../valid/types.html#syntax-eexterndesc}{\mathsf{instance}}~\href{../valid/types.html#syntax-einstancetype}{\mathit{instancetype}_e}\)</span> is a subtype of
 <span class="math notranslate nohighlight">\(\href{../valid/types.html#syntax-eexterndesc}{\mathsf{instance}}~\href{../valid/types.html#syntax-einstancetype}{\mathit{instancetype}_e}'\)</span> if <span class="math notranslate nohighlight">\(\href{../valid/types.html#syntax-einstancetype}{\mathit{instancetype}_e}\)</span> is a subtype of
@@ -368,7 +369,7 @@ subtype of <span class="math notranslate nohighlight">\(\href{../valid/types.htm
 }\]</div>
 </section>
 <section id="xref-valid-types-syntax-eexterndesc-mathsf-component-xref-valid-types-syntax-ecomponenttype-mathit-componenttype-e">
-<h3><span class="math notranslate nohighlight">\(\href{../valid/types.html#syntax-eexterndesc}{\mathsf{component}}~\href{../valid/types.html#syntax-ecomponenttype}{\mathit{componenttype}_e}\)</span><a class="headerlink" href="#xref-valid-types-syntax-eexterndesc-mathsf-component-xref-valid-types-syntax-ecomponenttype-mathit-componenttype-e" title="Permalink to this headline">¶</a></h3>
+<h3><span class="math notranslate nohighlight">\(\href{../valid/types.html#syntax-eexterndesc}{\mathsf{component}}~\href{../valid/types.html#syntax-ecomponenttype}{\mathit{componenttype}_e}\)</span><a class="headerlink" href="#xref-valid-types-syntax-eexterndesc-mathsf-component-xref-valid-types-syntax-ecomponenttype-mathit-componenttype-e" title="Permalink to this heading">¶</a></h3>
 <ul class="simple">
 <li><p>An extern descriptor <span class="math notranslate nohighlight">\(\href{../valid/types.html#syntax-eexterndesc}{\mathsf{component}}~\href{../valid/types.html#syntax-ecomponenttype}{\mathit{componenttype}_e}\)</span> is a subtype of
 <span class="math notranslate nohighlight">\(\href{../valid/types.html#syntax-eexterndesc}{\mathsf{component}}~\href{../valid/types.html#syntax-ecomponenttype}{\mathit{componenttype}_e}'\)</span> if <span class="math notranslate nohighlight">\(\href{../valid/types.html#syntax-ecomponenttype}{\mathit{componenttype}_e}\)</span> is a subtype of
@@ -383,7 +384,7 @@ subtype of <span class="math notranslate nohighlight">\(\href{../valid/types.htm
 </section>
 </section>
 <section id="instance-types">
-<h2>Instance types<a class="headerlink" href="#instance-types" title="Permalink to this headline">¶</a></h2>
+<h2>Instance types<a class="headerlink" href="#instance-types" title="Permalink to this heading">¶</a></h2>
 <ul class="simple">
 <li><p>An instance type <span class="math notranslate nohighlight">\(\overline{{\href{../valid/types.html#syntax-eexportdecl}{\mathit{externdecl}_e}}_i}\)</span> is a subtype of
 an instance type <span class="math notranslate nohighlight">\(\overline{{\href{../valid/types.html#syntax-eexportdecl}{\mathit{externdecl}_e}'}_j}\)</span> if:</p>
@@ -402,7 +403,7 @@ an instance type <span class="math notranslate nohighlight">\(\overline{{\href{.
 }\]</div>
 </section>
 <section id="component-types">
-<h2>Component types<a class="headerlink" href="#component-types" title="Permalink to this headline">¶</a></h2>
+<h2>Component types<a class="headerlink" href="#component-types" title="Permalink to this heading">¶</a></h2>
 <ul class="simple">
 <li><p>A component type <span class="math notranslate nohighlight">\(\overline{{\href{../valid/types.html#syntax-eexportdecl}{\mathit{externdecl}_e}}_i} \to
 \href{../valid/types.html#syntax-einstancetype}{\mathit{instancetype}_e}\)</span> is a subtype of a

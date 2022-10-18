@@ -1,17 +1,18 @@
 
 <!DOCTYPE html>
 
-<html>
+<html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
-    <title>Components &#8212; WebAssembly Component Model 0.0 (Draft 2022-09-02)</title>
+    <title>Components &#8212; WebAssembly Component Model 0.0 (Draft 2022-10-18)</title>
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../_static/alabaster.css" />
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../_static/doctools.js"></script>
     <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
@@ -87,7 +88,7 @@
     </form>
     </div>
 </div>
-<script>$('#searchbox').show(0);</script>
+<script>document.getElementById('searchbox').style.display = "block"</script>
 
 
 
@@ -105,9 +106,9 @@
           <div class="body" role="main">
             
   <section id="components">
-<h1>Components<a class="headerlink" href="#components" title="Permalink to this headline">¶</a></h1>
+<h1>Components<a class="headerlink" href="#components" title="Permalink to this heading">¶</a></h1>
 <section id="no-live-values-in-context-xref-valid-types-auxiliary-novalues-vdash-mathsf-mkern-20mu-neg-v-xref-valid-conventions-syntax-tyctx-gamma">
-<span id="auxiliary-novalues"></span><h2>No live values in context: <span class="math notranslate nohighlight">\(\href{../valid/types.html#auxiliary-novalues}{\vdash^\mathsf{\mkern-20mu\neg v}}\href{../valid/conventions.html#syntax-tyctx}{\Gamma}\)</span><a class="headerlink" href="#no-live-values-in-context-xref-valid-types-auxiliary-novalues-vdash-mathsf-mkern-20mu-neg-v-xref-valid-conventions-syntax-tyctx-gamma" title="Permalink to this headline">¶</a></h2>
+<span id="auxiliary-novalues"></span><h2>No live values in context: <span class="math notranslate nohighlight">\(\href{../valid/types.html#auxiliary-novalues}{\vdash^\mathsf{\mkern-20mu\neg v}}\href{../valid/conventions.html#syntax-tyctx}{\Gamma}\)</span><a class="headerlink" href="#no-live-values-in-context-xref-valid-types-auxiliary-novalues-vdash-mathsf-mkern-20mu-neg-v-xref-valid-conventions-syntax-tyctx-gamma" title="Permalink to this heading">¶</a></h2>
 <ul class="simple">
 <li><p>There must be no live values in <span class="math notranslate nohighlight">\(\href{../valid/conventions.html#syntax-tyctx}{\Gamma}.\href{../valid/conventions.html#syntax-tyctx}{\mathsf{parent}}\)</span>.</p></li>
 <li><p>Every type in <span class="math notranslate nohighlight">\(\href{../valid/conventions.html#syntax-tyctx}{\Gamma}.\href{../valid/conventions.html#syntax-tyctx}{\mathsf{values}}\)</span> must be of the form
@@ -129,7 +130,7 @@ the form <span class="math notranslate nohighlight">\(\href{../valid/types.html#
 }\end{split}\]</div>
 </section>
 <section id="overline-xref-syntax-components-syntax-definition-mathit-definition-i">
-<h2><span class="math notranslate nohighlight">\(\overline{\href{../syntax/components.html#syntax-definition}{\mathit{definition}}_i}\)</span><a class="headerlink" href="#overline-xref-syntax-components-syntax-definition-mathit-definition-i" title="Permalink to this headline">¶</a></h2>
+<h2><span class="math notranslate nohighlight">\(\overline{\href{../syntax/components.html#syntax-definition}{\mathit{definition}}_i}\)</span><a class="headerlink" href="#overline-xref-syntax-components-syntax-definition-mathit-definition-i" title="Permalink to this heading">¶</a></h2>
 <ul class="simple">
 <li><p><span class="math notranslate nohighlight">\(\href{../syntax/components.html#syntax-definition}{\mathit{definition}}_1\)</span> must have some type <span class="math notranslate nohighlight">\({\href{../valid/types.html#syntax-ecomponenttype}{\mathit{componenttype}_e}}_1\)</span>
 in context <span class="math notranslate nohighlight">\(\{ \href{../valid/conventions.html#syntax-tyctx}{\mathsf{parent}}~\href{../valid/conventions.html#syntax-tyctx}{\Gamma} \}\)</span>.</p></li>
@@ -153,12 +154,12 @@ produced by finalizing <span class="math notranslate nohighlight">\(\bigoplus_i 
 }\end{split}\]</div>
 </section>
 <section id="core-sort-indices-xref-valid-conventions-syntax-tyctx-gamma-vdash-xref-syntax-components-syntax-coresortidx-mathit-core-sortidx-core-xref-syntax-modules-syntax-importdesc-mathit-core-mathit-importdesc">
-<h2>Core sort indices: <span class="math notranslate nohighlight">\(\href{../valid/conventions.html#syntax-tyctx}{\Gamma} \vdash \href{../syntax/components.html#syntax-coresortidx}{\mathit{core{:}sortidx}} : \href{https://webassembly.github.io/spec/core/syntax/modules.html#syntax-importdesc}{\mathit{core{:}}\mathit{importdesc}}\)</span><a class="headerlink" href="#core-sort-indices-xref-valid-conventions-syntax-tyctx-gamma-vdash-xref-syntax-components-syntax-coresortidx-mathit-core-sortidx-core-xref-syntax-modules-syntax-importdesc-mathit-core-mathit-importdesc" title="Permalink to this headline">¶</a></h2>
+<h2>Core sort indices: <span class="math notranslate nohighlight">\(\href{../valid/conventions.html#syntax-tyctx}{\Gamma} \vdash \href{../syntax/components.html#syntax-coresortidx}{\mathit{core{:}sortidx}} : \href{https://webassembly.github.io/spec/core/syntax/modules.html#syntax-importdesc}{\mathit{core{:}}\mathit{importdesc}}\)</span><a class="headerlink" href="#core-sort-indices-xref-valid-conventions-syntax-tyctx-gamma-vdash-xref-syntax-components-syntax-coresortidx-mathit-core-sortidx-core-xref-syntax-modules-syntax-importdesc-mathit-core-mathit-importdesc" title="Permalink to this heading">¶</a></h2>
 </section>
 <section id="instantiate-arguments-xref-valid-conventions-syntax-tyctx-gamma-vdash-xref-syntax-components-syntax-sortidx-mathit-sortidx-xref-valid-types-syntax-eexterndesc-mathit-externdesc-e">
-<h2>Instantiate arguments: <span class="math notranslate nohighlight">\(\href{../valid/conventions.html#syntax-tyctx}{\Gamma} \vdash \href{../syntax/components.html#syntax-sortidx}{\mathit{sortidx}} : \href{../valid/types.html#syntax-eexterndesc}{\mathit{externdesc}_e}\)</span>.<a class="headerlink" href="#instantiate-arguments-xref-valid-conventions-syntax-tyctx-gamma-vdash-xref-syntax-components-syntax-sortidx-mathit-sortidx-xref-valid-types-syntax-eexterndesc-mathit-externdesc-e" title="Permalink to this headline">¶</a></h2>
+<h2>Instantiate arguments: <span class="math notranslate nohighlight">\(\href{../valid/conventions.html#syntax-tyctx}{\Gamma} \vdash \href{../syntax/components.html#syntax-sortidx}{\mathit{sortidx}} : \href{../valid/types.html#syntax-eexterndesc}{\mathit{externdesc}_e}\)</span>.<a class="headerlink" href="#instantiate-arguments-xref-valid-conventions-syntax-tyctx-gamma-vdash-xref-syntax-components-syntax-sortidx-mathit-sortidx-xref-valid-types-syntax-eexterndesc-mathit-externdesc-e" title="Permalink to this heading">¶</a></h2>
 <section id="core-modules">
-<h3>Core modules<a class="headerlink" href="#core-modules" title="Permalink to this headline">¶</a></h3>
+<h3>Core modules<a class="headerlink" href="#core-modules" title="Permalink to this heading">¶</a></h3>
 <ul class="simple">
 <li><p>If the type <span class="math notranslate nohighlight">\(\href{../valid/conventions.html#syntax-tyctx}{\Gamma}.\href{../valid/conventions.html#syntax-tyctx}{\mathsf{core}}.\href{../valid/conventions.html#syntax-coretyctx}{\mathsf{modules}}[i]\)</span> exists in the
 context and is a subtype of <span class="math notranslate nohighlight">\(\href{../valid/types.html#syntax-ecoremoduletype}{\mathit{core{:}moduletype}_e}\)</span>, then
@@ -174,7 +175,7 @@ to extern descriptor <span class="math notranslate nohighlight">\(\href{../valid
 }\]</div>
 </section>
 <section id="functions">
-<h3>Functions<a class="headerlink" href="#functions" title="Permalink to this headline">¶</a></h3>
+<h3>Functions<a class="headerlink" href="#functions" title="Permalink to this heading">¶</a></h3>
 <ul class="simple">
 <li><p>If the type <span class="math notranslate nohighlight">\(\href{../valid/conventions.html#syntax-tyctx}{\Gamma}.\href{../valid/conventions.html#syntax-tyctx}{\mathsf{funcs}}[i]\)</span> exists in the context and is
 a subtype of <span class="math notranslate nohighlight">\(\href{../valid/types.html#syntax-efunctype}{\mathit{functype}_e}\)</span>, then <span class="math notranslate nohighlight">\(\{\href{../syntax/components.html#syntax-sortidx}{\mathsf{sort}}~\href{../syntax/components.html#syntax-sort}{\mathsf{func}},
@@ -190,7 +191,7 @@ a subtype of <span class="math notranslate nohighlight">\(\href{../valid/types.h
 }\]</div>
 </section>
 <section id="values">
-<h3>Values<a class="headerlink" href="#values" title="Permalink to this headline">¶</a></h3>
+<h3>Values<a class="headerlink" href="#values" title="Permalink to this heading">¶</a></h3>
 <ul class="simple">
 <li><p>If the type <span class="math notranslate nohighlight">\(\href{../valid/conventions.html#syntax-tyctx}{\Gamma}.\href{../valid/conventions.html#syntax-tyctx}{\mathsf{values}}[i]\)</span> exists in the context and is
 a subtype of <span class="math notranslate nohighlight">\(\href{../valid/types.html#syntax-evaltype}{\mathit{valtype}_e}\)</span>, then <span class="math notranslate nohighlight">\(\{\href{../syntax/components.html#syntax-sortidx}{\mathsf{sort}}~\href{../syntax/components.html#syntax-sort}{\mathsf{value}},
@@ -206,7 +207,7 @@ a subtype of <span class="math notranslate nohighlight">\(\href{../valid/types.h
 }\]</div>
 </section>
 <section id="types">
-<h3>Types<a class="headerlink" href="#types" title="Permalink to this headline">¶</a></h3>
+<h3>Types<a class="headerlink" href="#types" title="Permalink to this heading">¶</a></h3>
 <ul class="simple">
 <li><p>If the type <span class="math notranslate nohighlight">\(\href{../valid/conventions.html#syntax-tyctx}{\Gamma}.\href{../valid/conventions.html#syntax-tyctx}{\mathsf{types}}[i]\)</span> exists in the context and is
 a subtype of <span class="math notranslate nohighlight">\(\href{../valid/types.html#syntax-edeftype}{\mathit{deftype}_e}\)</span>, then <span class="math notranslate nohighlight">\(\{\href{../syntax/components.html#syntax-sortidx}{\mathsf{sort}}~\href{../syntax/components.html#syntax-sort}{\mathsf{type}},
@@ -222,7 +223,7 @@ a subtype of <span class="math notranslate nohighlight">\(\href{../valid/types.h
 }\]</div>
 </section>
 <section id="instances">
-<h3>Instances<a class="headerlink" href="#instances" title="Permalink to this headline">¶</a></h3>
+<h3>Instances<a class="headerlink" href="#instances" title="Permalink to this heading">¶</a></h3>
 <ul class="simple">
 <li><p>If the type <span class="math notranslate nohighlight">\(\href{../valid/conventions.html#syntax-tyctx}{\Gamma}.\href{../valid/conventions.html#syntax-tyctx}{\mathsf{instances}}[i]\)</span> exists in the context and
 is a subtype of <span class="math notranslate nohighlight">\(\href{../valid/types.html#syntax-einstancetype}{\mathit{instancetype}_e}\)</span>, then
@@ -245,7 +246,7 @@ extern descriptor <span class="math notranslate nohighlight">\(\href{../valid/ty
 }\]</div>
 </section>
 <section id="id1">
-<h3>Components<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<h3>Components<a class="headerlink" href="#id1" title="Permalink to this heading">¶</a></h3>
 <ul class="simple">
 <li><p>If the type <span class="math notranslate nohighlight">\(\href{../valid/conventions.html#syntax-tyctx}{\Gamma}.\href{../valid/conventions.html#syntax-tyctx}{\mathsf{components}}[i]\)</span> exists in the context
 and is a subtype of <span class="math notranslate nohighlight">\(\href{../valid/types.html#syntax-ecomponenttype}{\mathit{componenttype}_e}\)</span>, then
@@ -269,12 +270,12 @@ extern descriptor <span class="math notranslate nohighlight">\(\href{../valid/ty
 </section>
 </section>
 <section id="start-arguments-xref-valid-conventions-syntax-tyctx-gamma-vdash-overline-xref-syntax-components-syntax-valueidx-mathit-valueidx-i-xref-syntax-types-syntax-resulttype-mathit-resulttype">
-<h2>Start arguments <span class="math notranslate nohighlight">\(\href{../valid/conventions.html#syntax-tyctx}{\Gamma} \vdash \overline{\href{../syntax/components.html#syntax-valueidx}{\mathit{valueidx}}_i} : \href{../syntax/types.html#syntax-resulttype}{\mathit{resulttype}}\)</span><a class="headerlink" href="#start-arguments-xref-valid-conventions-syntax-tyctx-gamma-vdash-overline-xref-syntax-components-syntax-valueidx-mathit-valueidx-i-xref-syntax-types-syntax-resulttype-mathit-resulttype" title="Permalink to this headline">¶</a></h2>
+<h2>Start arguments <span class="math notranslate nohighlight">\(\href{../valid/conventions.html#syntax-tyctx}{\Gamma} \vdash \overline{\href{../syntax/components.html#syntax-valueidx}{\mathit{valueidx}}_i} : \href{../syntax/types.html#syntax-resulttype}{\mathit{resulttype}}\)</span><a class="headerlink" href="#start-arguments-xref-valid-conventions-syntax-tyctx-gamma-vdash-overline-xref-syntax-components-syntax-valueidx-mathit-valueidx-i-xref-syntax-types-syntax-resulttype-mathit-resulttype" title="Permalink to this heading">¶</a></h2>
 </section>
 <section id="definitions">
-<h2>Definitions<a class="headerlink" href="#definitions" title="Permalink to this headline">¶</a></h2>
+<h2>Definitions<a class="headerlink" href="#definitions" title="Permalink to this heading">¶</a></h2>
 <section id="xref-syntax-components-syntax-definition-mathsf-core-module-core-xref-syntax-modules-syntax-module-mathit-core-mathit-module">
-<h3><span class="math notranslate nohighlight">\(\href{../syntax/components.html#syntax-definition}{\mathsf{core\_module}}~\href{https://webassembly.github.io/spec/core/syntax/modules.html#syntax-module}{\mathit{core{:}}\mathit{module}}\)</span><a class="headerlink" href="#xref-syntax-components-syntax-definition-mathsf-core-module-core-xref-syntax-modules-syntax-module-mathit-core-mathit-module" title="Permalink to this headline">¶</a></h3>
+<h3><span class="math notranslate nohighlight">\(\href{../syntax/components.html#syntax-definition}{\mathsf{core\_module}}~\href{https://webassembly.github.io/spec/core/syntax/modules.html#syntax-module}{\mathit{core{:}}\mathit{module}}\)</span><a class="headerlink" href="#xref-syntax-components-syntax-definition-mathsf-core-module-core-xref-syntax-modules-syntax-module-mathit-core-mathit-module" title="Permalink to this heading">¶</a></h3>
 <ul class="simple">
 <li><p>The core module <span class="math notranslate nohighlight">\(\href{https://webassembly.github.io/spec/core/syntax/modules.html#syntax-module}{\mathit{core{:}}\mathit{module}}\)</span> must be valid (as per Core
 WebAssembly) with respect to the elaborated core module type
@@ -296,7 +297,7 @@ by <span class="math notranslate nohighlight">\(\href{../valid/types.html#syntax
 }\end{split}\]</div>
 </section>
 <section id="xref-syntax-components-syntax-definition-mathsf-core-instance-xref-syntax-components-syntax-coreinstance-mathsf-instantiate-xref-syntax-components-syntax-coremoduleidx-mathit-core-moduleidx-overline-xref-syntax-components-syntax-coreinstantiatearg-mathit-core-instantiatearg-i">
-<h3><span class="math notranslate nohighlight">\(\href{../syntax/components.html#syntax-definition}{\mathsf{core\_instance}}~\href{../syntax/components.html#syntax-coreinstance}{\mathsf{instantiate}}~\href{../syntax/components.html#syntax-coremoduleidx}{\mathit{core{:}moduleidx}}~\overline{\href{../syntax/components.html#syntax-coreinstantiatearg}{\mathit{core{:}instantiatearg}}_i}\)</span><a class="headerlink" href="#xref-syntax-components-syntax-definition-mathsf-core-instance-xref-syntax-components-syntax-coreinstance-mathsf-instantiate-xref-syntax-components-syntax-coremoduleidx-mathit-core-moduleidx-overline-xref-syntax-components-syntax-coreinstantiatearg-mathit-core-instantiatearg-i" title="Permalink to this headline">¶</a></h3>
+<h3><span class="math notranslate nohighlight">\(\href{../syntax/components.html#syntax-definition}{\mathsf{core\_instance}}~\href{../syntax/components.html#syntax-coreinstance}{\mathsf{instantiate}}~\href{../syntax/components.html#syntax-coremoduleidx}{\mathit{core{:}moduleidx}}~\overline{\href{../syntax/components.html#syntax-coreinstantiatearg}{\mathit{core{:}instantiatearg}}_i}\)</span><a class="headerlink" href="#xref-syntax-components-syntax-definition-mathsf-core-instance-xref-syntax-components-syntax-coreinstance-mathsf-instantiate-xref-syntax-components-syntax-coremoduleidx-mathit-core-moduleidx-overline-xref-syntax-components-syntax-coreinstantiatearg-mathit-core-instantiatearg-i" title="Permalink to this heading">¶</a></h3>
 <ul class="simple">
 <li><p>No two instantiate arguments may have identical <span class="math notranslate nohighlight">\(\href{../syntax/components.html#syntax-coreinstantiatearg}{\mathsf{name}}\)</span> members.</p></li>
 <li><p>The type <span class="math notranslate nohighlight">\(\href{../valid/conventions.html#syntax-tyctx}{\Gamma}.\href{../valid/conventions.html#syntax-tyctx}{\mathsf{core}}.\href{../valid/conventions.html#syntax-coretyctx}{\mathsf{modules}}[\href{../syntax/components.html#syntax-coremoduleidx}{\mathit{core{:}moduleidx}}]\)</span> must
@@ -340,7 +341,7 @@ is a subtype of the import declaration’s <span class="math notranslate nohighl
 }\end{split}\]</div>
 </section>
 <section id="xref-syntax-components-syntax-definition-mathsf-core-instance-xref-syntax-components-syntax-coreinstance-mathsf-exports-overline-xref-syntax-components-syntax-coreexport-mathsf-name-xref-syntax-values-syntax-name-mathit-name-i-xref-syntax-components-syntax-coreexport-mathsf-def-xref-syntax-components-syntax-coresortidx-mathit-core-sortidx-i">
-<h3><span class="math notranslate nohighlight">\(\href{../syntax/components.html#syntax-definition}{\mathsf{core\_instance}}~\href{../syntax/components.html#syntax-coreinstance}{\mathsf{exports}}~\overline{\{\href{../syntax/components.html#syntax-coreexport}{\mathsf{name}}~\href{../syntax/values.html#syntax-name}{\mathit{name}}_i, \href{../syntax/components.html#syntax-coreexport}{\mathsf{def}}~\href{../syntax/components.html#syntax-coresortidx}{\mathit{core{:}sortidx}}_i \}}\)</span><a class="headerlink" href="#xref-syntax-components-syntax-definition-mathsf-core-instance-xref-syntax-components-syntax-coreinstance-mathsf-exports-overline-xref-syntax-components-syntax-coreexport-mathsf-name-xref-syntax-values-syntax-name-mathit-name-i-xref-syntax-components-syntax-coreexport-mathsf-def-xref-syntax-components-syntax-coresortidx-mathit-core-sortidx-i" title="Permalink to this headline">¶</a></h3>
+<h3><span class="math notranslate nohighlight">\(\href{../syntax/components.html#syntax-definition}{\mathsf{core\_instance}}~\href{../syntax/components.html#syntax-coreinstance}{\mathsf{exports}}~\overline{\{\href{../syntax/components.html#syntax-coreexport}{\mathsf{name}}~\href{../syntax/values.html#syntax-name}{\mathit{name}}_i, \href{../syntax/components.html#syntax-coreexport}{\mathsf{def}}~\href{../syntax/components.html#syntax-coresortidx}{\mathit{core{:}sortidx}}_i \}}\)</span><a class="headerlink" href="#xref-syntax-components-syntax-definition-mathsf-core-instance-xref-syntax-components-syntax-coreinstance-mathsf-exports-overline-xref-syntax-components-syntax-coreexport-mathsf-name-xref-syntax-values-syntax-name-mathit-name-i-xref-syntax-components-syntax-coreexport-mathsf-def-xref-syntax-components-syntax-coresortidx-mathit-core-sortidx-i" title="Permalink to this heading">¶</a></h3>
 <ul class="simple">
 <li><p>Each <span class="math notranslate nohighlight">\(\href{../syntax/values.html#syntax-name}{\mathit{name}}_i\)</span> must be distinct.</p></li>
 <li><p>Each <span class="math notranslate nohighlight">\(\href{../syntax/components.html#syntax-coresortidx}{\mathit{core{:}sortidx}}_i\)</span> must be valid with respect to some
@@ -367,7 +368,7 @@ original <span class="math notranslate nohighlight">\(\href{../valid/conventions
 }\end{split}\]</div>
 </section>
 <section id="xref-syntax-components-syntax-definition-mathsf-core-type-xref-syntax-types-syntax-coredeftype-mathit-core-deftype">
-<h3><span class="math notranslate nohighlight">\(\href{../syntax/components.html#syntax-definition}{\mathsf{core\_type}}~\href{../syntax/types.html#syntax-coredeftype}{\mathit{core{:}deftype}}\)</span><a class="headerlink" href="#xref-syntax-components-syntax-definition-mathsf-core-type-xref-syntax-types-syntax-coredeftype-mathit-core-deftype" title="Permalink to this headline">¶</a></h3>
+<h3><span class="math notranslate nohighlight">\(\href{../syntax/components.html#syntax-definition}{\mathsf{core\_type}}~\href{../syntax/types.html#syntax-coredeftype}{\mathit{core{:}deftype}}\)</span><a class="headerlink" href="#xref-syntax-components-syntax-definition-mathsf-core-type-xref-syntax-types-syntax-coredeftype-mathit-core-deftype" title="Permalink to this heading">¶</a></h3>
 <ul class="simple">
 <li><p>The type <span class="math notranslate nohighlight">\(\href{../syntax/types.html#syntax-coredeftype}{\mathit{core{:}deftype}}\)</span> must elaborate to some <span class="math notranslate nohighlight">\(\href{../valid/types.html#syntax-ecoredeftype}{\mathit{core{:}deftype}_e}\)</span>.</p></li>
 <li><p>Then the definition <span class="math notranslate nohighlight">\(\href{../syntax/components.html#syntax-definition}{\mathsf{core\_type}}~\href{../syntax/types.html#syntax-coredeftype}{\mathit{core{:}deftype}}\)</span> is valid with
@@ -385,7 +386,7 @@ followed by <span class="math notranslate nohighlight">\(\href{../valid/types.ht
 }\]</div>
 </section>
 <section id="xref-syntax-components-syntax-definition-mathsf-component-xref-syntax-components-syntax-component-mathit-component">
-<h3><span class="math notranslate nohighlight">\(\href{../syntax/components.html#syntax-definition}{\mathsf{component}}~\href{../syntax/components.html#syntax-component}{\mathit{component}}\)</span><a class="headerlink" href="#xref-syntax-components-syntax-definition-mathsf-component-xref-syntax-components-syntax-component-mathit-component" title="Permalink to this headline">¶</a></h3>
+<h3><span class="math notranslate nohighlight">\(\href{../syntax/components.html#syntax-definition}{\mathsf{component}}~\href{../syntax/components.html#syntax-component}{\mathit{component}}\)</span><a class="headerlink" href="#xref-syntax-components-syntax-definition-mathsf-component-xref-syntax-components-syntax-component-mathit-component" title="Permalink to this heading">¶</a></h3>
 <ul class="simple">
 <li><p>It must be possible to split the context <span class="math notranslate nohighlight">\(\href{../valid/conventions.html#syntax-tyctx}{\Gamma}\)</span> such that
 the component <span class="math notranslate nohighlight">\(\href{../syntax/components.html#syntax-component}{\mathit{component}}\)</span> is valid for some type
@@ -409,7 +410,7 @@ updated by setting <span class="math notranslate nohighlight">\(\href{../valid/c
 }\end{split}\]</div>
 </section>
 <section id="xref-syntax-components-syntax-definition-mathsf-instance-xref-syntax-components-syntax-instance-mathsf-instantiate-xref-syntax-components-syntax-componentidx-mathit-componentidx-overline-xref-syntax-components-syntax-instantiatearg-mathit-instantiatearg-i">
-<h3><span class="math notranslate nohighlight">\(\href{../syntax/components.html#syntax-definition}{\mathsf{instance}}~\href{../syntax/components.html#syntax-instance}{\mathsf{instantiate}}~\href{../syntax/components.html#syntax-componentidx}{\mathit{componentidx}}~\overline{\href{../syntax/components.html#syntax-instantiatearg}{\mathit{instantiatearg}}_i}\)</span><a class="headerlink" href="#xref-syntax-components-syntax-definition-mathsf-instance-xref-syntax-components-syntax-instance-mathsf-instantiate-xref-syntax-components-syntax-componentidx-mathit-componentidx-overline-xref-syntax-components-syntax-instantiatearg-mathit-instantiatearg-i" title="Permalink to this headline">¶</a></h3>
+<h3><span class="math notranslate nohighlight">\(\href{../syntax/components.html#syntax-definition}{\mathsf{instance}}~\href{../syntax/components.html#syntax-instance}{\mathsf{instantiate}}~\href{../syntax/components.html#syntax-componentidx}{\mathit{componentidx}}~\overline{\href{../syntax/components.html#syntax-instantiatearg}{\mathit{instantiatearg}}_i}\)</span><a class="headerlink" href="#xref-syntax-components-syntax-definition-mathsf-instance-xref-syntax-components-syntax-instance-mathsf-instantiate-xref-syntax-components-syntax-componentidx-mathit-componentidx-overline-xref-syntax-components-syntax-instantiatearg-mathit-instantiatearg-i" title="Permalink to this heading">¶</a></h3>
 <ul class="simple">
 <li><p>The type <span class="math notranslate nohighlight">\(\href{../valid/conventions.html#syntax-tyctx}{\Gamma}.\href{../valid/conventions.html#syntax-tyctx}{\mathsf{components}}[\href{../syntax/components.html#syntax-componentidx}{\mathit{componentidx}}]\)</span> must exist in
 the context, and for each <span class="math notranslate nohighlight">\(\href{../valid/types.html#syntax-eexportdecl}{\mathit{externdecl}_e}\)</span> in that type:</p>
@@ -460,7 +461,7 @@ context any values present in <span class="math notranslate nohighlight">\(\over
 }\end{split}\]</div>
 </section>
 <section id="xref-syntax-components-syntax-definition-mathsf-instance-xref-syntax-components-syntax-instance-mathsf-exports-overline-xref-syntax-components-syntax-export-mathsf-name-xref-syntax-values-syntax-name-mathit-name-i-xref-syntax-components-syntax-export-mathsf-def-xref-syntax-components-syntax-sortidx-mathit-sortidx-i">
-<h3><span class="math notranslate nohighlight">\(\href{../syntax/components.html#syntax-definition}{\mathsf{instance}}~\href{../syntax/components.html#syntax-instance}{\mathsf{exports}}~\overline{\{ \href{../syntax/components.html#syntax-export}{\mathsf{name}}~\href{../syntax/values.html#syntax-name}{\mathit{name}}_i, \href{../syntax/components.html#syntax-export}{\mathsf{def}}~\href{../syntax/components.html#syntax-sortidx}{\mathit{sortidx}}_i \}}\)</span><a class="headerlink" href="#xref-syntax-components-syntax-definition-mathsf-instance-xref-syntax-components-syntax-instance-mathsf-exports-overline-xref-syntax-components-syntax-export-mathsf-name-xref-syntax-values-syntax-name-mathit-name-i-xref-syntax-components-syntax-export-mathsf-def-xref-syntax-components-syntax-sortidx-mathit-sortidx-i" title="Permalink to this headline">¶</a></h3>
+<h3><span class="math notranslate nohighlight">\(\href{../syntax/components.html#syntax-definition}{\mathsf{instance}}~\href{../syntax/components.html#syntax-instance}{\mathsf{exports}}~\overline{\{ \href{../syntax/components.html#syntax-export}{\mathsf{name}}~\href{../syntax/values.html#syntax-name}{\mathit{name}}_i, \href{../syntax/components.html#syntax-export}{\mathsf{def}}~\href{../syntax/components.html#syntax-sortidx}{\mathit{sortidx}}_i \}}\)</span><a class="headerlink" href="#xref-syntax-components-syntax-definition-mathsf-instance-xref-syntax-components-syntax-instance-mathsf-exports-overline-xref-syntax-components-syntax-export-mathsf-name-xref-syntax-values-syntax-name-mathit-name-i-xref-syntax-components-syntax-export-mathsf-def-xref-syntax-components-syntax-sortidx-mathit-sortidx-i" title="Permalink to this heading">¶</a></h3>
 <ul class="simple">
 <li><p>Each <span class="math notranslate nohighlight">\(\href{../syntax/values.html#syntax-name}{\mathit{name}}_i\)</span> must be distinct.</p></li>
 <li><p>Each <span class="math notranslate nohighlight">\(\href{../syntax/components.html#syntax-sortidx}{\mathit{sortidx}}_i\)</span> must be valid with respect to some
@@ -505,7 +506,7 @@ into the existential here?</p></li>
 }\end{split}\]</div>
 </section>
 <section id="xref-syntax-components-syntax-definition-mathsf-alias-xref-syntax-types-syntax-alias-mathsf-sort-xref-syntax-components-syntax-sort-mathit-sort-xref-syntax-types-syntax-alias-mathsf-target-xref-syntax-components-syntax-aliastarget-mathsf-export-xref-syntax-components-syntax-instanceidx-mathit-instanceidx-xref-syntax-values-syntax-name-mathit-name">
-<h3><span class="math notranslate nohighlight">\(\href{../syntax/components.html#syntax-definition}{\mathsf{alias}}~\{ \href{../syntax/types.html#syntax-alias}{\mathsf{sort}}~\href{../syntax/components.html#syntax-sort}{\mathit{sort}}, \href{../syntax/types.html#syntax-alias}{\mathsf{target}}~\href{../syntax/components.html#syntax-aliastarget}{\mathsf{export}}~\href{../syntax/components.html#syntax-instanceidx}{\mathit{instanceidx}}~\href{../syntax/values.html#syntax-name}{\mathit{name}} \}\)</span><a class="headerlink" href="#xref-syntax-components-syntax-definition-mathsf-alias-xref-syntax-types-syntax-alias-mathsf-sort-xref-syntax-components-syntax-sort-mathit-sort-xref-syntax-types-syntax-alias-mathsf-target-xref-syntax-components-syntax-aliastarget-mathsf-export-xref-syntax-components-syntax-instanceidx-mathit-instanceidx-xref-syntax-values-syntax-name-mathit-name" title="Permalink to this headline">¶</a></h3>
+<h3><span class="math notranslate nohighlight">\(\href{../syntax/components.html#syntax-definition}{\mathsf{alias}}~\{ \href{../syntax/types.html#syntax-alias}{\mathsf{sort}}~\href{../syntax/components.html#syntax-sort}{\mathit{sort}}, \href{../syntax/types.html#syntax-alias}{\mathsf{target}}~\href{../syntax/components.html#syntax-aliastarget}{\mathsf{export}}~\href{../syntax/components.html#syntax-instanceidx}{\mathit{instanceidx}}~\href{../syntax/values.html#syntax-name}{\mathit{name}} \}\)</span><a class="headerlink" href="#xref-syntax-components-syntax-definition-mathsf-alias-xref-syntax-types-syntax-alias-mathsf-sort-xref-syntax-components-syntax-sort-mathit-sort-xref-syntax-types-syntax-alias-mathsf-target-xref-syntax-components-syntax-aliastarget-mathsf-export-xref-syntax-components-syntax-instanceidx-mathit-instanceidx-xref-syntax-values-syntax-name-mathit-name" title="Permalink to this heading">¶</a></h3>
 <ul class="simple">
 <li><p>The type <span class="math notranslate nohighlight">\(\href{../valid/conventions.html#syntax-tyctx}{\Gamma}.\href{../valid/conventions.html#syntax-tyctx}{\mathsf{instances}}[\href{../syntax/components.html#syntax-instanceidx}{\mathit{instanceidx}}]\)</span> must exist in the
 context.</p></li>
@@ -541,7 +542,7 @@ to the original :math:tyctx.F{index_space}(sort)` followed by
 }\end{split}\]</div>
 </section>
 <section id="xref-syntax-components-syntax-definition-mathsf-alias-xref-syntax-types-syntax-alias-mathsf-sort-xref-syntax-components-syntax-sort-mathit-sort-xref-syntax-types-syntax-alias-mathsf-target-xref-syntax-components-syntax-aliastarget-mathsf-core-export-xref-syntax-components-syntax-coreinstanceidx-mathit-core-instanceidx-xref-syntax-values-syntax-name-mathit-name">
-<h3><span class="math notranslate nohighlight">\(\href{../syntax/components.html#syntax-definition}{\mathsf{alias}}~\{ \href{../syntax/types.html#syntax-alias}{\mathsf{sort}}~\href{../syntax/components.html#syntax-sort}{\mathit{sort}}, \href{../syntax/types.html#syntax-alias}{\mathsf{target}}~\href{../syntax/components.html#syntax-aliastarget}{\mathsf{core\_export}}~\href{../syntax/components.html#syntax-coreinstanceidx}{\mathit{core{:}instanceidx}}~\href{../syntax/values.html#syntax-name}{\mathit{name}} \}\)</span><a class="headerlink" href="#xref-syntax-components-syntax-definition-mathsf-alias-xref-syntax-types-syntax-alias-mathsf-sort-xref-syntax-components-syntax-sort-mathit-sort-xref-syntax-types-syntax-alias-mathsf-target-xref-syntax-components-syntax-aliastarget-mathsf-core-export-xref-syntax-components-syntax-coreinstanceidx-mathit-core-instanceidx-xref-syntax-values-syntax-name-mathit-name" title="Permalink to this headline">¶</a></h3>
+<h3><span class="math notranslate nohighlight">\(\href{../syntax/components.html#syntax-definition}{\mathsf{alias}}~\{ \href{../syntax/types.html#syntax-alias}{\mathsf{sort}}~\href{../syntax/components.html#syntax-sort}{\mathit{sort}}, \href{../syntax/types.html#syntax-alias}{\mathsf{target}}~\href{../syntax/components.html#syntax-aliastarget}{\mathsf{core\_export}}~\href{../syntax/components.html#syntax-coreinstanceidx}{\mathit{core{:}instanceidx}}~\href{../syntax/values.html#syntax-name}{\mathit{name}} \}\)</span><a class="headerlink" href="#xref-syntax-components-syntax-definition-mathsf-alias-xref-syntax-types-syntax-alias-mathsf-sort-xref-syntax-components-syntax-sort-mathit-sort-xref-syntax-types-syntax-alias-mathsf-target-xref-syntax-components-syntax-aliastarget-mathsf-core-export-xref-syntax-components-syntax-coreinstanceidx-mathit-core-instanceidx-xref-syntax-values-syntax-name-mathit-name" title="Permalink to this heading">¶</a></h3>
 <ul class="simple">
 <li><p>The type <span class="math notranslate nohighlight">\(\href{../valid/conventions.html#syntax-tyctx}{\Gamma}.\href{../valid/conventions.html#syntax-tyctx}{\mathsf{core}}.\href{../valid/conventions.html#syntax-coretyctx}{\mathsf{instances}}[\href{../syntax/components.html#syntax-coreinstanceidx}{\mathit{core{:}instanceidx}}]\)</span>
 must exist in the context.</p></li>
@@ -571,7 +572,7 @@ respect to the empty component type, and sets
 }\end{split}\]</div>
 </section>
 <section id="xref-syntax-components-syntax-definition-mathsf-alias-xref-syntax-types-syntax-alias-mathsf-sort-xref-syntax-components-syntax-sort-mathit-sort-xref-syntax-types-syntax-alias-mathsf-target-xref-syntax-components-syntax-aliastarget-mathsf-outer-xref-syntax-values-syntax-int-mathit-u32-o-xref-syntax-values-syntax-int-mathit-u32-i">
-<h3><span class="math notranslate nohighlight">\(\href{../syntax/components.html#syntax-definition}{\mathsf{alias}}~\{ \href{../syntax/types.html#syntax-alias}{\mathsf{sort}}~\href{../syntax/components.html#syntax-sort}{\mathit{sort}}, \href{../syntax/types.html#syntax-alias}{\mathsf{target}}~\href{../syntax/components.html#syntax-aliastarget}{\mathsf{outer}}~\href{../syntax/values.html#syntax-int}{\mathit{u32}}_o~\href{../syntax/values.html#syntax-int}{\mathit{u32}}_i \}\)</span><a class="headerlink" href="#xref-syntax-components-syntax-definition-mathsf-alias-xref-syntax-types-syntax-alias-mathsf-sort-xref-syntax-components-syntax-sort-mathit-sort-xref-syntax-types-syntax-alias-mathsf-target-xref-syntax-components-syntax-aliastarget-mathsf-outer-xref-syntax-values-syntax-int-mathit-u32-o-xref-syntax-values-syntax-int-mathit-u32-i" title="Permalink to this headline">¶</a></h3>
+<h3><span class="math notranslate nohighlight">\(\href{../syntax/components.html#syntax-definition}{\mathsf{alias}}~\{ \href{../syntax/types.html#syntax-alias}{\mathsf{sort}}~\href{../syntax/components.html#syntax-sort}{\mathit{sort}}, \href{../syntax/types.html#syntax-alias}{\mathsf{target}}~\href{../syntax/components.html#syntax-aliastarget}{\mathsf{outer}}~\href{../syntax/values.html#syntax-int}{\mathit{u32}}_o~\href{../syntax/values.html#syntax-int}{\mathit{u32}}_i \}\)</span><a class="headerlink" href="#xref-syntax-components-syntax-definition-mathsf-alias-xref-syntax-types-syntax-alias-mathsf-sort-xref-syntax-components-syntax-sort-mathit-sort-xref-syntax-types-syntax-alias-mathsf-target-xref-syntax-components-syntax-aliastarget-mathsf-outer-xref-syntax-values-syntax-int-mathit-u32-o-xref-syntax-values-syntax-int-mathit-u32-i" title="Permalink to this heading">¶</a></h3>
 <ul class="simple">
 <li><p><span class="math notranslate nohighlight">\(\href{../syntax/components.html#syntax-sort}{\mathit{sort}}\)</span> must be one of <span class="math notranslate nohighlight">\(\href{../syntax/components.html#syntax-sort}{\mathsf{component}}\)</span>,
 <span class="math notranslate nohighlight">\(\href{../syntax/components.html#syntax-sort}{\mathsf{core}}~\href{../syntax/components.html#syntax-coresort}{\mathsf{module}}\)</span>, <span class="math notranslate nohighlight">\(\href{../syntax/components.html#syntax-sort}{\mathsf{type}}\)</span>, or
@@ -596,7 +597,7 @@ exist in the context.</p></li>
 }\end{split}\]</div>
 </section>
 <section id="xref-syntax-components-syntax-definition-mathsf-type-xref-syntax-types-syntax-deftype-mathit-deftype">
-<h3><span class="math notranslate nohighlight">\(\href{../syntax/components.html#syntax-definition}{\mathsf{type}}~\href{../syntax/types.html#syntax-deftype}{\mathit{deftype}}\)</span><a class="headerlink" href="#xref-syntax-components-syntax-definition-mathsf-type-xref-syntax-types-syntax-deftype-mathit-deftype" title="Permalink to this headline">¶</a></h3>
+<h3><span class="math notranslate nohighlight">\(\href{../syntax/components.html#syntax-definition}{\mathsf{type}}~\href{../syntax/types.html#syntax-deftype}{\mathit{deftype}}\)</span><a class="headerlink" href="#xref-syntax-components-syntax-definition-mathsf-type-xref-syntax-types-syntax-deftype-mathit-deftype" title="Permalink to this heading">¶</a></h3>
 <ul class="simple">
 <li><p>The type <span class="math notranslate nohighlight">\(\href{../syntax/types.html#syntax-deftype}{\mathit{deftype}}\)</span> must elaborate to some <span class="math notranslate nohighlight">\(\href{../valid/types.html#syntax-edeftype}{\mathit{deftype}_e}\)</span>.</p></li>
 <li><p>Then <span class="math notranslate nohighlight">\(\href{../syntax/components.html#syntax-definition}{\mathsf{type}}~\href{../syntax/types.html#syntax-deftype}{\mathit{deftype}}\)</span> is valid with respect to the empty
@@ -618,7 +619,7 @@ original <span class="math notranslate nohighlight">\(\href{../valid/conventions
 }\end{split}\]</div>
 </section>
 <section id="xref-syntax-components-syntax-definition-mathsf-canon-xref-syntax-components-syntax-canon-mathsf-lift-core-xref-syntax-modules-syntax-funcidx-mathit-core-mathit-funcidx-overline-xref-syntax-components-syntax-canonopt-mathit-canonopt-i-xref-syntax-components-syntax-typeidx-mathit-typeidx">
-<h3><span class="math notranslate nohighlight">\(\href{../syntax/components.html#syntax-definition}{\mathsf{canon}}~\href{../syntax/components.html#syntax-canon}{\mathsf{lift}}~\href{https://webassembly.github.io/spec/core/syntax/modules.html#syntax-funcidx}{\mathit{core{:}}\mathit{funcidx}}~\overline{\href{../syntax/components.html#syntax-canonopt}{\mathit{canonopt}}_i}~\href{../syntax/components.html#syntax-typeidx}{\mathit{typeidx}}\)</span><a class="headerlink" href="#xref-syntax-components-syntax-definition-mathsf-canon-xref-syntax-components-syntax-canon-mathsf-lift-core-xref-syntax-modules-syntax-funcidx-mathit-core-mathit-funcidx-overline-xref-syntax-components-syntax-canonopt-mathit-canonopt-i-xref-syntax-components-syntax-typeidx-mathit-typeidx" title="Permalink to this headline">¶</a></h3>
+<h3><span class="math notranslate nohighlight">\(\href{../syntax/components.html#syntax-definition}{\mathsf{canon}}~\href{../syntax/components.html#syntax-canon}{\mathsf{lift}}~\href{https://webassembly.github.io/spec/core/syntax/modules.html#syntax-funcidx}{\mathit{core{:}}\mathit{funcidx}}~\overline{\href{../syntax/components.html#syntax-canonopt}{\mathit{canonopt}}_i}~\href{../syntax/components.html#syntax-typeidx}{\mathit{typeidx}}\)</span><a class="headerlink" href="#xref-syntax-components-syntax-definition-mathsf-canon-xref-syntax-components-syntax-canon-mathsf-lift-core-xref-syntax-modules-syntax-funcidx-mathit-core-mathit-funcidx-overline-xref-syntax-components-syntax-canonopt-mathit-canonopt-i-xref-syntax-components-syntax-typeidx-mathit-typeidx" title="Permalink to this heading">¶</a></h3>
 <ul class="simple">
 <li><p><span class="math notranslate nohighlight">\(\href{../valid/conventions.html#syntax-tyctx}{\Gamma}.\href{../valid/conventions.html#syntax-tyctx}{\mathsf{types}}[\href{../syntax/components.html#syntax-typeidx}{\mathit{typeidx}}]\)</span> must exist and be a
 <span class="math notranslate nohighlight">\(\href{../valid/types.html#syntax-efunctype}{\mathit{functype}_e}\)</span>.</p></li>
@@ -643,7 +644,7 @@ is valid with respect to the empty component type, and sets
 }\end{split}\]</div>
 </section>
 <section id="xref-syntax-components-syntax-definition-mathsf-canon-xref-syntax-components-syntax-canon-mathsf-lower-xref-syntax-components-syntax-funcidx-mathit-funcidx-overline-xref-syntax-components-syntax-canonopt-mathit-canonopt-i">
-<h3><span class="math notranslate nohighlight">\(\href{../syntax/components.html#syntax-definition}{\mathsf{canon}}~\href{../syntax/components.html#syntax-canon}{\mathsf{lower}}~\href{../syntax/components.html#syntax-funcidx}{\mathit{funcidx}}~\overline{\href{../syntax/components.html#syntax-canonopt}{\mathit{canonopt}}_i}\)</span><a class="headerlink" href="#xref-syntax-components-syntax-definition-mathsf-canon-xref-syntax-components-syntax-canon-mathsf-lower-xref-syntax-components-syntax-funcidx-mathit-funcidx-overline-xref-syntax-components-syntax-canonopt-mathit-canonopt-i" title="Permalink to this headline">¶</a></h3>
+<h3><span class="math notranslate nohighlight">\(\href{../syntax/components.html#syntax-definition}{\mathsf{canon}}~\href{../syntax/components.html#syntax-canon}{\mathsf{lower}}~\href{../syntax/components.html#syntax-funcidx}{\mathit{funcidx}}~\overline{\href{../syntax/components.html#syntax-canonopt}{\mathit{canonopt}}_i}\)</span><a class="headerlink" href="#xref-syntax-components-syntax-definition-mathsf-canon-xref-syntax-components-syntax-canon-mathsf-lower-xref-syntax-components-syntax-funcidx-mathit-funcidx-overline-xref-syntax-components-syntax-canonopt-mathit-canonopt-i" title="Permalink to this heading">¶</a></h3>
 <ul class="simple">
 <li><p>The type <span class="math notranslate nohighlight">\(\href{../valid/conventions.html#syntax-tyctx}{\Gamma}.\href{../valid/conventions.html#syntax-tyctx}{\mathsf{funcs}}[\href{../syntax/components.html#syntax-funcidx}{\mathit{funcidx}}]\)</span> must exist in the context.</p></li>
 <li><p><span class="math notranslate nohighlight">\(\mathrm{canon\_lower\_type}(\href{../valid/conventions.html#syntax-tyctx}{\Gamma}.\href{../valid/conventions.html#syntax-tyctx}{\mathsf{funcs}}[\href{../syntax/components.html#syntax-funcidx}{\mathit{funcidx}}],
@@ -666,7 +667,7 @@ valid with respect to the empty component type, and sets
 }\end{split}\]</div>
 </section>
 <section id="xref-syntax-components-syntax-definition-mathsf-start-xref-syntax-components-syntax-start-mathsf-func-xref-syntax-components-syntax-funcidx-mathit-funcidx-xref-syntax-components-syntax-start-mathsf-args-overline-xref-syntax-components-syntax-valueidx-mathit-valueidx-i">
-<h3><span class="math notranslate nohighlight">\(\href{../syntax/components.html#syntax-definition}{\mathsf{start}}~\{ \href{../syntax/components.html#syntax-start}{\mathsf{func}}~\href{../syntax/components.html#syntax-funcidx}{\mathit{funcidx}}, \href{../syntax/components.html#syntax-start}{\mathsf{args}}~\overline{\href{../syntax/components.html#syntax-valueidx}{\mathit{valueidx}}_i} \}\)</span><a class="headerlink" href="#xref-syntax-components-syntax-definition-mathsf-start-xref-syntax-components-syntax-start-mathsf-func-xref-syntax-components-syntax-funcidx-mathit-funcidx-xref-syntax-components-syntax-start-mathsf-args-overline-xref-syntax-components-syntax-valueidx-mathit-valueidx-i" title="Permalink to this headline">¶</a></h3>
+<h3><span class="math notranslate nohighlight">\(\href{../syntax/components.html#syntax-definition}{\mathsf{start}}~\{ \href{../syntax/components.html#syntax-start}{\mathsf{func}}~\href{../syntax/components.html#syntax-funcidx}{\mathit{funcidx}}, \href{../syntax/components.html#syntax-start}{\mathsf{args}}~\overline{\href{../syntax/components.html#syntax-valueidx}{\mathit{valueidx}}_i} \}\)</span><a class="headerlink" href="#xref-syntax-components-syntax-definition-mathsf-start-xref-syntax-components-syntax-start-mathsf-func-xref-syntax-components-syntax-funcidx-mathit-funcidx-xref-syntax-components-syntax-start-mathsf-args-overline-xref-syntax-components-syntax-valueidx-mathit-valueidx-i" title="Permalink to this heading">¶</a></h3>
 <ul class="simple">
 <li><p>The type <span class="math notranslate nohighlight">\(\href{../valid/conventions.html#syntax-tyctx}{\Gamma}.\href{../valid/conventions.html#syntax-tyctx}{\mathsf{funcs}}[\href{../syntax/components.html#syntax-funcidx}{\mathit{funcidx}}]\)</span> must be defined in the context.</p></li>
 <li><p>The arguments <span class="math notranslate nohighlight">\(\overline{\href{../syntax/components.html#syntax-valueidx}{\mathit{valueidx}}_i}\)</span> must be valid with
@@ -697,29 +698,29 @@ return values of the function.</p></li>
   \end{aligned}
 }\end{split}\]</div>
 </section>
-<section id="xref-syntax-components-syntax-definition-mathsf-import-xref-syntax-types-syntax-importdecl-mathsf-name-xref-syntax-values-syntax-name-mathit-name-xref-syntax-types-syntax-importdecl-mathsf-desc-xref-syntax-types-syntax-importdesc-mathit-importdesc">
-<h3><span class="math notranslate nohighlight">\(\href{../syntax/components.html#syntax-definition}{\mathsf{import}}~\{ \href{../syntax/types.html#syntax-importdecl}{\mathsf{name}}~\href{../syntax/values.html#syntax-name}{\mathit{name}}, \href{../syntax/types.html#syntax-importdecl}{\mathsf{desc}}~\href{../syntax/types.html#syntax-importdesc}{\mathit{importdesc}} \}\)</span><a class="headerlink" href="#xref-syntax-components-syntax-definition-mathsf-import-xref-syntax-types-syntax-importdecl-mathsf-name-xref-syntax-values-syntax-name-mathit-name-xref-syntax-types-syntax-importdecl-mathsf-desc-xref-syntax-types-syntax-importdesc-mathit-importdesc" title="Permalink to this headline">¶</a></h3>
+<section id="xref-syntax-components-syntax-definition-mathsf-import-xref-syntax-types-syntax-importdecl-mathsf-name-xref-syntax-values-syntax-name-mathit-name-xref-syntax-types-syntax-importdecl-mathsf-desc-xref-syntax-types-syntax-externdesc-mathit-externdesc">
+<h3><span class="math notranslate nohighlight">\(\href{../syntax/components.html#syntax-definition}{\mathsf{import}}~\{ \href{../syntax/types.html#syntax-importdecl}{\mathsf{name}}~\href{../syntax/values.html#syntax-name}{\mathit{name}}, \href{../syntax/types.html#syntax-importdecl}{\mathsf{desc}}~\href{../syntax/types.html#syntax-externdesc}{\mathit{externdesc}} \}\)</span><a class="headerlink" href="#xref-syntax-components-syntax-definition-mathsf-import-xref-syntax-types-syntax-importdecl-mathsf-name-xref-syntax-values-syntax-name-mathit-name-xref-syntax-types-syntax-importdecl-mathsf-desc-xref-syntax-types-syntax-externdesc-mathit-externdesc" title="Permalink to this heading">¶</a></h3>
 <ul class="simple">
-<li><p>The <span class="math notranslate nohighlight">\(\href{../syntax/types.html#syntax-importdesc}{\mathit{importdesc}}\)</span> must elaborate to some <span class="math notranslate nohighlight">\(\forall\href{../valid/types.html#syntax-boundedtyvar}{\mathit{boundedtyvar}}^\ast.\href{../valid/types.html#syntax-eexterndesc}{\mathit{externdesc}_e}\)</span>.</p></li>
+<li><p>The <span class="math notranslate nohighlight">\(\href{../syntax/types.html#syntax-externdesc}{\mathit{externdesc}}\)</span> must elaborate to some <span class="math notranslate nohighlight">\(\forall\href{../valid/types.html#syntax-boundedtyvar}{\mathit{boundedtyvar}}^\ast.\href{../valid/types.html#syntax-eexterndesc}{\mathit{externdesc}_e}\)</span>.</p></li>
 <li><p>Then the definition <span class="math notranslate nohighlight">\(\href{../syntax/components.html#syntax-definition}{\mathsf{import}}~\{ \href{../syntax/types.html#syntax-importdecl}{\mathsf{name}}~\href{../syntax/values.html#syntax-name}{\mathit{name}},
-\href{../syntax/types.html#syntax-importdecl}{\mathsf{desc}}~\href{../syntax/types.html#syntax-importdesc}{\mathit{importdesc}} \}\)</span> is valid with respect to the component type
+\href{../syntax/types.html#syntax-importdecl}{\mathsf{desc}}~\href{../syntax/types.html#syntax-externdesc}{\mathit{externdesc}} \}\)</span> is valid with respect to the component type
 whose export list is empty and whose import list is the singleton
 containing <span class="math notranslate nohighlight">\(\{ \href{../valid/types.html#syntax-eexportdecl}{\mathsf{name}}~\href{../syntax/values.html#syntax-name}{\mathit{name}}, \href{../valid/types.html#syntax-eexportdecl}{\mathsf{desc}}~\href{../valid/types.html#syntax-eexterndesc}{\mathit{externdesc}_e} \}\)</span>, and
 updates the context with <span class="math notranslate nohighlight">\(\href{../valid/types.html#syntax-eexportdecl}{\mathsf{desc}}\)</span>.</p></li>
 </ul>
 <div class="math notranslate nohighlight">
 \[\begin{split}\frac{
-  \href{../valid/conventions.html#syntax-tyctx}{\Gamma} \vdash \href{../syntax/types.html#syntax-importdesc}{\mathit{importdesc}} \leadsto \forall\href{../valid/types.html#syntax-boundedtyvar}{\mathit{boundedtyvar}}^\ast.\href{../valid/types.html#syntax-eexterndesc}{\mathit{externdesc}_e}
+  \href{../valid/conventions.html#syntax-tyctx}{\Gamma} \vdash \href{../syntax/types.html#syntax-externdesc}{\mathit{externdesc}} \leadsto \forall\href{../valid/types.html#syntax-boundedtyvar}{\mathit{boundedtyvar}}^\ast.\href{../valid/types.html#syntax-eexterndesc}{\mathit{externdesc}_e}
 }{
   \begin{aligned}
-  \href{../valid/conventions.html#syntax-tyctx}{\Gamma} \vdash{}&amp;\href{../syntax/components.html#syntax-definition}{\mathsf{import}}~\{ \href{../syntax/types.html#syntax-importdecl}{\mathsf{name}}~\href{../syntax/values.html#syntax-name}{\mathit{name}}, \href{../syntax/types.html#syntax-importdecl}{\mathsf{desc}}~\href{../syntax/types.html#syntax-importdesc}{\mathit{importdesc}} \}\\
+  \href{../valid/conventions.html#syntax-tyctx}{\Gamma} \vdash{}&amp;\href{../syntax/components.html#syntax-definition}{\mathsf{import}}~\{ \href{../syntax/types.html#syntax-importdecl}{\mathsf{name}}~\href{../syntax/values.html#syntax-name}{\mathit{name}}, \href{../syntax/types.html#syntax-importdecl}{\mathsf{desc}}~\href{../syntax/types.html#syntax-externdesc}{\mathit{externdesc}} \}\\
   :{}&amp;\forall\href{../valid/types.html#syntax-boundedtyvar}{\mathit{boundedtyvar}}^\ast.\{ \href{../valid/types.html#syntax-eexportdecl}{\mathsf{name}}~\href{../syntax/values.html#syntax-name}{\mathit{name}}, \href{../valid/types.html#syntax-eexportdecl}{\mathsf{desc}}~\href{../valid/types.html#syntax-eexterndesc}{\mathit{externdesc}_e} \} \to \varnothing\\
   \dashv{}&amp;\href{../valid/conventions.html#syntax-tyctx}{\Gamma} \oplus \{ \href{../valid/conventions.html#syntax-tyctx}{\mathsf{vars}}~\href{../valid/types.html#syntax-boundedtyvar}{\mathit{boundedtyvar}}^\ast, \href{../valid/types.html#syntax-eexterndesc}{\mathit{externdesc}_e} \}\\
   \end{aligned}
 }\end{split}\]</div>
 </section>
 <section id="xref-syntax-components-syntax-definition-mathsf-export-xref-syntax-components-syntax-export-mathsf-name-xref-syntax-values-syntax-name-mathit-name-xref-syntax-components-syntax-export-mathsf-def-xref-syntax-components-syntax-sortidx-mathit-sortidx">
-<h3><span class="math notranslate nohighlight">\(\href{../syntax/components.html#syntax-definition}{\mathsf{export}}~\{ \href{../syntax/components.html#syntax-export}{\mathsf{name}}~\href{../syntax/values.html#syntax-name}{\mathit{name}}, \href{../syntax/components.html#syntax-export}{\mathsf{def}}~\href{../syntax/components.html#syntax-sortidx}{\mathit{sortidx}} \}\)</span><a class="headerlink" href="#xref-syntax-components-syntax-definition-mathsf-export-xref-syntax-components-syntax-export-mathsf-name-xref-syntax-values-syntax-name-mathit-name-xref-syntax-components-syntax-export-mathsf-def-xref-syntax-components-syntax-sortidx-mathit-sortidx" title="Permalink to this headline">¶</a></h3>
+<h3><span class="math notranslate nohighlight">\(\href{../syntax/components.html#syntax-definition}{\mathsf{export}}~\{ \href{../syntax/components.html#syntax-export}{\mathsf{name}}~\href{../syntax/values.html#syntax-name}{\mathit{name}}, \href{../syntax/components.html#syntax-export}{\mathsf{def}}~\href{../syntax/components.html#syntax-sortidx}{\mathit{sortidx}} \}\)</span><a class="headerlink" href="#xref-syntax-components-syntax-definition-mathsf-export-xref-syntax-components-syntax-export-mathsf-name-xref-syntax-values-syntax-name-mathit-name-xref-syntax-components-syntax-export-mathsf-def-xref-syntax-components-syntax-sortidx-mathit-sortidx" title="Permalink to this heading">¶</a></h3>
 <ul class="simple">
 <li><p>The <span class="math notranslate nohighlight">\(\href{../syntax/components.html#syntax-sortidx}{\mathit{sortidx}}\)</span> must be valid with respect to some
 <span class="math notranslate nohighlight">\(\href{../valid/types.html#syntax-eexterndesc}{\mathit{externdesc}_e}\)</span>.</p></li>

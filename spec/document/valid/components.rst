@@ -622,23 +622,23 @@ Definitions
     \end{aligned}
   }
 
-:math:`\DIMPORT~\{ \IDNAME~\name, \IDDESC~\importdesc \}`
+:math:`\DIMPORT~\{ \IDNAME~\name, \IDDESC~\externdesc \}`
 .........................................................
 
-* The :math:`\importdesc` must elaborate to some :math:`\forall\boundedtyvar^\ast.\eexterndesc`.
+* The :math:`\externdesc` must elaborate to some :math:`\forall\boundedtyvar^\ast.\eexterndesc`.
 
 * Then the definition :math:`\DIMPORT~\{ \IDNAME~\name,
-  \IDDESC~\importdesc \}` is valid with respect to the component type
+  \IDDESC~\externdesc \}` is valid with respect to the component type
   whose export list is empty and whose import list is the singleton
   containing :math:`\{ \EEDNAME~\name, \EEDDESC~\eexterndesc \}`, and
   updates the context with :math:`\EEDDESC`.
 
 .. math::
   \frac{
-    \tyctx \vdash \importdesc \leadsto \forall\boundedtyvar^\ast.\eexterndesc
+    \tyctx \vdash \externdesc \leadsto \forall\boundedtyvar^\ast.\eexterndesc
   }{
     \begin{aligned}
-    \tyctx \vdash{}&\DIMPORT~\{ \IDNAME~\name, \IDDESC~\importdesc \}\\
+    \tyctx \vdash{}&\DIMPORT~\{ \IDNAME~\name, \IDDESC~\externdesc \}\\
     :{}&\forall\boundedtyvar^\ast.\{ \EEDNAME~\name, \EEDDESC~\eexterndesc \} \to \varnothing\\
     \dashv{}&\tyctx \oplus \{ \TCVARS~\boundedtyvar^\ast, \eexterndesc \}\\
     \end{aligned}

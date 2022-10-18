@@ -1,17 +1,18 @@
 
 <!DOCTYPE html>
 
-<html>
+<html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
-    <title>Types &#8212; WebAssembly Component Model 0.0 (Draft 2022-09-02)</title>
+    <title>Types &#8212; WebAssembly Component Model 0.0 (Draft 2022-10-18)</title>
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../_static/alabaster.css" />
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../_static/doctools.js"></script>
     <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
@@ -87,7 +88,7 @@
     </form>
     </div>
 </div>
-<script>$('#searchbox').show(0);</script>
+<script>document.getElementById('searchbox').style.display = "block"</script>
 
 
 
@@ -105,7 +106,7 @@
           <div class="body" role="main">
             
   <section id="types">
-<h1>Types<a class="headerlink" href="#types" title="Permalink to this headline">¶</a></h1>
+<h1>Types<a class="headerlink" href="#types" title="Permalink to this heading">¶</a></h1>
 <p>During validation, the abstract syntax types described above are
 <em>elaborated</em> into types of a different structure, which are easier to
 work with. Elaborated types are different from the original abstract
@@ -127,14 +128,14 @@ variables.</p></li>
 have valid structures, and so may be considered as validation on
 types.</p>
 <section id="primitive-value-types">
-<span id="syntax-evaltypead"></span><span id="syntax-evaltype"></span><h2>Primitive value types<a class="headerlink" href="#primitive-value-types" title="Permalink to this headline">¶</a></h2>
+<span id="syntax-evaltypead"></span><span id="syntax-evaltype"></span><h2>Primitive value types<a class="headerlink" href="#primitive-value-types" title="Permalink to this heading">¶</a></h2>
 <p>Any <span class="math notranslate nohighlight">\(\href{../syntax/types.html#syntax-primvaltype}{\mathit{primvaltype}}\)</span>, <span class="math notranslate nohighlight">\(\href{../syntax/types.html#syntax-defvaltype}{\mathit{defvaltype}}\)</span>, or <span class="math notranslate nohighlight">\(\href{../syntax/types.html#syntax-valtype}{\mathit{valtype}}\)</span>
 elaborates to a a <span class="math notranslate nohighlight">\(\href{../valid/types.html#syntax-evaltype}{\mathit{valtype}_e}\)</span>. The syntax of <span class="math notranslate nohighlight">\(\href{../valid/types.html#syntax-evaltype}{\mathit{valtype}_e}\)</span>
 is specified by parts over the next several sections, as it becomes
 relevant.</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}\begin{array}{llcl}
-\def\mathdef6317#1{{}}\mathdef6317{(evaltype)} &amp; \href{../valid/types.html#syntax-evaltype}{\mathit{valtype}_e} &amp;::=&amp;
+\def\mathdef1#1{{}}\mathdef1{(evaltype)} &amp; \href{../valid/types.html#syntax-evaltype}{\mathit{valtype}_e} &amp;::=&amp;
   \href{../valid/types.html#syntax-evaltype}{\mathsf{bool}}\\&amp;&amp;|&amp;
   \href{../valid/types.html#syntax-evaltype}{\mathsf{s8}} | \href{../valid/types.html#syntax-evaltype}{\mathsf{u8}} | \href{../valid/types.html#syntax-evaltype}{\mathsf{s16}} | \href{../valid/types.html#syntax-evaltype}{\mathsf{u16}} | \href{../valid/types.html#syntax-evaltype}{\mathsf{s32}} | \href{../valid/types.html#syntax-evaltype}{\mathsf{u32}} | \href{../valid/types.html#syntax-evaltype}{\mathsf{s64}} | \href{../valid/types.html#syntax-evaltype}{\mathsf{u64}}\\&amp;&amp;|&amp;
   \href{../valid/types.html#syntax-evaltype}{\mathsf{float32}} | \href{../valid/types.html#syntax-evaltype}{\mathsf{float64}}\\&amp;&amp;|&amp;
@@ -147,19 +148,19 @@ associated with information about whether they are alive or dead. This
 is accomplished by assigning them types from <span class="math notranslate nohighlight">\(\href{../valid/types.html#syntax-evaltypead}{{\mathit{valtype}_e^?}}\)</span>:</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}\begin{array}{llcl}
-\def\mathdef6317#1{{}}\mathdef6317{(evaltypead)} &amp; \href{../valid/types.html#syntax-evaltypead}{{\mathit{valtype}_e^?}} &amp;::=&amp;
+\def\mathdef1#1{{}}\mathdef1{(evaltypead)} &amp; \href{../valid/types.html#syntax-evaltypead}{{\mathit{valtype}_e^?}} &amp;::=&amp;
   \href{../valid/types.html#syntax-evaltype}{\mathit{valtype}_e}\\&amp;&amp;|&amp;
   \href{../valid/types.html#syntax-evaltype}{\mathit{valtype}_e}^\dagger
 \end{array}\end{split}\]</div>
 <section id="xref-syntax-types-syntax-valtype-mathsf-string">
-<h3><span class="math notranslate nohighlight">\(\href{../syntax/types.html#syntax-valtype}{\mathsf{string}}\)</span><a class="headerlink" href="#xref-syntax-types-syntax-valtype-mathsf-string" title="Permalink to this headline">¶</a></h3>
+<h3><span class="math notranslate nohighlight">\(\href{../syntax/types.html#syntax-valtype}{\mathsf{string}}\)</span><a class="headerlink" href="#xref-syntax-types-syntax-valtype-mathsf-string" title="Permalink to this heading">¶</a></h3>
 <ul class="simple">
 <li><p>The primitive value type <span class="math notranslate nohighlight">\(\href{../syntax/types.html#syntax-valtype}{\mathsf{string}}\)</span> elaborates to the
 <span class="math notranslate nohighlight">\(\href{../valid/types.html#syntax-evaltype}{\mathit{valtype}_e}\)</span> of <span class="math notranslate nohighlight">\(\href{../valid/types.html#syntax-evaltype}{\mathsf{list}}~\href{../valid/types.html#syntax-evaltype}{\mathsf{char}}\)</span>.</p></li>
 </ul>
 </section>
 <section id="xref-syntax-types-syntax-primvaltype-mathit-primvaltype-other-than-xref-syntax-types-syntax-valtype-mathsf-string">
-<h3><span class="math notranslate nohighlight">\(\href{../syntax/types.html#syntax-primvaltype}{\mathit{primvaltype}}\)</span> other than <span class="math notranslate nohighlight">\(\href{../syntax/types.html#syntax-valtype}{\mathsf{string}}\)</span><a class="headerlink" href="#xref-syntax-types-syntax-primvaltype-mathit-primvaltype-other-than-xref-syntax-types-syntax-valtype-mathsf-string" title="Permalink to this headline">¶</a></h3>
+<h3><span class="math notranslate nohighlight">\(\href{../syntax/types.html#syntax-primvaltype}{\mathit{primvaltype}}\)</span> other than <span class="math notranslate nohighlight">\(\href{../syntax/types.html#syntax-valtype}{\mathsf{string}}\)</span><a class="headerlink" href="#xref-syntax-types-syntax-primvaltype-mathit-primvaltype-other-than-xref-syntax-types-syntax-valtype-mathsf-string" title="Permalink to this heading">¶</a></h3>
 <ul class="simple">
 <li><p>Any <span class="math notranslate nohighlight">\(\href{../syntax/types.html#syntax-primvaltype}{\mathit{primvaltype}}\)</span> other than <span class="math notranslate nohighlight">\(\href{../syntax/types.html#syntax-valtype}{\mathsf{string}}\)</span> elaborates to
 the <span class="math notranslate nohighlight">\(\href{../valid/types.html#syntax-evaltype}{\mathit{valtype}_e}\)</span> of the same name.</p></li>
@@ -173,12 +174,12 @@ the <span class="math notranslate nohighlight">\(\href{../valid/types.html#synta
 </section>
 </section>
 <section id="record-fields">
-<span id="syntax-erecordfield"></span><h2>Record fields<a class="headerlink" href="#record-fields" title="Permalink to this headline">¶</a></h2>
+<span id="syntax-erecordfield"></span><h2>Record fields<a class="headerlink" href="#record-fields" title="Permalink to this heading">¶</a></h2>
 <p>Any <span class="math notranslate nohighlight">\(\href{../syntax/types.html#syntax-recordcase}{\mathit{record\_field}}\)</span> elaborates to a <span class="math notranslate nohighlight">\(\href{../valid/types.html#syntax-erecordfield}{\mathit{record\_field}_e}\)</span> with
 the following abstract syntax:</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}\begin{array}{llcl}
-\def\mathdef6317#1{{}}\mathdef6317{(erecordfield)} &amp; \href{../valid/types.html#syntax-erecordfield}{\mathit{record\_field}_e} &amp;::=&amp;
+\def\mathdef1#1{{}}\mathdef1{(erecordfield)} &amp; \href{../valid/types.html#syntax-erecordfield}{\mathit{record\_field}_e} &amp;::=&amp;
   \{ \href{../valid/types.html#syntax-erecordfield}{\mathsf{name}}~\href{../syntax/values.html#syntax-name}{\mathit{name}}, \href{../valid/types.html#syntax-erecordfield}{\mathsf{type}}~\href{../valid/types.html#syntax-evaltype}{\mathit{valtype}_e} \}\\
 \end{array}\end{split}\]</div>
 <ul class="simple">
@@ -195,15 +196,15 @@ same name with the type <span class="math notranslate nohighlight">\(\href{../va
 }\]</div>
 </section>
 <section id="variant-cases">
-<span id="syntax-vcctx"></span><span id="syntax-evariantcase"></span><h2>Variant cases<a class="headerlink" href="#variant-cases" title="Permalink to this headline">¶</a></h2>
+<span id="syntax-vcctx"></span><span id="syntax-evariantcase"></span><h2>Variant cases<a class="headerlink" href="#variant-cases" title="Permalink to this heading">¶</a></h2>
 <p>Because validation must ensure that a variant case which refines
 another case has a compatible type, a variant case elaborates to an
 <span class="math notranslate nohighlight">\(\href{../valid/types.html#syntax-evariantcase}{\mathit{variant\_case}_e}\)</span> in a special context <span class="math notranslate nohighlight">\(\href{../valid/types.html#syntax-vcctx}{\mathit{vcctx}}\)</span>:</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}\begin{array}{llcl}
-\def\mathdef6317#1{{}}\mathdef6317{(vcctx)} &amp; \href{../valid/types.html#syntax-vcctx}{\mathit{vcctx}} &amp;::=&amp;
+\def\mathdef1#1{{}}\mathdef1{(vcctx)} &amp; \href{../valid/types.html#syntax-vcctx}{\mathit{vcctx}} &amp;::=&amp;
 \{ \href{../valid/types.html#syntax-vcctx}{\mathsf{ctx}}~\href{../valid/conventions.html#syntax-tyctx}{\Gamma}, \href{../valid/types.html#syntax-vcctx}{\mathsf{cases}}~\href{../valid/types.html#syntax-evariantcase}{\mathit{variant\_case}_e}^{*} \}\\
-\def\mathdef6317#1{{}}\mathdef6317{(evariantcase)} &amp; \href{../valid/types.html#syntax-evariantcase}{\mathit{variant\_case}_e} &amp;::=&amp;
+\def\mathdef1#1{{}}\mathdef1{(evariantcase)} &amp; \href{../valid/types.html#syntax-evariantcase}{\mathit{variant\_case}_e} &amp;::=&amp;
   \{ \href{../valid/types.html#syntax-evariantcase}{\mathsf{name}}~\href{../syntax/values.html#syntax-name}{\mathit{name}}, \href{../valid/types.html#syntax-evariantcase}{\mathsf{type}}~\href{../valid/types.html#syntax-evaltype}{\mathit{valtype}_e}, \href{../valid/types.html#syntax-evariantcase}{\mathsf{refines}}~\href{../syntax/values.html#syntax-int}{\mathit{u32}}^? \}\\
 \end{array}\end{split}\]</div>
 <ul class="simple">
@@ -245,18 +246,18 @@ refines name of <span class="math notranslate nohighlight">\(\href{../valid/type
 }\end{split}\]</div>
 </section>
 <section id="definition-value-types">
-<span id="syntax-evaltype2"></span><h2>Definition value types<a class="headerlink" href="#definition-value-types" title="Permalink to this headline">¶</a></h2>
+<span id="syntax-evaltype2"></span><h2>Definition value types<a class="headerlink" href="#definition-value-types" title="Permalink to this heading">¶</a></h2>
 <p>A definition value type elaborates to a <span class="math notranslate nohighlight">\(\href{../valid/types.html#syntax-evaltype}{\mathit{valtype}_e}\)</span>. The syntax
 of <span class="math notranslate nohighlight">\(\href{../valid/types.html#syntax-evaltype}{\mathit{valtype}_e}\)</span> is broader than shown earlier:</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}\begin{array}{llcl}
-\def\mathdef6317#1{{}}\mathdef6317{(evaltype2)} &amp; \href{../valid/types.html#syntax-evaltype}{\mathit{valtype}_e} &amp;::=&amp;
+\def\mathdef1#1{{}}\mathdef1{(evaltype2)} &amp; \href{../valid/types.html#syntax-evaltype}{\mathit{valtype}_e} &amp;::=&amp;
   \dots\\&amp;&amp;|&amp;
   \href{../valid/types.html#syntax-evaltype2}{\mathsf{record}}~\href{../valid/types.html#syntax-erecordfield}{\mathit{record\_field}_e}^{+}\\&amp;&amp;|&amp;
   \href{../valid/types.html#syntax-evaltype2}{\mathsf{variant}}~\href{../valid/types.html#syntax-evariantcase}{\mathit{variant\_case}_e}^{+}\\
 \end{array}\end{split}\]</div>
 <section id="xref-syntax-types-syntax-valtype-mathsf-prim-xref-syntax-types-syntax-primvaltype-mathit-primvaltype">
-<h3><span class="math notranslate nohighlight">\(\href{../syntax/types.html#syntax-valtype}{\mathsf{prim}}~\href{../syntax/types.html#syntax-primvaltype}{\mathit{primvaltype}}\)</span><a class="headerlink" href="#xref-syntax-types-syntax-valtype-mathsf-prim-xref-syntax-types-syntax-primvaltype-mathit-primvaltype" title="Permalink to this headline">¶</a></h3>
+<h3><span class="math notranslate nohighlight">\(\href{../syntax/types.html#syntax-valtype}{\mathsf{prim}}~\href{../syntax/types.html#syntax-primvaltype}{\mathit{primvaltype}}\)</span><a class="headerlink" href="#xref-syntax-types-syntax-valtype-mathsf-prim-xref-syntax-types-syntax-primvaltype-mathit-primvaltype" title="Permalink to this heading">¶</a></h3>
 <ul class="simple">
 <li><p>The primitive value type <span class="math notranslate nohighlight">\(\href{../syntax/types.html#syntax-primvaltype}{\mathit{primvaltype}}\)</span> must elaborate to some
 <span class="math notranslate nohighlight">\(\href{../valid/types.html#syntax-evaltype}{\mathit{valtype}_e}\)</span>.</p></li>
@@ -271,7 +272,7 @@ elaborates to the the the same <span class="math notranslate nohighlight">\(\hre
 }\]</div>
 </section>
 <section id="xref-syntax-types-syntax-valtype-mathsf-record-xref-syntax-types-syntax-recordcase-mathit-record-field">
-<h3><span class="math notranslate nohighlight">\(\href{../syntax/types.html#syntax-valtype}{\mathsf{record}}~\href{../syntax/types.html#syntax-recordcase}{\mathit{record\_field}}^{+}\)</span><a class="headerlink" href="#xref-syntax-types-syntax-valtype-mathsf-record-xref-syntax-types-syntax-recordcase-mathit-record-field" title="Permalink to this headline">¶</a></h3>
+<h3><span class="math notranslate nohighlight">\(\href{../syntax/types.html#syntax-valtype}{\mathsf{record}}~\href{../syntax/types.html#syntax-recordcase}{\mathit{record\_field}}^{+}\)</span><a class="headerlink" href="#xref-syntax-types-syntax-valtype-mathsf-record-xref-syntax-types-syntax-recordcase-mathit-record-field" title="Permalink to this heading">¶</a></h3>
 <ul class="simple">
 <li><p>Each record field declaration <span class="math notranslate nohighlight">\(\href{../syntax/types.html#syntax-recordcase}{\mathit{record\_field}}_i\)</span> must elaborate
 to some <span class="math notranslate nohighlight">\({\href{../valid/types.html#syntax-erecordfield}{\mathit{record\_field}_e}}_i\)</span>.</p></li>
@@ -292,7 +293,7 @@ elaborates to <span class="math notranslate nohighlight">\(\href{../valid/types.
 }\end{split}\]</div>
 </section>
 <section id="xref-syntax-types-syntax-valtype-mathsf-variant-xref-syntax-types-syntax-variantcase-mathit-variant-case">
-<h3><span class="math notranslate nohighlight">\(\href{../syntax/types.html#syntax-valtype}{\mathsf{variant}}~\href{../syntax/types.html#syntax-variantcase}{\mathit{variant\_case}}^{+}\)</span><a class="headerlink" href="#xref-syntax-types-syntax-valtype-mathsf-variant-xref-syntax-types-syntax-variantcase-mathit-variant-case" title="Permalink to this headline">¶</a></h3>
+<h3><span class="math notranslate nohighlight">\(\href{../syntax/types.html#syntax-valtype}{\mathsf{variant}}~\href{../syntax/types.html#syntax-variantcase}{\mathit{variant\_case}}^{+}\)</span><a class="headerlink" href="#xref-syntax-types-syntax-valtype-mathsf-variant-xref-syntax-types-syntax-variantcase-mathit-variant-case" title="Permalink to this heading">¶</a></h3>
 <ul class="simple">
 <li><p>Each variant case declaration <span class="math notranslate nohighlight">\(\href{../syntax/types.html#syntax-variantcase}{\mathit{variant\_case}}_i\)</span> must elaborate
 to some <span class="math notranslate nohighlight">\({\href{../valid/types.html#syntax-evariantcase}{\mathit{variant\_case}_e}}_i\)</span>, in a variant-case context
@@ -320,7 +321,7 @@ elaborates to <span class="math notranslate nohighlight">\(\href{../valid/types.
 }\end{split}\]</div>
 </section>
 <section id="xref-syntax-types-syntax-valtype-mathsf-list-xref-syntax-types-syntax-valtype-mathit-valtype">
-<h3><span class="math notranslate nohighlight">\(\href{../syntax/types.html#syntax-valtype}{\mathsf{list}}~\href{../syntax/types.html#syntax-valtype}{\mathit{valtype}}\)</span><a class="headerlink" href="#xref-syntax-types-syntax-valtype-mathsf-list-xref-syntax-types-syntax-valtype-mathit-valtype" title="Permalink to this headline">¶</a></h3>
+<h3><span class="math notranslate nohighlight">\(\href{../syntax/types.html#syntax-valtype}{\mathsf{list}}~\href{../syntax/types.html#syntax-valtype}{\mathit{valtype}}\)</span><a class="headerlink" href="#xref-syntax-types-syntax-valtype-mathsf-list-xref-syntax-types-syntax-valtype-mathit-valtype" title="Permalink to this heading">¶</a></h3>
 <ul class="simple">
 <li><p>The list element type <span class="math notranslate nohighlight">\(\href{../syntax/types.html#syntax-valtype}{\mathit{valtype}}\)</span> must elaborate to some
 <span class="math notranslate nohighlight">\(\href{../valid/types.html#syntax-evaltype}{\mathit{valtype}_e}\)</span>.</p></li>
@@ -335,7 +336,7 @@ to <span class="math notranslate nohighlight">\(\href{../valid/types.html#syntax
 }\]</div>
 </section>
 <section id="xref-syntax-types-syntax-valtype-mathsf-tuple-overline-xref-syntax-types-syntax-valtype-mathit-valtype-i">
-<h3><span class="math notranslate nohighlight">\(\href{../syntax/types.html#syntax-valtype}{\mathsf{tuple}}~\overline{\href{../syntax/types.html#syntax-valtype}{\mathit{valtype}}_i}\)</span><a class="headerlink" href="#xref-syntax-types-syntax-valtype-mathsf-tuple-overline-xref-syntax-types-syntax-valtype-mathit-valtype-i" title="Permalink to this headline">¶</a></h3>
+<h3><span class="math notranslate nohighlight">\(\href{../syntax/types.html#syntax-valtype}{\mathsf{tuple}}~\overline{\href{../syntax/types.html#syntax-valtype}{\mathit{valtype}}_i}\)</span><a class="headerlink" href="#xref-syntax-types-syntax-valtype-mathsf-tuple-overline-xref-syntax-types-syntax-valtype-mathit-valtype-i" title="Permalink to this heading">¶</a></h3>
 <ul class="simple">
 <li><p>Each tuple element type <span class="math notranslate nohighlight">\(\href{../syntax/types.html#syntax-valtype}{\mathit{valtype}}_i\)</span> must elaborate to some
 <span class="math notranslate nohighlight">\({\href{../valid/types.html#syntax-evaltype}{\mathit{valtype}_e}}_i\)</span>.</p></li>
@@ -352,7 +353,7 @@ to <span class="math notranslate nohighlight">\(\href{../valid/types.html#syntax
 }\]</div>
 </section>
 <section id="xref-syntax-types-syntax-valtype-mathsf-flags-overline-xref-syntax-values-syntax-name-mathit-name-i">
-<h3><span class="math notranslate nohighlight">\(\href{../syntax/types.html#syntax-valtype}{\mathsf{flags}}~\overline{\href{../syntax/values.html#syntax-name}{\mathit{name}}_i}\)</span><a class="headerlink" href="#xref-syntax-types-syntax-valtype-mathsf-flags-overline-xref-syntax-values-syntax-name-mathit-name-i" title="Permalink to this headline">¶</a></h3>
+<h3><span class="math notranslate nohighlight">\(\href{../syntax/types.html#syntax-valtype}{\mathsf{flags}}~\overline{\href{../syntax/values.html#syntax-name}{\mathit{name}}_i}\)</span><a class="headerlink" href="#xref-syntax-types-syntax-valtype-mathsf-flags-overline-xref-syntax-values-syntax-name-mathit-name-i" title="Permalink to this heading">¶</a></h3>
 <ul class="simple">
 <li><p>The definition value type <span class="math notranslate nohighlight">\(\href{../syntax/types.html#syntax-valtype}{\mathsf{flags}}~\overline{\href{../syntax/values.html#syntax-name}{\mathit{name}}_i}\)</span>
 elaborates to <span class="math notranslate nohighlight">\(\href{../syntax/types.html#syntax-valtype}{\mathsf{record}}~\overline{\{\href{../valid/types.html#syntax-erecordfield}{\mathsf{name}}~\href{../syntax/values.html#syntax-name}{\mathit{name}}_i,
@@ -366,7 +367,7 @@ elaborates to <span class="math notranslate nohighlight">\(\href{../syntax/types
 }\]</div>
 </section>
 <section id="xref-syntax-types-syntax-valtype-mathsf-enum-overline-xref-syntax-values-syntax-name-mathit-name-i">
-<h3><span class="math notranslate nohighlight">\(\href{../syntax/types.html#syntax-valtype}{\mathsf{enum}}~\overline{\href{../syntax/values.html#syntax-name}{\mathit{name}}_i}\)</span><a class="headerlink" href="#xref-syntax-types-syntax-valtype-mathsf-enum-overline-xref-syntax-values-syntax-name-mathit-name-i" title="Permalink to this headline">¶</a></h3>
+<h3><span class="math notranslate nohighlight">\(\href{../syntax/types.html#syntax-valtype}{\mathsf{enum}}~\overline{\href{../syntax/values.html#syntax-name}{\mathit{name}}_i}\)</span><a class="headerlink" href="#xref-syntax-types-syntax-valtype-mathsf-enum-overline-xref-syntax-values-syntax-name-mathit-name-i" title="Permalink to this heading">¶</a></h3>
 <ul class="simple">
 <li><p>The definition value type <span class="math notranslate nohighlight">\(\href{../syntax/types.html#syntax-valtype}{\mathsf{enum}}~\overline{\href{../syntax/values.html#syntax-name}{\mathit{name}}_i}\)</span>
 elaborates to <span class="math notranslate nohighlight">\(\href{../syntax/types.html#syntax-valtype}{\mathsf{variant}}~\overline{\{\href{../valid/types.html#syntax-evariantcase}{\mathsf{name}}~\href{../syntax/values.html#syntax-name}{\mathit{name}}_i\}}\)</span>.</p></li>
@@ -379,7 +380,7 @@ elaborates to <span class="math notranslate nohighlight">\(\href{../syntax/types
 }\]</div>
 </section>
 <section id="xref-syntax-types-syntax-valtype-mathsf-option-xref-syntax-types-syntax-valtype-mathit-valtype">
-<h3><span class="math notranslate nohighlight">\(\href{../syntax/types.html#syntax-valtype}{\mathsf{option}}~\href{../syntax/types.html#syntax-valtype}{\mathit{valtype}}\)</span><a class="headerlink" href="#xref-syntax-types-syntax-valtype-mathsf-option-xref-syntax-types-syntax-valtype-mathit-valtype" title="Permalink to this headline">¶</a></h3>
+<h3><span class="math notranslate nohighlight">\(\href{../syntax/types.html#syntax-valtype}{\mathsf{option}}~\href{../syntax/types.html#syntax-valtype}{\mathit{valtype}}\)</span><a class="headerlink" href="#xref-syntax-types-syntax-valtype-mathsf-option-xref-syntax-types-syntax-valtype-mathit-valtype" title="Permalink to this heading">¶</a></h3>
 <ul class="simple">
 <li><p>The type contained in the option <span class="math notranslate nohighlight">\(\href{../syntax/types.html#syntax-valtype}{\mathit{valtype}}\)</span> must elaborate to
 some <span class="math notranslate nohighlight">\(\href{../valid/types.html#syntax-evaltype}{\mathit{valtype}_e}\)</span>.</p></li>
@@ -396,7 +397,7 @@ to <span class="math notranslate nohighlight">\(\href{../valid/types.html#syntax
 }\]</div>
 </section>
 <section id="xref-syntax-types-syntax-valtype-mathsf-union-overline-xref-syntax-types-syntax-valtype-mathit-valtype-i">
-<h3><span class="math notranslate nohighlight">\(\href{../syntax/types.html#syntax-valtype}{\mathsf{union}}~\overline{\href{../syntax/types.html#syntax-valtype}{\mathit{valtype}}_i}\)</span><a class="headerlink" href="#xref-syntax-types-syntax-valtype-mathsf-union-overline-xref-syntax-types-syntax-valtype-mathit-valtype-i" title="Permalink to this headline">¶</a></h3>
+<h3><span class="math notranslate nohighlight">\(\href{../syntax/types.html#syntax-valtype}{\mathsf{union}}~\overline{\href{../syntax/types.html#syntax-valtype}{\mathit{valtype}}_i}\)</span><a class="headerlink" href="#xref-syntax-types-syntax-valtype-mathsf-union-overline-xref-syntax-types-syntax-valtype-mathit-valtype-i" title="Permalink to this heading">¶</a></h3>
 <ul class="simple">
 <li><p>Each value type <cite>valtype_i</cite> must elaborate to some <span class="math notranslate nohighlight">\({\href{../valid/types.html#syntax-evaltype}{\mathit{valtype}_e}}_i\)</span>.</p></li>
 <li><p>Then the definition value type
@@ -412,7 +413,7 @@ to <span class="math notranslate nohighlight">\(\href{../valid/types.html#syntax
 }\]</div>
 </section>
 <section id="xref-syntax-types-syntax-valtype-mathsf-result-overline-xref-syntax-types-syntax-valtype-mathit-valtype-i-overline-xref-syntax-types-syntax-valtype-mathit-valtype-j">
-<h3><span class="math notranslate nohighlight">\(\href{../syntax/types.html#syntax-valtype}{\mathsf{result}}~\overline{\href{../syntax/types.html#syntax-valtype}{\mathit{valtype}}_i}~\overline{\href{../syntax/types.html#syntax-valtype}{\mathit{valtype}}'_j}\)</span><a class="headerlink" href="#xref-syntax-types-syntax-valtype-mathsf-result-overline-xref-syntax-types-syntax-valtype-mathit-valtype-i-overline-xref-syntax-types-syntax-valtype-mathit-valtype-j" title="Permalink to this headline">¶</a></h3>
+<h3><span class="math notranslate nohighlight">\(\href{../syntax/types.html#syntax-valtype}{\mathsf{result}}~\overline{\href{../syntax/types.html#syntax-valtype}{\mathit{valtype}}_i}~\overline{\href{../syntax/types.html#syntax-valtype}{\mathit{valtype}}'_j}\)</span><a class="headerlink" href="#xref-syntax-types-syntax-valtype-mathsf-result-overline-xref-syntax-types-syntax-valtype-mathit-valtype-i-overline-xref-syntax-types-syntax-valtype-mathit-valtype-j" title="Permalink to this heading">¶</a></h3>
 <ul class="simple">
 <li><p>Each value type <span class="math notranslate nohighlight">\(\href{../syntax/types.html#syntax-valtype}{\mathit{valtype}}_i\)</span> must elaborate to some <span class="math notranslate nohighlight">\({\href{../valid/types.html#syntax-evaltype}{\mathit{valtype}_e}}_i\)</span>.</p></li>
 <li><p>Each value type <span class="math notranslate nohighlight">\(\href{../syntax/types.html#syntax-valtype}{\mathit{valtype}}'_j\)</span> must elaborate to some
@@ -436,9 +437,9 @@ elaborates to <span class="math notranslate nohighlight">\(\href{../valid/types.
 </section>
 </section>
 <section id="value-types">
-<h2>Value types<a class="headerlink" href="#value-types" title="Permalink to this headline">¶</a></h2>
+<h2>Value types<a class="headerlink" href="#value-types" title="Permalink to this heading">¶</a></h2>
 <section id="xref-syntax-types-syntax-primvaltype-mathit-primvaltype">
-<h3><span class="math notranslate nohighlight">\(\href{../syntax/types.html#syntax-primvaltype}{\mathit{primvaltype}}\)</span><a class="headerlink" href="#xref-syntax-types-syntax-primvaltype-mathit-primvaltype" title="Permalink to this headline">¶</a></h3>
+<h3><span class="math notranslate nohighlight">\(\href{../syntax/types.html#syntax-primvaltype}{\mathit{primvaltype}}\)</span><a class="headerlink" href="#xref-syntax-types-syntax-primvaltype-mathit-primvaltype" title="Permalink to this heading">¶</a></h3>
 <ul class="simple">
 <li><p>A value type of the form <span class="math notranslate nohighlight">\(\href{../syntax/types.html#syntax-primvaltype}{\mathit{primvaltype}}\)</span> must be a
 <span class="math notranslate nohighlight">\(\href{../syntax/types.html#syntax-primvaltype}{\mathit{primvaltype}}\)</span> which elaborates to some <span class="math notranslate nohighlight">\(\href{../valid/types.html#syntax-evaltype}{\mathit{valtype}_e}\)</span>.</p></li>
@@ -452,7 +453,7 @@ elaborates to <span class="math notranslate nohighlight">\(\href{../valid/types.
 }\]</div>
 </section>
 <section id="xref-syntax-components-syntax-typeidx-mathit-typeidx">
-<h3><span class="math notranslate nohighlight">\(\href{../syntax/components.html#syntax-typeidx}{\mathit{typeidx}}\)</span><a class="headerlink" href="#xref-syntax-components-syntax-typeidx-mathit-typeidx" title="Permalink to this headline">¶</a></h3>
+<h3><span class="math notranslate nohighlight">\(\href{../syntax/components.html#syntax-typeidx}{\mathit{typeidx}}\)</span><a class="headerlink" href="#xref-syntax-components-syntax-typeidx-mathit-typeidx" title="Permalink to this heading">¶</a></h3>
 <ul class="simple">
 <li><p>The type <span class="math notranslate nohighlight">\(\href{../valid/conventions.html#syntax-tyctx}{\Gamma}.\href{../valid/conventions.html#syntax-tyctx}{\mathsf{types}}[\href{../syntax/components.html#syntax-typeidx}{\mathit{typeidx}}]\)</span> must be defined in the
 context.</p></li>
@@ -467,17 +468,17 @@ context.</p></li>
 </section>
 </section>
 <section id="result-types">
-<span id="syntax-eresulttype"></span><h2>Result types<a class="headerlink" href="#result-types" title="Permalink to this headline">¶</a></h2>
+<span id="syntax-eresulttype"></span><h2>Result types<a class="headerlink" href="#result-types" title="Permalink to this heading">¶</a></h2>
 <p>Any <span class="math notranslate nohighlight">\(\href{../syntax/types.html#syntax-resulttype}{\mathit{resulttype}}\)</span> elaborates to a <span class="math notranslate nohighlight">\(\href{../valid/types.html#syntax-eresulttype}{\mathit{resulttype}_e}\)</span> with the
 following abstract syntax:</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}\begin{array}{llcl}
-\def\mathdef6317#1{{}}\mathdef6317{(eresulttype)} &amp; \href{../valid/types.html#syntax-eresulttype}{\mathit{resulttype}_e} &amp;::=&amp;
+\def\mathdef1#1{{}}\mathdef1{(eresulttype)} &amp; \href{../valid/types.html#syntax-eresulttype}{\mathit{resulttype}_e} &amp;::=&amp;
   \href{../valid/types.html#syntax-evaltype}{\mathit{valtype}_e}\\&amp;&amp;|&amp;
   \{ \href{../valid/types.html#syntax-eresulttype}{\mathsf{name}}~\href{../syntax/values.html#syntax-name}{\mathit{name}}, \href{../valid/types.html#syntax-eresulttype}{\mathsf{type}}~\href{../valid/types.html#syntax-evaltype}{\mathit{valtype}_e} \}^\ast
 \end{array}\end{split}\]</div>
 <section id="xref-syntax-types-syntax-valtype-mathit-valtype">
-<h3><span class="math notranslate nohighlight">\(\href{../syntax/types.html#syntax-valtype}{\mathit{valtype}}\)</span><a class="headerlink" href="#xref-syntax-types-syntax-valtype-mathit-valtype" title="Permalink to this headline">¶</a></h3>
+<h3><span class="math notranslate nohighlight">\(\href{../syntax/types.html#syntax-valtype}{\mathit{valtype}}\)</span><a class="headerlink" href="#xref-syntax-types-syntax-valtype-mathit-valtype" title="Permalink to this heading">¶</a></h3>
 <ul class="simple">
 <li><p><span class="math notranslate nohighlight">\(\href{../syntax/types.html#syntax-valtype}{\mathit{valtype}}\)</span> must elaborate to some <span class="math notranslate nohighlight">\(\href{../valid/types.html#syntax-evaltype}{\mathit{valtype}_e}\)</span></p></li>
 <li><p>Then the result type <span class="math notranslate nohighlight">\(\href{../syntax/types.html#syntax-valtype}{\mathit{valtype}}\)</span> elaborates to <span class="math notranslate nohighlight">\(\href{../valid/types.html#syntax-evaltype}{\mathit{valtype}_e}\)</span>.</p></li>
@@ -490,7 +491,7 @@ following abstract syntax:</p>
 }\]</div>
 </section>
 <section id="overline-xref-syntax-types-syntax-resulttype-mathsf-name-xref-syntax-values-syntax-name-mathit-name-i-xref-syntax-types-syntax-resulttype-mathsf-type-xref-syntax-types-syntax-valtype-mathit-valtype-i">
-<h3><span class="math notranslate nohighlight">\(\overline{\{\href{../syntax/types.html#syntax-resulttype}{\mathsf{name}}~\href{../syntax/values.html#syntax-name}{\mathit{name}}_i, \href{../syntax/types.html#syntax-resulttype}{\mathsf{type}}~\href{../syntax/types.html#syntax-valtype}{\mathit{valtype}}_i\}}\)</span><a class="headerlink" href="#overline-xref-syntax-types-syntax-resulttype-mathsf-name-xref-syntax-values-syntax-name-mathit-name-i-xref-syntax-types-syntax-resulttype-mathsf-type-xref-syntax-types-syntax-valtype-mathit-valtype-i" title="Permalink to this headline">¶</a></h3>
+<h3><span class="math notranslate nohighlight">\(\overline{\{\href{../syntax/types.html#syntax-resulttype}{\mathsf{name}}~\href{../syntax/values.html#syntax-name}{\mathit{name}}_i, \href{../syntax/types.html#syntax-resulttype}{\mathsf{type}}~\href{../syntax/types.html#syntax-valtype}{\mathit{valtype}}_i\}}\)</span><a class="headerlink" href="#overline-xref-syntax-types-syntax-resulttype-mathsf-name-xref-syntax-values-syntax-name-mathit-name-i-xref-syntax-types-syntax-resulttype-mathsf-type-xref-syntax-types-syntax-valtype-mathit-valtype-i" title="Permalink to this heading">¶</a></h3>
 <ul class="simple">
 <li><p>Each <span class="math notranslate nohighlight">\(\href{../syntax/types.html#syntax-valtype}{\mathit{valtype}}_i\)</span> must elaborate to some <span class="math notranslate nohighlight">\({\href{../valid/types.html#syntax-evaltype}{\mathit{valtype}_e}}_i\)</span>.</p></li>
 <li><p>Then the result type <span class="math notranslate nohighlight">\(\overline{\{\href{../syntax/types.html#syntax-resulttype}{\mathsf{name}}~\href{../syntax/values.html#syntax-name}{\mathit{name}}_i,
@@ -507,16 +508,16 @@ following abstract syntax:</p>
 </section>
 </section>
 <section id="function-types">
-<span id="syntax-efunctype"></span><h2>Function types<a class="headerlink" href="#function-types" title="Permalink to this headline">¶</a></h2>
+<span id="syntax-efunctype"></span><h2>Function types<a class="headerlink" href="#function-types" title="Permalink to this heading">¶</a></h2>
 <p>Any <span class="math notranslate nohighlight">\(\href{../syntax/types.html#syntax-functype}{\mathit{functype}}\)</span> elaborates to a <span class="math notranslate nohighlight">\(\href{../valid/types.html#syntax-efunctype}{\mathit{functype}_e}\)</span> with the
 following abstract syntax:</p>
 <div class="math notranslate nohighlight">
 \[\begin{array}{llcl}
-\def\mathdef6317#1{{}}\mathdef6317{(efunctype)} &amp; \href{../valid/types.html#syntax-efunctype}{\mathit{functype}_e} &amp;::=&amp;
+\def\mathdef1#1{{}}\mathdef1{(efunctype)} &amp; \href{../valid/types.html#syntax-efunctype}{\mathit{functype}_e} &amp;::=&amp;
   \href{../valid/types.html#syntax-eresulttype}{\mathit{resulttype}_e}\to\href{../valid/types.html#syntax-eresulttype}{\mathit{resulttype}_e}
 \end{array}\]</div>
 <section id="xref-syntax-types-syntax-resulttype-mathit-resulttype-1-to-xref-syntax-types-syntax-resulttype-mathit-resulttype-2">
-<h3><span class="math notranslate nohighlight">\(\href{../syntax/types.html#syntax-resulttype}{\mathit{resulttype}}_1 \to \href{../syntax/types.html#syntax-resulttype}{\mathit{resulttype}}_2\)</span><a class="headerlink" href="#xref-syntax-types-syntax-resulttype-mathit-resulttype-1-to-xref-syntax-types-syntax-resulttype-mathit-resulttype-2" title="Permalink to this headline">¶</a></h3>
+<h3><span class="math notranslate nohighlight">\(\href{../syntax/types.html#syntax-resulttype}{\mathit{resulttype}}_1 \to \href{../syntax/types.html#syntax-resulttype}{\mathit{resulttype}}_2\)</span><a class="headerlink" href="#xref-syntax-types-syntax-resulttype-mathit-resulttype-1-to-xref-syntax-types-syntax-resulttype-mathit-resulttype-2" title="Permalink to this heading">¶</a></h3>
 <ul class="simple">
 <li><p><span class="math notranslate nohighlight">\(\href{../syntax/types.html#syntax-resulttype}{\mathit{resulttype}}_1\)</span> must elaborate to some <span class="math notranslate nohighlight">\({\href{../valid/types.html#syntax-eresulttype}{\mathit{resulttype}_e}}_1\)</span>.</p></li>
 <li><p><span class="math notranslate nohighlight">\(\href{../syntax/types.html#syntax-resulttype}{\mathit{resulttype}}_2\)</span> must elaborate to some <span class="math notranslate nohighlight">\({\href{../valid/types.html#syntax-eresulttype}{\mathit{resulttype}_e}}_2\)</span>.</p></li>
@@ -536,15 +537,15 @@ elaborates to <span class="math notranslate nohighlight">\({\href{../valid/types
 </section>
 </section>
 <section id="type-bound">
-<span id="syntax-etypebound"></span><h2>Type bound<a class="headerlink" href="#type-bound" title="Permalink to this headline">¶</a></h2>
+<span id="syntax-etypebound"></span><h2>Type bound<a class="headerlink" href="#type-bound" title="Permalink to this heading">¶</a></h2>
 <p>A type bound elaborates to a <span class="math notranslate nohighlight">\(\href{../valid/types.html#syntax-etypebound}{\mathit{typebound}_e}\)</span> with the following
 abstract syntax:</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}\begin{array}{llcl}
-\def\mathdef6317#1{{}}\mathdef6317{(etypebound)} &amp; \href{../valid/types.html#syntax-etypebound}{\mathit{typebound}_e} &amp;::=&amp; \href{../valid/types.html#syntax-etypebound}{\mathsf{eq}}~\href{../valid/types.html#syntax-edeftype}{\mathit{deftype}_e}\\
+\def\mathdef1#1{{}}\mathdef1{(etypebound)} &amp; \href{../valid/types.html#syntax-etypebound}{\mathit{typebound}_e} &amp;::=&amp; \href{../valid/types.html#syntax-etypebound}{\mathsf{eq}}~\href{../valid/types.html#syntax-edeftype}{\mathit{deftype}_e}\\
 \end{array}\end{split}\]</div>
 <section id="id1">
-<h3><span class="math notranslate nohighlight">\(\href{../syntax/components.html#syntax-typeidx}{\mathit{typeidx}}\)</span><a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<h3><span class="math notranslate nohighlight">\(\href{../syntax/components.html#syntax-typeidx}{\mathit{typeidx}}\)</span><a class="headerlink" href="#id1" title="Permalink to this heading">¶</a></h3>
 <ul class="simple">
 <li><p>The type <span class="math notranslate nohighlight">\(\href{../valid/conventions.html#syntax-tyctx}{\Gamma}.\href{../valid/conventions.html#syntax-tyctx}{\mathsf{types}}[\href{../syntax/components.html#syntax-typeidx}{\mathit{typeidx}}]\)</span> must be defined in the context.</p></li>
 <li><p>Then <span class="math notranslate nohighlight">\(\href{../syntax/components.html#syntax-typeidx}{\mathit{typeidx}}\)</span> elaborates to <span class="math notranslate nohighlight">\(\href{../valid/types.html#syntax-etypebound}{\mathsf{eq}}~\href{../valid/conventions.html#syntax-tyctx}{\Gamma}.\href{../valid/conventions.html#syntax-tyctx}{\mathsf{types}}[\href{../syntax/components.html#syntax-typeidx}{\mathit{typeidx}}]\)</span>.</p></li>
@@ -557,15 +558,15 @@ abstract syntax:</p>
 </section>
 </section>
 <section id="instance-types">
-<span id="syntax-boundedtyvar"></span><span id="syntax-eexterndesc"></span><span id="syntax-eexterndeclad"></span><span id="syntax-eexterndecl"></span><span id="syntax-einstancetypead"></span><span id="syntax-einstancetype"></span><h2>Instance types<a class="headerlink" href="#instance-types" title="Permalink to this headline">¶</a></h2>
+<span id="syntax-boundedtyvar"></span><span id="syntax-eexterndesc"></span><span id="syntax-eexterndeclad"></span><span id="syntax-eexterndecl"></span><span id="syntax-einstancetypead"></span><span id="syntax-einstancetype"></span><h2>Instance types<a class="headerlink" href="#instance-types" title="Permalink to this heading">¶</a></h2>
 <p>An elaborated instance type is nothing more than a list of its exports
 behind existential quantifiers for exported types:</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}\begin{array}{llcl}
-\def\mathdef6317#1{{}}\mathdef6317{(einstancetype)} &amp; \href{../valid/types.html#syntax-einstancetype}{\mathit{instancetype}_e} &amp;::=&amp; \exists \href{../valid/types.html#syntax-boundedtyvar}{\mathit{boundedtyvar}}^\ast. \href{../valid/types.html#syntax-eexportdecl}{\mathit{externdecl}_e}^{*}\\
-\def\mathdef6317#1{{}}\mathdef6317{(boundedtyvar)} &amp; \href{../valid/types.html#syntax-boundedtyvar}{\mathit{boundedtyvar}} &amp;::=&amp; (\alpha : \href{../valid/types.html#syntax-etypebound}{\mathit{typebound}_e})\\
-\def\mathdef6317#1{{}}\mathdef6317{(eexterndecl)} &amp; \href{../valid/types.html#syntax-eexportdecl}{\mathit{externdecl}_e} &amp;::=&amp; \{ \href{../valid/types.html#syntax-eexportdecl}{\mathsf{name}}~\href{../syntax/values.html#syntax-name}{\mathit{name}}, \href{../valid/types.html#syntax-eexportdecl}{\mathsf{desc}}~\href{../valid/types.html#syntax-eexterndesc}{\mathit{externdesc}_e} \}\\
-\def\mathdef6317#1{{}}\mathdef6317{(eexterndesc)} &amp; \href{../valid/types.html#syntax-eexterndesc}{\mathit{externdesc}_e} &amp;::=&amp;
+\def\mathdef1#1{{}}\mathdef1{(einstancetype)} &amp; \href{../valid/types.html#syntax-einstancetype}{\mathit{instancetype}_e} &amp;::=&amp; \exists \href{../valid/types.html#syntax-boundedtyvar}{\mathit{boundedtyvar}}^\ast. \href{../valid/types.html#syntax-eexportdecl}{\mathit{externdecl}_e}^{*}\\
+\def\mathdef1#1{{}}\mathdef1{(boundedtyvar)} &amp; \href{../valid/types.html#syntax-boundedtyvar}{\mathit{boundedtyvar}} &amp;::=&amp; (\alpha : \href{../valid/types.html#syntax-etypebound}{\mathit{typebound}_e})\\
+\def\mathdef1#1{{}}\mathdef1{(eexterndecl)} &amp; \href{../valid/types.html#syntax-eexportdecl}{\mathit{externdecl}_e} &amp;::=&amp; \{ \href{../valid/types.html#syntax-eexportdecl}{\mathsf{name}}~\href{../syntax/values.html#syntax-name}{\mathit{name}}, \href{../valid/types.html#syntax-eexportdecl}{\mathsf{desc}}~\href{../valid/types.html#syntax-eexterndesc}{\mathit{externdesc}_e} \}\\
+\def\mathdef1#1{{}}\mathdef1{(eexterndesc)} &amp; \href{../valid/types.html#syntax-eexterndesc}{\mathit{externdesc}_e} &amp;::=&amp;
   \href{../valid/types.html#syntax-eexterndesc}{\mathsf{core\_module}}~\href{../valid/types.html#syntax-ecoremoduletype}{\mathit{core{:}moduletype}_e}\\&amp;&amp;|&amp;
   \href{../valid/types.html#syntax-eexterndesc}{\mathsf{func}}~\href{../valid/types.html#syntax-efunctype}{\mathit{functype}_e}\\&amp;&amp;|&amp;
   \href{../valid/types.html#syntax-eexterndesc}{\mathsf{value}}~\href{../valid/types.html#syntax-evaltype}{\mathit{valtype}_e}\\&amp;&amp;|&amp;
@@ -578,14 +579,14 @@ instances in the contexts are, by analogy with <span class="math notranslate noh
 assigned types from <span class="math notranslate nohighlight">\(\href{../valid/types.html#syntax-einstancetypead}{{\mathit{instancetype}_e^?}}\)</span>.</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}\begin{array}{llcl}
-\def\mathdef6317#1{{}}\mathdef6317{(einstancetypead)} &amp; \href{../valid/types.html#syntax-einstancetypead}{{\mathit{instancetype}_e^?}} &amp;::=&amp;
+\def\mathdef1#1{{}}\mathdef1{(einstancetypead)} &amp; \href{../valid/types.html#syntax-einstancetypead}{{\mathit{instancetype}_e^?}} &amp;::=&amp;
   \exists\href{../valid/types.html#syntax-boundedtyvar}{\mathit{boundedtyvar}}^\ast. \href{../valid/types.html#syntax-eexterndeclad}{{\mathit{externdecl}_e^?}}^{*}\\
-\def\mathdef6317#1{{}}\mathdef6317{(eexterndeclad)} &amp; \href{../valid/types.html#syntax-eexterndeclad}{{\mathit{externdecl}_e^?}} &amp;::=&amp;
+\def\mathdef1#1{{}}\mathdef1{(eexterndeclad)} &amp; \href{../valid/types.html#syntax-eexterndeclad}{{\mathit{externdecl}_e^?}} &amp;::=&amp;
   \href{../valid/types.html#syntax-eexportdecl}{\mathit{externdecl}_e}\\&amp;&amp;|&amp;
   \href{../valid/types.html#syntax-eexportdecl}{\mathit{externdecl}_e}^\dagger\\
 \end{array}\end{split}\]</div>
 <section id="notational-conventions">
-<h3>Notational conventions<a class="headerlink" href="#notational-conventions" title="Permalink to this headline">¶</a></h3>
+<h3>Notational conventions<a class="headerlink" href="#notational-conventions" title="Permalink to this heading">¶</a></h3>
 <ul class="simple">
 <li><p>We write <span class="math notranslate nohighlight">\(\href{../valid/types.html#syntax-einstancetype}{\mathit{instancetype}_e} \oplus \href{../valid/types.html#syntax-einstancetype}{\mathit{instancetype}_e}'\)</span> to mean the
 instance type formed by the concationation of the export
@@ -596,7 +597,7 @@ type formed by <span class="math notranslate nohighlight">\({\href{../valid/type
 </ul>
 </section>
 <section id="finalize-xref-valid-types-auxiliary-ifinalize-langle-mkern-5mu-langle-xref-valid-types-syntax-einstancetype-mathit-instancetype-e-xref-valid-types-auxiliary-ifinalize-rangle-mkern-5mu-rangle">
-<span id="auxiliary-ifinalize"></span><h3>Finalize: <span class="math notranslate nohighlight">\(\href{../valid/types.html#auxiliary-ifinalize}{\langle\mkern-5mu\langle} \href{../valid/types.html#syntax-einstancetype}{\mathit{instancetype}_e} \href{../valid/types.html#auxiliary-ifinalize}{\rangle\mkern-5mu\rangle}\)</span><a class="headerlink" href="#finalize-xref-valid-types-auxiliary-ifinalize-langle-mkern-5mu-langle-xref-valid-types-syntax-einstancetype-mathit-instancetype-e-xref-valid-types-auxiliary-ifinalize-rangle-mkern-5mu-rangle" title="Permalink to this headline">¶</a></h3>
+<span id="auxiliary-ifinalize"></span><h3>Finalize: <span class="math notranslate nohighlight">\(\href{../valid/types.html#auxiliary-ifinalize}{\langle\mkern-5mu\langle} \href{../valid/types.html#syntax-einstancetype}{\mathit{instancetype}_e} \href{../valid/types.html#auxiliary-ifinalize}{\rangle\mkern-5mu\rangle}\)</span><a class="headerlink" href="#finalize-xref-valid-types-auxiliary-ifinalize-langle-mkern-5mu-langle-xref-valid-types-syntax-einstancetype-mathit-instancetype-e-xref-valid-types-auxiliary-ifinalize-rangle-mkern-5mu-rangle" title="Permalink to this heading">¶</a></h3>
 <p>Finalizing an instance type eliminates unnecessary type variables with
 equality constraints, ensures that all type variables are well-scoped,
 and that all quantified types are exported.</p>
@@ -636,7 +637,7 @@ that it is equality-bounded to.</p></li>
 }\end{split}\]</div>
 </section>
 <section id="overline-xref-syntax-types-syntax-instancedecl-mathit-instancedecl-i">
-<h3><span class="math notranslate nohighlight">\(\overline{\href{../syntax/types.html#syntax-instancedecl}{\mathit{instancedecl}}_i}\)</span><a class="headerlink" href="#overline-xref-syntax-types-syntax-instancedecl-mathit-instancedecl-i" title="Permalink to this headline">¶</a></h3>
+<h3><span class="math notranslate nohighlight">\(\overline{\href{../syntax/types.html#syntax-instancedecl}{\mathit{instancedecl}}_i}\)</span><a class="headerlink" href="#overline-xref-syntax-types-syntax-instancedecl-mathit-instancedecl-i" title="Permalink to this heading">¶</a></h3>
 <ul class="simple">
 <li><p><span class="math notranslate nohighlight">\(\href{../syntax/types.html#syntax-instancedecl}{\mathit{instancedecl}}_1\)</span> must elaborate to some
 <span class="math notranslate nohighlight">\({\href{../valid/types.html#syntax-einstancetype}{\mathit{instancetype}_e}}_1\)</span> in the context
@@ -662,11 +663,11 @@ to <span class="math notranslate nohighlight">\(\bigoplus_i {\href{../valid/type
 </section>
 </section>
 <section id="instance-declarators">
-<h2>Instance declarators<a class="headerlink" href="#instance-declarators" title="Permalink to this headline">¶</a></h2>
+<h2>Instance declarators<a class="headerlink" href="#instance-declarators" title="Permalink to this heading">¶</a></h2>
 <p>Each instance declarator elaborates to a (partial)
 <span class="math notranslate nohighlight">\(\href{../valid/types.html#syntax-einstancetype}{\mathit{instancetype}_e}\)</span>.</p>
 <section id="xref-syntax-types-syntax-instancedecl-mathsf-alias-xref-syntax-types-syntax-alias-mathit-alias">
-<h3><span class="math notranslate nohighlight">\(\href{../syntax/types.html#syntax-instancedecl}{\mathsf{alias}}~\href{../syntax/types.html#syntax-alias}{\mathit{alias}}\)</span><a class="headerlink" href="#xref-syntax-types-syntax-instancedecl-mathsf-alias-xref-syntax-types-syntax-alias-mathit-alias" title="Permalink to this headline">¶</a></h3>
+<h3><span class="math notranslate nohighlight">\(\href{../syntax/types.html#syntax-instancedecl}{\mathsf{alias}}~\href{../syntax/types.html#syntax-alias}{\mathit{alias}}\)</span><a class="headerlink" href="#xref-syntax-types-syntax-instancedecl-mathsf-alias-xref-syntax-types-syntax-alias-mathit-alias" title="Permalink to this heading">¶</a></h3>
 <ul class="simple">
 <li><p>The <span class="math notranslate nohighlight">\(\href{../syntax/types.html#syntax-alias}{\mathit{alias}}.\href{../syntax/types.html#syntax-alias}{\mathsf{sort}}\)</span> must be <span class="math notranslate nohighlight">\(\href{../syntax/components.html#syntax-sort}{\mathsf{type}}\)</span>.</p></li>
 <li><p>The <span class="math notranslate nohighlight">\(\href{../syntax/types.html#syntax-alias}{\mathit{alias}}.\href{../syntax/types.html#syntax-alias}{\mathsf{target}}\)</span> must be of the form
@@ -690,7 +691,7 @@ original <span class="math notranslate nohighlight">\(\href{../valid/conventions
 }\end{split}\]</div>
 </section>
 <section id="xref-syntax-types-syntax-instancedecl-mathsf-core-type-core-xref-syntax-types-syntax-functype-mathit-core-mathit-type">
-<h3><span class="math notranslate nohighlight">\(\href{../syntax/types.html#syntax-instancedecl}{\mathsf{core\_type}}~\href{https://webassembly.github.io/spec/core/syntax/types.html#syntax-functype}{\mathit{core{:}}\mathit{type}}\)</span><a class="headerlink" href="#xref-syntax-types-syntax-instancedecl-mathsf-core-type-core-xref-syntax-types-syntax-functype-mathit-core-mathit-type" title="Permalink to this headline">¶</a></h3>
+<h3><span class="math notranslate nohighlight">\(\href{../syntax/types.html#syntax-instancedecl}{\mathsf{core\_type}}~\href{https://webassembly.github.io/spec/core/syntax/types.html#syntax-functype}{\mathit{core{:}}\mathit{type}}\)</span><a class="headerlink" href="#xref-syntax-types-syntax-instancedecl-mathsf-core-type-core-xref-syntax-types-syntax-functype-mathit-core-mathit-type" title="Permalink to this heading">¶</a></h3>
 <ul class="simple">
 <li><p>The core type definition <span class="math notranslate nohighlight">\(\href{https://webassembly.github.io/spec/core/syntax/types.html#syntax-functype}{\mathit{core{:}}\mathit{type}}\)</span> must elaborate to some
 elaborated core type <span class="math notranslate nohighlight">\(\href{../valid/types.html#syntax-ecoredeftype}{\mathit{core{:}deftype}_e}\)</span>.</p></li>
@@ -708,252 +709,163 @@ elaborates to the empty list of exports, and sets
   \exists\varnothing. \varnothing \dashv \href{../valid/conventions.html#syntax-tyctx}{\Gamma} \oplus \{ \href{../valid/conventions.html#syntax-tyctx}{\mathsf{core}}~\href{../valid/conventions.html#syntax-coretyctx}{\mathsf{types}}~\href{../valid/types.html#syntax-ecoredeftype}{\mathit{core{:}deftype}_e} \}
 }\]</div>
 </section>
-<section id="xref-syntax-types-syntax-instancedecl-mathsf-type-xref-syntax-types-syntax-typebound-mathit-typebound">
-<h3><span class="math notranslate nohighlight">\(\href{../syntax/types.html#syntax-instancedecl}{\mathsf{type}}~\href{../syntax/types.html#syntax-typebound}{\mathit{typebound}}\)</span><a class="headerlink" href="#xref-syntax-types-syntax-instancedecl-mathsf-type-xref-syntax-types-syntax-typebound-mathit-typebound" title="Permalink to this headline">¶</a></h3>
+<section id="xref-syntax-types-syntax-instancedecl-mathsf-type-xref-syntax-types-syntax-deftype-mathit-deftype">
+<h3><span class="math notranslate nohighlight">\(\href{../syntax/types.html#syntax-instancedecl}{\mathsf{type}}~\href{../syntax/types.html#syntax-deftype}{\mathit{deftype}}\)</span><a class="headerlink" href="#xref-syntax-types-syntax-instancedecl-mathsf-type-xref-syntax-types-syntax-deftype-mathit-deftype" title="Permalink to this heading">¶</a></h3>
 <ul class="simple">
-<li><p>The type bound <span class="math notranslate nohighlight">\(\href{../syntax/types.html#syntax-typebound}{\mathit{typebound}}\)</span> must elaborate to some elaborated
-definition type <span class="math notranslate nohighlight">\(\href{../valid/types.html#syntax-etypebound}{\mathit{typebound}_e}\)</span>.</p></li>
+<li><p>The definition type <span class="math notranslate nohighlight">\(\href{../syntax/types.html#syntax-deftype}{\mathit{deftype}}\)</span> must elaborate to some
+elaborated definition type <span class="math notranslate nohighlight">\(\href{../valid/types.html#syntax-edeftype}{\mathit{deftype}_e}\)</span>.</p></li>
 <li><p>Let <span class="math notranslate nohighlight">\(\alpha\)</span> be a fresh type variable.</p></li>
-<li><p>Then the instance declarator <span class="math notranslate nohighlight">\(\href{../syntax/types.html#syntax-instancedecl}{\mathsf{type}}~\href{../syntax/types.html#syntax-typebound}{\mathit{typebound}}\)</span> elaborates
-to the empty list of exports behind an existential quantifier
-associating <span class="math notranslate nohighlight">\(\alpha\)</span> with <span class="math notranslate nohighlight">\(\href{../valid/types.html#syntax-etypebound}{\mathit{typebound}_e}\)</span>, and sets
+<li><p>Then the instance declarator <span class="math notranslate nohighlight">\(\href{../syntax/types.html#syntax-instancedecl}{\mathsf{type}}~\href{../syntax/types.html#syntax-deftype}{\mathit{deftype}}\)</span> elaborates to
+the empty list of exports behind an existential quantifier
+associating <span class="math notranslate nohighlight">\(\alpha\)</span> with <span class="math notranslate nohighlight">\(\href{../valid/types.html#syntax-edeftype}{\mathit{deftype}_e}\)</span>, and sets
 <span class="math notranslate nohighlight">\(\href{../valid/conventions.html#syntax-tyctx}{\mathsf{types}}\)</span> in the context to the original
 <span class="math notranslate nohighlight">\(\href{../valid/conventions.html#syntax-tyctx}{\Gamma}.\href{../valid/conventions.html#syntax-tyctx}{\mathsf{types}}\)</span> followed by the <span class="math notranslate nohighlight">\(\alpha\)</span>.</p></li>
 </ul>
 <div class="math notranslate nohighlight">
 \[\frac{
-  \href{../valid/conventions.html#syntax-tyctx}{\Gamma} \vdash \href{../syntax/types.html#syntax-typebound}{\mathit{typebound}} \leadsto \href{../valid/types.html#syntax-etypebound}{\mathit{typebound}_e}
+  \href{../valid/conventions.html#syntax-tyctx}{\Gamma} \vdash \href{../syntax/types.html#syntax-deftype}{\mathit{deftype}} \leadsto \href{../valid/types.html#syntax-edeftype}{\mathit{deftype}_e}
 }{
-  \href{../valid/conventions.html#syntax-tyctx}{\Gamma} \vdash \href{../syntax/types.html#syntax-instancedecl}{\mathsf{type}}~\href{../syntax/types.html#syntax-typebound}{\mathit{typebound}} \leadsto
-  \exists(\alpha :\href{../valid/types.html#syntax-etypebound}{\mathit{typebound}_e}). \varnothing
-  \dashv \href{../valid/conventions.html#syntax-tyctx}{\Gamma} \oplus \{ \href{../valid/conventions.html#syntax-tyctx}{\mathsf{vars}}~(\alpha :\href{../valid/types.html#syntax-etypebound}{\mathit{typebound}_e}), \href{../valid/conventions.html#syntax-tyctx}{\mathsf{types}}~\alpha \}
+  \href{../valid/conventions.html#syntax-tyctx}{\Gamma} \vdash \href{../syntax/types.html#syntax-instancedecl}{\mathsf{type}}~\href{../syntax/types.html#syntax-deftype}{\mathit{deftype}} \leadsto
+  \exists(\alpha : \href{../valid/types.html#syntax-etypebound}{\mathsf{eq}}~\href{../valid/types.html#syntax-etypebound}{\mathit{typebound}_e}). \varnothing
+  \dashv \href{../valid/conventions.html#syntax-tyctx}{\Gamma} \oplus \{ \href{../valid/conventions.html#syntax-tyctx}{\mathsf{vars}}~(\alpha :\href{../valid/types.html#syntax-etypebound}{\mathsf{eq}}~\href{../valid/types.html#syntax-etypebound}{\mathit{typebound}_e}), \href{../valid/conventions.html#syntax-tyctx}{\mathsf{types}}~\alpha \}
 }\]</div>
-</section>
-<section id="xref-syntax-types-syntax-instancedecl-mathsf-core-module-core-xref-syntax-modules-syntax-typeidx-mathit-core-mathit-typeidx">
-<h3><span class="math notranslate nohighlight">\(\href{../syntax/types.html#syntax-instancedecl}{\mathsf{core\_module}}~\href{https://webassembly.github.io/spec/core/syntax/modules.html#syntax-typeidx}{\mathit{core{:}}\mathit{typeidx}}\)</span><a class="headerlink" href="#xref-syntax-types-syntax-instancedecl-mathsf-core-module-core-xref-syntax-modules-syntax-typeidx-mathit-core-mathit-typeidx" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
-<li><p>The type <span class="math notranslate nohighlight">\(\href{../valid/conventions.html#syntax-tyctx}{\Gamma}.\href{../valid/conventions.html#syntax-tyctx}{\mathsf{core}}.\href{../valid/conventions.html#syntax-coretyctx}{\mathsf{types}}[\href{https://webassembly.github.io/spec/core/syntax/modules.html#syntax-typeidx}{\mathit{core{:}}\mathit{typeidx}}]\)</span> must be
-defined in the context.</p></li>
-<li><p>Then the instance declarator <span class="math notranslate nohighlight">\(\href{../syntax/types.html#syntax-instancedecl}{\mathsf{core\_module}}~\href{../syntax/components.html#syntax-typeidx}{\mathit{typeidx}}\)</span>
-elaborates to the empty list of exports, and sets
-<span class="math notranslate nohighlight">\(\href{../valid/conventions.html#syntax-tyctx}{\mathsf{core}}.\href{../valid/conventions.html#syntax-coretyctx}{\mathsf{modules}}\)</span> in the context to the original
-<span class="math notranslate nohighlight">\(\href{../valid/conventions.html#syntax-tyctx}{\Gamma}.\href{../valid/conventions.html#syntax-tyctx}{\mathsf{core}}.\href{../valid/conventions.html#syntax-coretyctx}{\mathsf{modules}}\)</span> followed by
-<span class="math notranslate nohighlight">\(\href{../valid/conventions.html#syntax-tyctx}{\Gamma}.\href{../valid/conventions.html#syntax-tyctx}{\mathsf{core}}.\href{../valid/conventions.html#syntax-coretyctx}{\mathsf{types}}[\href{https://webassembly.github.io/spec/core/syntax/modules.html#syntax-typeidx}{\mathit{core{:}}\mathit{typeidx}}]\)</span></p></li>
+<li><p>Notice that because this type variable is equality-bounded and not
+exported, it will always be inlined by <span class="math notranslate nohighlight">\(\href{../valid/types.html#auxiliary-ifinalize}{\langle\mkern-5mu\langle}
+\href{../valid/types.html#syntax-einstancetype}{\mathit{instancetype}_e} \href{../valid/types.html#auxiliary-ifinalize}{\rangle\mkern-5mu\rangle}\)</span>.</p></li>
 </ul>
-<div class="math notranslate nohighlight">
-\[\frac{
-  \href{../valid/conventions.html#syntax-tyctx}{\Gamma}.\href{../valid/conventions.html#syntax-tyctx}{\mathsf{core}}.\href{../valid/conventions.html#syntax-coretyctx}{\mathsf{types}}[\href{https://webassembly.github.io/spec/core/syntax/modules.html#syntax-typeidx}{\mathit{core{:}}\mathit{typeidx}}] = \href{../valid/types.html#syntax-ecoremoduletype}{\mathit{core{:}moduletype}_e}
-}{
-  \href{../valid/conventions.html#syntax-tyctx}{\Gamma} \vdash \href{../syntax/types.html#syntax-instancedecl}{\mathsf{core\_module}}~\href{https://webassembly.github.io/spec/core/syntax/modules.html#syntax-typeidx}{\mathit{core{:}}\mathit{typeidx}} \leadsto
-  \exists\varnothing. \varnothing
-  \dashv \href{../valid/conventions.html#syntax-tyctx}{\Gamma} \oplus \{ \href{../valid/conventions.html#syntax-tyctx}{\mathsf{core}}~\href{../valid/conventions.html#syntax-coretyctx}{\mathsf{modules}}~\href{../valid/types.html#syntax-ecoremoduletype}{\mathit{core{:}moduletype}_e} \}
-}\]</div>
-</section>
-<section id="xref-syntax-types-syntax-instancedecl-mathsf-func-xref-syntax-components-syntax-typeidx-mathit-typeidx">
-<h3><span class="math notranslate nohighlight">\(\href{../syntax/types.html#syntax-instancedecl}{\mathsf{func}}~\href{../syntax/components.html#syntax-typeidx}{\mathit{typeidx}}\)</span><a class="headerlink" href="#xref-syntax-types-syntax-instancedecl-mathsf-func-xref-syntax-components-syntax-typeidx-mathit-typeidx" title="Permalink to this headline">¶</a></h3>
-<ul class="simple">
-<li><p>The type <span class="math notranslate nohighlight">\(\href{../valid/conventions.html#syntax-tyctx}{\Gamma}.\href{../valid/conventions.html#syntax-tyctx}{\mathsf{types}}[\href{../syntax/components.html#syntax-typeidx}{\mathit{typeidx}}]\)</span> must be defined in the
-context, and must be of the form <span class="math notranslate nohighlight">\(\href{../valid/types.html#syntax-efunctype}{\mathit{functype}_e}\)</span>.</p></li>
-<li><p>Then the instance declarator <span class="math notranslate nohighlight">\(\href{../syntax/types.html#syntax-instancedecl}{\mathsf{func}}~\href{../syntax/components.html#syntax-typeidx}{\mathit{typeidx}}\)</span> elaborates to
-the empty list of expots, and sets <span class="math notranslate nohighlight">\(\href{../valid/conventions.html#syntax-tyctx}{\mathsf{funcs}}\)</span> in the context
-to the original <span class="math notranslate nohighlight">\(\href{../valid/conventions.html#syntax-tyctx}{\Gamma}.\href{../valid/conventions.html#syntax-tyctx}{\mathsf{funcs}}\)</span> followed by
-<span class="math notranslate nohighlight">\(\href{../valid/conventions.html#syntax-tyctx}{\Gamma}.\href{../valid/conventions.html#syntax-tyctx}{\mathsf{types}}[\href{../syntax/components.html#syntax-typeidx}{\mathit{typeidx}}]\)</span>.</p></li>
-</ul>
-<div class="math notranslate nohighlight">
-\[\frac{
-  \href{../valid/conventions.html#syntax-tyctx}{\Gamma}.\href{../valid/conventions.html#syntax-tyctx}{\mathsf{funcs}}[\href{../syntax/components.html#syntax-typeidx}{\mathit{typeidx}}] = \href{../valid/types.html#syntax-efunctype}{\mathit{functype}_e}
-}{
-  \href{../valid/conventions.html#syntax-tyctx}{\Gamma} \vdash \href{../syntax/types.html#syntax-instancedecl}{\mathsf{func}}~\href{../syntax/components.html#syntax-typeidx}{\mathit{typeidx}} \leadsto
-  \exists\varnothing. \varnothing.
-  \dashv \href{../valid/conventions.html#syntax-tyctx}{\Gamma} \oplus \{ \href{../valid/conventions.html#syntax-tyctx}{\mathsf{funcs}}~~\href{../valid/types.html#syntax-efunctype}{\mathit{functype}_e} \}
-}\]</div>
-</section>
-<section id="xref-syntax-types-syntax-instancedecl-mathsf-value-xref-syntax-components-syntax-typeidx-mathit-typeidx">
-<h3><span class="math notranslate nohighlight">\(\href{../syntax/types.html#syntax-instancedecl}{\mathsf{value}}~\href{../syntax/components.html#syntax-typeidx}{\mathit{typeidx}}\)</span><a class="headerlink" href="#xref-syntax-types-syntax-instancedecl-mathsf-value-xref-syntax-components-syntax-typeidx-mathit-typeidx" title="Permalink to this headline">¶</a></h3>
-<ul class="simple">
-<li><p>The type <span class="math notranslate nohighlight">\(\href{../valid/conventions.html#syntax-tyctx}{\Gamma}.\href{../valid/conventions.html#syntax-tyctx}{\mathsf{types}}[\href{../syntax/components.html#syntax-typeidx}{\mathit{typeidx}}]\)</span> must be defined in the
-context, and must be of the form <span class="math notranslate nohighlight">\(\href{../valid/types.html#syntax-evaltype}{\mathit{valtype}_e}\)</span>.</p></li>
-<li><p>Then the instance declarator <span class="math notranslate nohighlight">\(\href{../syntax/types.html#syntax-instancedecl}{\mathsf{value}}~\href{../syntax/components.html#syntax-typeidx}{\mathit{typeidx}}\)</span> elaborates to
-the empty list of expots, and sets <span class="math notranslate nohighlight">\(\href{../valid/conventions.html#syntax-tyctx}{\mathsf{values}}\)</span> in the context
-to the original <span class="math notranslate nohighlight">\(\href{../valid/conventions.html#syntax-tyctx}{\Gamma}.\href{../valid/conventions.html#syntax-tyctx}{\mathsf{values}}\)</span> followed by
-<span class="math notranslate nohighlight">\(\href{../valid/conventions.html#syntax-tyctx}{\Gamma}.\href{../valid/conventions.html#syntax-tyctx}{\mathsf{types}}[\href{../syntax/components.html#syntax-typeidx}{\mathit{typeidx}}]\)</span>.</p></li>
-</ul>
-<div class="math notranslate nohighlight">
-\[\frac{
-  \href{../valid/conventions.html#syntax-tyctx}{\Gamma}.\href{../valid/conventions.html#syntax-tyctx}{\mathsf{values}}[\href{../syntax/components.html#syntax-typeidx}{\mathit{typeidx}}] = \href{../valid/types.html#syntax-evaltype}{\mathit{valtype}_e}
-}{
-  \href{../valid/conventions.html#syntax-tyctx}{\Gamma} \vdash \href{../syntax/types.html#syntax-instancedecl}{\mathsf{value}}~\href{../syntax/components.html#syntax-typeidx}{\mathit{typeidx}} \leadsto
-  \exists\varnothing. \varnothing.
-  \dashv \href{../valid/conventions.html#syntax-tyctx}{\Gamma} \oplus \{ \href{../valid/conventions.html#syntax-tyctx}{\mathsf{values}}~~\href{../valid/types.html#syntax-evaltype}{\mathit{valtype}_e} \}
-}\]</div>
-</section>
-<section id="xref-syntax-types-syntax-instancedecl-mathsf-instance-xref-syntax-components-syntax-typeidx-mathit-typeidx">
-<h3><span class="math notranslate nohighlight">\(\href{../syntax/types.html#syntax-instancedecl}{\mathsf{instance}}~\href{../syntax/components.html#syntax-typeidx}{\mathit{typeidx}}\)</span><a class="headerlink" href="#xref-syntax-types-syntax-instancedecl-mathsf-instance-xref-syntax-components-syntax-typeidx-mathit-typeidx" title="Permalink to this headline">¶</a></h3>
-<ul class="simple">
-<li><p>The type <span class="math notranslate nohighlight">\(\href{../valid/conventions.html#syntax-tyctx}{\Gamma}.\href{../valid/conventions.html#syntax-tyctx}{\mathsf{types}}[\href{../syntax/components.html#syntax-typeidx}{\mathit{typeidx}}]\)</span> must be defined in the
-context, and must be of the form <span class="math notranslate nohighlight">\(\href{../valid/types.html#syntax-einstancetype}{\mathit{instancetype}_e}\)</span>.</p></li>
-<li><p>Then the instance declarator <span class="math notranslate nohighlight">\(\href{../syntax/types.html#syntax-instancedecl}{\mathsf{instance}}~\href{../syntax/components.html#syntax-typeidx}{\mathit{typeidx}}\)</span> elaborates to
-the empty list of expots, and sets <span class="math notranslate nohighlight">\(\href{../valid/conventions.html#syntax-tyctx}{\mathsf{instances}}\)</span> in the context
-to the original <span class="math notranslate nohighlight">\(\href{../valid/conventions.html#syntax-tyctx}{\Gamma}.\href{../valid/conventions.html#syntax-tyctx}{\mathsf{instances}}\)</span> followed by
-<span class="math notranslate nohighlight">\(\href{../valid/conventions.html#syntax-tyctx}{\Gamma}.\href{../valid/conventions.html#syntax-tyctx}{\mathsf{types}}[\href{../syntax/components.html#syntax-typeidx}{\mathit{typeidx}}]\)</span>.</p></li>
-</ul>
-<div class="math notranslate nohighlight">
-\[\frac{
-  \href{../valid/conventions.html#syntax-tyctx}{\Gamma}.\href{../valid/conventions.html#syntax-tyctx}{\mathsf{instances}}[\href{../syntax/components.html#syntax-typeidx}{\mathit{typeidx}}] = \href{../valid/types.html#syntax-einstancetype}{\mathit{instancetype}_e}
-}{
-  \href{../valid/conventions.html#syntax-tyctx}{\Gamma} \vdash \href{../syntax/types.html#syntax-instancedecl}{\mathsf{instance}}~\href{../syntax/components.html#syntax-typeidx}{\mathit{typeidx}} \leadsto
-  \exists\varnothing. \varnothing.
-  \dashv \href{../valid/conventions.html#syntax-tyctx}{\Gamma} \oplus \{ \href{../valid/conventions.html#syntax-tyctx}{\mathsf{instances}}~~\href{../valid/types.html#syntax-einstancetype}{\mathit{instancetype}_e} \}
-}\]</div>
-</section>
-<section id="xref-syntax-types-syntax-instancedecl-mathsf-component-xref-syntax-components-syntax-typeidx-mathit-typeidx">
-<h3><span class="math notranslate nohighlight">\(\href{../syntax/types.html#syntax-instancedecl}{\mathsf{component}}~\href{../syntax/components.html#syntax-typeidx}{\mathit{typeidx}}\)</span><a class="headerlink" href="#xref-syntax-types-syntax-instancedecl-mathsf-component-xref-syntax-components-syntax-typeidx-mathit-typeidx" title="Permalink to this headline">¶</a></h3>
-<ul class="simple">
-<li><p>The type <span class="math notranslate nohighlight">\(\href{../valid/conventions.html#syntax-tyctx}{\Gamma}.\href{../valid/conventions.html#syntax-tyctx}{\mathsf{types}}[\href{../syntax/components.html#syntax-typeidx}{\mathit{typeidx}}]\)</span> must be defined in the
-context, and must be of the form <span class="math notranslate nohighlight">\(\href{../valid/types.html#syntax-ecomponenttype}{\mathit{componenttype}_e}\)</span>.</p></li>
-<li><p>Then the instance declarator <span class="math notranslate nohighlight">\(\href{../syntax/types.html#syntax-instancedecl}{\mathsf{component}}~\href{../syntax/components.html#syntax-typeidx}{\mathit{typeidx}}\)</span> elaborates to
-the empty list of expots, and sets <span class="math notranslate nohighlight">\(\href{../valid/conventions.html#syntax-tyctx}{\mathsf{components}}\)</span> in the context
-to the original <span class="math notranslate nohighlight">\(\href{../valid/conventions.html#syntax-tyctx}{\Gamma}.\href{../valid/conventions.html#syntax-tyctx}{\mathsf{components}}\)</span> followed by
-<span class="math notranslate nohighlight">\(\href{../valid/conventions.html#syntax-tyctx}{\Gamma}.\href{../valid/conventions.html#syntax-tyctx}{\mathsf{types}}[\href{../syntax/components.html#syntax-typeidx}{\mathit{typeidx}}]\)</span>.</p></li>
-</ul>
-<div class="math notranslate nohighlight">
-\[\frac{
-  \href{../valid/conventions.html#syntax-tyctx}{\Gamma}.\href{../valid/conventions.html#syntax-tyctx}{\mathsf{components}}[\href{../syntax/components.html#syntax-typeidx}{\mathit{typeidx}}] = \href{../valid/types.html#syntax-ecomponenttype}{\mathit{componenttype}_e}
-}{
-  \href{../valid/conventions.html#syntax-tyctx}{\Gamma} \vdash \href{../syntax/types.html#syntax-instancedecl}{\mathsf{component}}~\href{../syntax/components.html#syntax-typeidx}{\mathit{typeidx}} \leadsto
-  \exists\varnothing. \varnothing.
-  \dashv \href{../valid/conventions.html#syntax-tyctx}{\Gamma} \oplus \{ \href{../valid/conventions.html#syntax-tyctx}{\mathsf{components}}~~\href{../valid/types.html#syntax-ecomponenttype}{\mathit{componenttype}_e} \}
-}\]</div>
 </section>
 <section id="xref-syntax-types-syntax-instancedecl-mathsf-export-xref-syntax-types-syntax-exportdecl-mathit-exportdecl">
-<h3><span class="math notranslate nohighlight">\(\href{../syntax/types.html#syntax-instancedecl}{\mathsf{export}}~\href{../syntax/types.html#syntax-exportdecl}{\mathit{exportdecl}}\)</span><a class="headerlink" href="#xref-syntax-types-syntax-instancedecl-mathsf-export-xref-syntax-types-syntax-exportdecl-mathit-exportdecl" title="Permalink to this headline">¶</a></h3>
+<h3><span class="math notranslate nohighlight">\(\href{../syntax/types.html#syntax-instancedecl}{\mathsf{export}}~\href{../syntax/types.html#syntax-exportdecl}{\mathit{exportdecl}}\)</span><a class="headerlink" href="#xref-syntax-types-syntax-instancedecl-mathsf-export-xref-syntax-types-syntax-exportdecl-mathit-exportdecl" title="Permalink to this heading">¶</a></h3>
 <ul class="simple">
-<li><p>The instance declarator <span class="math notranslate nohighlight">\(\href{../syntax/types.html#syntax-instancedecl}{\mathsf{export}}~\href{../syntax/types.html#syntax-exportdecl}{\mathit{exportdecl}}\)</span> elaborates to
-the singleton list of exports containing
-<span class="math notranslate nohighlight">\(\{\href{../valid/types.html#syntax-eexportdecl}{\mathsf{name}}~\href{../syntax/types.html#syntax-exportdecl}{\mathit{exportdecl}}.\href{../syntax/types.html#syntax-exportdecl}{\mathsf{name}}, \href{../valid/types.html#syntax-eexportdecl}{\mathsf{desc}}~\mathrm{extern\_constructor}(\href{../syntax/types.html#syntax-exportdecl}{\mathit{exportdecl}}.\href{../syntax/types.html#syntax-exportdecl}{\mathsf{def}}.\href{../syntax/components.html#syntax-sortidx}{\mathsf{sort}})~\href{../valid/conventions.html#syntax-tyctx}{\Gamma}.\mathrm{index\_space}(\href{../syntax/types.html#syntax-exportdecl}{\mathit{exportdecl}}.\href{../syntax/types.html#syntax-exportdecl}{\mathsf{def}}.\href{../syntax/components.html#syntax-sortidx}{\mathsf{sort}})[\href{../syntax/types.html#syntax-exportdecl}{\mathit{exportdecl}}.\href{../syntax/types.html#syntax-exportdecl}{\mathsf{def}}.\href{../syntax/components.html#syntax-sortidx}{\mathsf{idx}}] \}\)</span> and
-does not modify the context.</p></li>
+<li><p>The extern descriptor <span class="math notranslate nohighlight">\(\href{../syntax/types.html#syntax-exportdecl}{\mathit{exportdecl}}.\href{../syntax/types.html#syntax-exportdecl}{\mathsf{desc}}\)</span> must elaborate to
+some <span class="math notranslate nohighlight">\(\forall\href{../valid/types.html#syntax-boundedtyvar}{\mathit{boundedtyvar}}^\ast.\href{../valid/types.html#syntax-eexterndesc}{\mathit{externdesc}_e}\)</span>.</p></li>
+<li><p>Then the instance declarator <span class="math notranslate nohighlight">\(\href{../syntax/types.html#syntax-instancedecl}{\mathsf{export}}~\href{../syntax/types.html#syntax-exportdecl}{\mathit{exportdecl}}\)</span>
+elaborates to the singleton list of exports containing
+<span class="math notranslate nohighlight">\(\{\href{../valid/types.html#syntax-eexportdecl}{\mathsf{name}}~\href{../syntax/types.html#syntax-exportdecl}{\mathit{exportdecl}}.\href{../syntax/types.html#syntax-exportdecl}{\mathsf{name}}, \href{../valid/types.html#syntax-eexportdecl}{\mathsf{desc}}~\href{../valid/types.html#syntax-eexterndesc}{\mathit{externdesc}_e} \}\)</span> and
+quantified by <span class="math notranslate nohighlight">\(\href{../valid/types.html#syntax-boundedtyvar}{\mathit{boundedtyvar}}\)</span>, and adds an appropriately typed
+entry to the context.</p></li>
 </ul>
 <div class="math notranslate nohighlight">
 \[\begin{split}\frac{
+  \href{../valid/conventions.html#syntax-tyctx}{\Gamma} \vdash \href{../syntax/types.html#syntax-exportdecl}{\mathit{exportdecl}}.\href{../syntax/types.html#syntax-exportdecl}{\mathsf{desc}} \leadsto \forall\href{../valid/types.html#syntax-boundedtyvar}{\mathit{boundedtyvar}}^\ast.\href{../valid/types.html#syntax-eexterndesc}{\mathit{externdesc}_e}
 }{
   \begin{aligned}
   \href{../valid/conventions.html#syntax-tyctx}{\Gamma} \vdash{}&amp; \href{../syntax/types.html#syntax-exportdecl}{\mathit{exportdecl}}\\
-  \leadsto{}&amp;\begin{aligned}\{
-    \href{../valid/types.html#syntax-eexportdecl}{\mathsf{name}}~&amp;\href{../syntax/types.html#syntax-exportdecl}{\mathit{exportdecl}}.\href{../syntax/types.html#syntax-exportdecl}{\mathsf{name}},\\
-    \href{../valid/types.html#syntax-eexportdecl}{\mathsf{desc}}~&amp;\begin{aligned}&amp;\mathrm{extern\_constructor}(\href{../syntax/types.html#syntax-exportdecl}{\mathit{exportdecl}}.\href{../syntax/types.html#syntax-exportdecl}{\mathsf{def}}.\href{../syntax/components.html#syntax-sortidx}{\mathsf{sort}})\\&amp;\href{../valid/conventions.html#syntax-tyctx}{\Gamma}.\mathrm{index\_space}(\href{../syntax/types.html#syntax-exportdecl}{\mathit{exportdecl}}.\href{../syntax/types.html#syntax-exportdecl}{\mathsf{def}}.\href{../syntax/components.html#syntax-sortidx}{\mathsf{sort}})[\href{../syntax/types.html#syntax-exportdecl}{\mathit{exportdecl}}.\href{../syntax/types.html#syntax-exportdecl}{\mathsf{def}}.\href{../syntax/components.html#syntax-sortidx}{\mathsf{idx}}]\}\end{aligned}\end{aligned}\\
-  \dashv{}&amp;\href{../valid/conventions.html#syntax-tyctx}{\Gamma}
+  \leadsto{}&amp;\exists\href{../valid/types.html#syntax-boundedtyvar}{\mathit{boundedtyvar}}^\ast. \{ \href{../valid/types.html#syntax-eexportdecl}{\mathsf{name}}~\href{../syntax/types.html#syntax-exportdecl}{\mathit{exportdecl}}.\href{../syntax/types.html#syntax-exportdecl}{\mathsf{name}}, \href{../valid/types.html#syntax-eexportdecl}{\mathsf{desc}}~\href{../valid/types.html#syntax-eexterndesc}{\mathit{externdesc}_e} \}\\
+  \dashv{}&amp;\href{../valid/conventions.html#syntax-tyctx}{\Gamma} \oplus \{ \href{../valid/conventions.html#syntax-tyctx}{\mathsf{vars}}~\href{../valid/types.html#syntax-boundedtyvar}{\mathit{boundedtyvar}}^\ast, \href{../valid/types.html#syntax-eexterndesc}{\mathit{externdesc}_e} \}
   \end{aligned}
 }\end{split}\]</div>
 </section>
 </section>
-<section id="import-descriptors">
-<span id="syntax-eimportdesc"></span><h2>Import descriptors<a class="headerlink" href="#import-descriptors" title="Permalink to this headline">¶</a></h2>
-<p>An import descriptor elaborates to a quantified <span class="math notranslate nohighlight">\(\href{../valid/types.html#syntax-eexterndesc}{\mathit{externdesc}_e}\)</span>
+<section id="extern-descriptors">
+<span id="id2"></span><h2>Extern descriptors<a class="headerlink" href="#extern-descriptors" title="Permalink to this heading">¶</a></h2>
+<p>An extern descriptor elaborates to a quantified <span class="math notranslate nohighlight">\(\href{../valid/types.html#syntax-eexterndesc}{\mathit{externdesc}_e}\)</span>
 with the following abstract syntax:</p>
-<section id="xref-syntax-types-syntax-importdesc-mathsf-type-xref-syntax-types-syntax-typebound-mathit-typebound">
-<h3><span class="math notranslate nohighlight">\(\href{../syntax/types.html#syntax-importdesc}{\mathsf{type}}~\href{../syntax/types.html#syntax-typebound}{\mathit{typebound}}\)</span><a class="headerlink" href="#xref-syntax-types-syntax-importdesc-mathsf-type-xref-syntax-types-syntax-typebound-mathit-typebound" title="Permalink to this headline">¶</a></h3>
+<section id="xref-syntax-types-syntax-externdesc-mathsf-type-xref-syntax-types-syntax-deftype-mathit-deftype">
+<h3><span class="math notranslate nohighlight">\(\href{../syntax/types.html#syntax-externdesc}{\mathsf{type}}~\href{../syntax/types.html#syntax-deftype}{\mathit{deftype}}\)</span><a class="headerlink" href="#xref-syntax-types-syntax-externdesc-mathsf-type-xref-syntax-types-syntax-deftype-mathit-deftype" title="Permalink to this heading">¶</a></h3>
 <ul class="simple">
-<li><p>The <span class="math notranslate nohighlight">\(\href{../syntax/types.html#syntax-typebound}{\mathit{typebound}}\)</span> must elaborate to some <span class="math notranslate nohighlight">\(\href{../valid/types.html#syntax-etypebound}{\mathit{typebound}_e}\)</span>.</p></li>
+<li><p>The <span class="math notranslate nohighlight">\(\href{../syntax/types.html#syntax-deftype}{\mathit{deftype}}\)</span> must elaborate to some <span class="math notranslate nohighlight">\(\href{../valid/types.html#syntax-edeftype}{\mathit{deftype}_e}\)</span>.</p></li>
 <li><p>Let <span class="math notranslate nohighlight">\(\alpha\)</span> be a fresh type variable.</p></li>
-<li><p>Then the import descriptor <span class="math notranslate nohighlight">\(\href{../syntax/types.html#syntax-importdesc}{\mathsf{type}}~\href{../valid/types.html#syntax-etypebound}{\mathit{typebound}_e}\)</span> elaborates to
-<span class="math notranslate nohighlight">\(\forall(\alpha :\href{../valid/types.html#syntax-etypebound}{\mathit{typebound}_e}).\href{../valid/types.html#syntax-eexterndesc}{\mathsf{type}}~\alpha\)</span>.</p></li>
+<li><p>Then the import descriptor <span class="math notranslate nohighlight">\(\href{../syntax/types.html#syntax-externdesc}{\mathsf{type}}~\href{../syntax/types.html#syntax-deftype}{\mathit{deftype}}\)</span> elaborates to
+<span class="math notranslate nohighlight">\(\forall(\alpha : \href{../valid/types.html#syntax-etypebound}{\mathsf{eq}}~\href{../valid/types.html#syntax-edeftype}{\mathit{deftype}_e}).\href{../valid/types.html#syntax-eexterndesc}{\mathsf{type}}~\alpha\)</span>.</p></li>
 </ul>
 <div class="math notranslate nohighlight">
 \[\frac{
   \href{../valid/conventions.html#syntax-tyctx}{\Gamma} \vdash \href{../syntax/types.html#syntax-typebound}{\mathit{typebound}} \leadsto \href{../valid/types.html#syntax-etypebound}{\mathit{typebound}_e}
 }{
-  \href{../valid/conventions.html#syntax-tyctx}{\Gamma} \vdash \href{../syntax/types.html#syntax-importdesc}{\mathsf{type}}~\href{../syntax/types.html#syntax-typebound}{\mathit{typebound}} \leadsto \forall(\alpha :\href{../valid/types.html#syntax-etypebound}{\mathit{typebound}_e}).\href{../valid/types.html#syntax-eexterndesc}{\mathsf{type}}~\alpha
+  \href{../valid/conventions.html#syntax-tyctx}{\Gamma} \vdash \href{../syntax/types.html#syntax-externdesc}{\mathsf{type}}~\href{../syntax/types.html#syntax-deftype}{\mathit{deftype}} \leadsto \forall(\alpha : \href{../valid/types.html#syntax-etypebound}{\mathsf{eq}}~\href{../valid/types.html#syntax-edeftype}{\mathit{deftype}_e}).\href{../valid/types.html#syntax-eexterndesc}{\mathsf{type}}~\alpha
 }\]</div>
 </section>
-<section id="xref-syntax-types-syntax-importdesc-mathsf-core-module-core-xref-syntax-modules-syntax-typeidx-mathit-core-mathit-typeidx">
-<h3><span class="math notranslate nohighlight">\(\href{../syntax/types.html#syntax-importdesc}{\mathsf{core\_module}}~\href{https://webassembly.github.io/spec/core/syntax/modules.html#syntax-typeidx}{\mathit{core{:}}\mathit{typeidx}}\)</span><a class="headerlink" href="#xref-syntax-types-syntax-importdesc-mathsf-core-module-core-xref-syntax-modules-syntax-typeidx-mathit-core-mathit-typeidx" title="Permalink to this headline">¶</a></h3>
+<section id="xref-syntax-types-syntax-externdesc-mathsf-core-module-core-xref-syntax-modules-syntax-typeidx-mathit-core-mathit-typeidx">
+<h3><span class="math notranslate nohighlight">\(\href{../syntax/types.html#syntax-externdesc}{\mathsf{core\_module}}~\href{https://webassembly.github.io/spec/core/syntax/modules.html#syntax-typeidx}{\mathit{core{:}}\mathit{typeidx}}\)</span><a class="headerlink" href="#xref-syntax-types-syntax-externdesc-mathsf-core-module-core-xref-syntax-modules-syntax-typeidx-mathit-core-mathit-typeidx" title="Permalink to this heading">¶</a></h3>
 <ul class="simple">
 <li><p>The type <span class="math notranslate nohighlight">\(\href{../valid/conventions.html#syntax-tyctx}{\Gamma}.\href{../valid/conventions.html#syntax-tyctx}{\mathsf{core}}.\href{../valid/conventions.html#syntax-coretyctx}{\mathsf{types}}[\href{https://webassembly.github.io/spec/core/syntax/modules.html#syntax-typeidx}{\mathit{core{:}}\mathit{typeidx}}]\)</span> must be
 defined in the context, and must be of the form
 <span class="math notranslate nohighlight">\(\href{../valid/types.html#syntax-ecoremoduletype}{\mathit{core{:}moduletype}_e}\)</span>.</p></li>
-<li><p>Then the import descriptor <span class="math notranslate nohighlight">\(\href{../syntax/types.html#syntax-importdesc}{\mathsf{core\_module}}~\href{https://webassembly.github.io/spec/core/syntax/modules.html#syntax-typeidx}{\mathit{core{:}}\mathit{typeidx}}\)</span>
+<li><p>Then the import descriptor <span class="math notranslate nohighlight">\(\href{../syntax/types.html#syntax-externdesc}{\mathsf{core\_module}}~\href{https://webassembly.github.io/spec/core/syntax/modules.html#syntax-typeidx}{\mathit{core{:}}\mathit{typeidx}}\)</span>
 elaborates to <span class="math notranslate nohighlight">\(\forall\varnothing.\href{../valid/types.html#syntax-eexterndesc}{\mathsf{core\_module}}~\href{../valid/types.html#syntax-ecoremoduletype}{\mathit{core{:}moduletype}_e}\)</span>.</p></li>
 </ul>
 <div class="math notranslate nohighlight">
 \[\frac{
   \href{../valid/conventions.html#syntax-tyctx}{\Gamma}.\href{../valid/conventions.html#syntax-tyctx}{\mathsf{core}}.\href{../valid/conventions.html#syntax-coretyctx}{\mathsf{types}}[\href{https://webassembly.github.io/spec/core/syntax/modules.html#syntax-typeidx}{\mathit{core{:}}\mathit{typeidx}}] = \href{../valid/types.html#syntax-ecoremoduletype}{\mathit{core{:}moduletype}_e}
 }{
-  \href{../valid/conventions.html#syntax-tyctx}{\Gamma} \vdash \forall\varnothing.\href{../syntax/types.html#syntax-importdesc}{\mathsf{core\_module}}~\href{https://webassembly.github.io/spec/core/syntax/modules.html#syntax-typeidx}{\mathit{core{:}}\mathit{typeidx}} \leadsto \href{../valid/types.html#syntax-eexterndesc}{\mathsf{core\_module}}~\href{../valid/types.html#syntax-ecoremoduletype}{\mathit{core{:}moduletype}_e}
+  \href{../valid/conventions.html#syntax-tyctx}{\Gamma} \vdash \forall\varnothing.\href{../syntax/types.html#syntax-externdesc}{\mathsf{core\_module}}~\href{https://webassembly.github.io/spec/core/syntax/modules.html#syntax-typeidx}{\mathit{core{:}}\mathit{typeidx}} \leadsto \href{../valid/types.html#syntax-eexterndesc}{\mathsf{core\_module}}~\href{../valid/types.html#syntax-ecoremoduletype}{\mathit{core{:}moduletype}_e}
 }\]</div>
 </section>
-<section id="xref-syntax-types-syntax-importdesc-mathsf-func-xref-syntax-components-syntax-typeidx-mathit-typeidx">
-<h3><span class="math notranslate nohighlight">\(\href{../syntax/types.html#syntax-importdesc}{\mathsf{func}}~\href{../syntax/components.html#syntax-typeidx}{\mathit{typeidx}}\)</span><a class="headerlink" href="#xref-syntax-types-syntax-importdesc-mathsf-func-xref-syntax-components-syntax-typeidx-mathit-typeidx" title="Permalink to this headline">¶</a></h3>
+<section id="xref-syntax-types-syntax-externdesc-mathsf-func-xref-syntax-components-syntax-typeidx-mathit-typeidx">
+<h3><span class="math notranslate nohighlight">\(\href{../syntax/types.html#syntax-externdesc}{\mathsf{func}}~\href{../syntax/components.html#syntax-typeidx}{\mathit{typeidx}}\)</span><a class="headerlink" href="#xref-syntax-types-syntax-externdesc-mathsf-func-xref-syntax-components-syntax-typeidx-mathit-typeidx" title="Permalink to this heading">¶</a></h3>
 <ul class="simple">
 <li><p>The type <span class="math notranslate nohighlight">\(\href{../valid/conventions.html#syntax-tyctx}{\Gamma}.\href{../valid/conventions.html#syntax-tyctx}{\mathsf{types}}[\href{../syntax/components.html#syntax-typeidx}{\mathit{typeidx}}]\)</span> must be defined in the
 context, and must be of the form <span class="math notranslate nohighlight">\(\href{../valid/types.html#syntax-efunctype}{\mathit{functype}_e}\)</span>.</p></li>
-<li><p>Then the import descriptor <span class="math notranslate nohighlight">\(\href{../syntax/types.html#syntax-importdesc}{\mathsf{func}}~\href{../syntax/components.html#syntax-typeidx}{\mathit{typeidx}}\)</span> elaborates to
+<li><p>Then the import descriptor <span class="math notranslate nohighlight">\(\href{../syntax/types.html#syntax-externdesc}{\mathsf{func}}~\href{../syntax/components.html#syntax-typeidx}{\mathit{typeidx}}\)</span> elaborates to
 <span class="math notranslate nohighlight">\(\forall\varnothing.\href{../valid/types.html#syntax-eexterndesc}{\mathsf{func}}~\href{../valid/types.html#syntax-efunctype}{\mathit{functype}_e}\)</span></p></li>
 </ul>
 <div class="math notranslate nohighlight">
 \[\frac{
   \href{../valid/conventions.html#syntax-tyctx}{\Gamma}.\href{../valid/conventions.html#syntax-tyctx}{\mathsf{types}}[\href{../syntax/components.html#syntax-typeidx}{\mathit{typeidx}}] = \href{../valid/types.html#syntax-efunctype}{\mathit{functype}_e}
 }{
-  \href{../valid/conventions.html#syntax-tyctx}{\Gamma} \vdash \href{../syntax/types.html#syntax-importdesc}{\mathsf{func}}~\href{../syntax/components.html#syntax-typeidx}{\mathit{typeidx}} \leadsto \forall\varnothing.\href{../valid/types.html#syntax-eexterndesc}{\mathsf{func}}~\href{../valid/types.html#syntax-efunctype}{\mathit{functype}_e}
+  \href{../valid/conventions.html#syntax-tyctx}{\Gamma} \vdash \href{../syntax/types.html#syntax-externdesc}{\mathsf{func}}~\href{../syntax/components.html#syntax-typeidx}{\mathit{typeidx}} \leadsto \forall\varnothing.\href{../valid/types.html#syntax-eexterndesc}{\mathsf{func}}~\href{../valid/types.html#syntax-efunctype}{\mathit{functype}_e}
 }\]</div>
 </section>
-<section id="xref-syntax-types-syntax-importdesc-mathsf-value-xref-syntax-components-syntax-typeidx-mathit-typeidx">
-<h3><span class="math notranslate nohighlight">\(\href{../syntax/types.html#syntax-importdesc}{\mathsf{value}}~\href{../syntax/components.html#syntax-typeidx}{\mathit{typeidx}}\)</span><a class="headerlink" href="#xref-syntax-types-syntax-importdesc-mathsf-value-xref-syntax-components-syntax-typeidx-mathit-typeidx" title="Permalink to this headline">¶</a></h3>
+<section id="xref-syntax-types-syntax-externdesc-mathsf-value-xref-syntax-components-syntax-typeidx-mathit-typeidx">
+<h3><span class="math notranslate nohighlight">\(\href{../syntax/types.html#syntax-externdesc}{\mathsf{value}}~\href{../syntax/components.html#syntax-typeidx}{\mathit{typeidx}}\)</span><a class="headerlink" href="#xref-syntax-types-syntax-externdesc-mathsf-value-xref-syntax-components-syntax-typeidx-mathit-typeidx" title="Permalink to this heading">¶</a></h3>
 <ul class="simple">
 <li><p>The type bound <span class="math notranslate nohighlight">\(\href{../syntax/types.html#syntax-typebound}{\mathit{typebound}}\)</span> must elaborate to some <span class="math notranslate nohighlight">\(\href{../valid/types.html#syntax-etypebound}{\mathit{typebound}_e}\)</span>.</p></li>
-<li><p>Then the import descriptor <span class="math notranslate nohighlight">\(\href{../syntax/types.html#syntax-importdesc}{\mathsf{value}}~\href{../syntax/types.html#syntax-typebound}{\mathit{typebound}}\)</span> elaborates to
+<li><p>Then the import descriptor <span class="math notranslate nohighlight">\(\href{../syntax/types.html#syntax-externdesc}{\mathsf{value}}~\href{../syntax/types.html#syntax-typebound}{\mathit{typebound}}\)</span> elaborates to
 <span class="math notranslate nohighlight">\(\forall\varnothing.\href{../valid/types.html#syntax-eexterndesc}{\mathsf{value}}~\href{../valid/types.html#syntax-evaltype}{\mathit{valtype}_e}\)</span></p></li>
 </ul>
 <div class="math notranslate nohighlight">
 \[\frac{
   \href{../valid/conventions.html#syntax-tyctx}{\Gamma}.\href{../valid/conventions.html#syntax-tyctx}{\mathsf{types}}[typeidx] = \href{../valid/types.html#syntax-evaltype}{\mathit{valtype}_e}
 }{
-  \href{../valid/conventions.html#syntax-tyctx}{\Gamma} \vdash \href{../syntax/types.html#syntax-importdesc}{\mathsf{value}}~\href{../syntax/components.html#syntax-typeidx}{\mathit{typeidx}} \leadsto \href{../valid/types.html#syntax-eexterndesc}{\mathsf{value}}~\href{../valid/types.html#syntax-evaltype}{\mathit{valtype}_e}
+  \href{../valid/conventions.html#syntax-tyctx}{\Gamma} \vdash \href{../syntax/types.html#syntax-externdesc}{\mathsf{value}}~\href{../syntax/components.html#syntax-typeidx}{\mathit{typeidx}} \leadsto \href{../valid/types.html#syntax-eexterndesc}{\mathsf{value}}~\href{../valid/types.html#syntax-evaltype}{\mathit{valtype}_e}
 }\]</div>
 </section>
-<section id="xref-syntax-types-syntax-importdesc-mathsf-instance-xref-syntax-components-syntax-typeidx-mathit-typeidx">
-<h3><span class="math notranslate nohighlight">\(\href{../syntax/types.html#syntax-importdesc}{\mathsf{instance}}~\href{../syntax/components.html#syntax-typeidx}{\mathit{typeidx}}\)</span><a class="headerlink" href="#xref-syntax-types-syntax-importdesc-mathsf-instance-xref-syntax-components-syntax-typeidx-mathit-typeidx" title="Permalink to this headline">¶</a></h3>
+<section id="xref-syntax-types-syntax-externdesc-mathsf-instance-xref-syntax-components-syntax-typeidx-mathit-typeidx">
+<h3><span class="math notranslate nohighlight">\(\href{../syntax/types.html#syntax-externdesc}{\mathsf{instance}}~\href{../syntax/components.html#syntax-typeidx}{\mathit{typeidx}}\)</span><a class="headerlink" href="#xref-syntax-types-syntax-externdesc-mathsf-instance-xref-syntax-components-syntax-typeidx-mathit-typeidx" title="Permalink to this heading">¶</a></h3>
 <ul class="simple">
 <li><p>The type <span class="math notranslate nohighlight">\(\href{../valid/conventions.html#syntax-tyctx}{\Gamma}.\href{../valid/conventions.html#syntax-tyctx}{\mathsf{types}}[\href{../syntax/components.html#syntax-typeidx}{\mathit{typeidx}}]\)</span> must be defined in the
 context, and must be of the form <span class="math notranslate nohighlight">\(\exists\href{../valid/types.html#syntax-boundedtyvar}{\mathit{boundedtyvar}}^\ast.\href{../valid/types.html#syntax-eexportdecl}{\mathit{externdecl}_e}^\ast\)</span>.</p></li>
-<li><p>Then the import descriptor <span class="math notranslate nohighlight">\(\href{../syntax/types.html#syntax-importdesc}{\mathsf{instance}}~\href{../syntax/components.html#syntax-typeidx}{\mathit{typeidx}}\)</span> elaborates
+<li><p>Then the import descriptor <span class="math notranslate nohighlight">\(\href{../syntax/types.html#syntax-externdesc}{\mathsf{instance}}~\href{../syntax/components.html#syntax-typeidx}{\mathit{typeidx}}\)</span> elaborates
 to <span class="math notranslate nohighlight">\(\forall\href{../valid/types.html#syntax-boundedtyvar}{\mathit{boundedtyvar}}^\ast.\href{../valid/types.html#syntax-eexterndesc}{\mathsf{instance}}~\exists\varnothing.\href{../valid/types.html#syntax-eexportdecl}{\mathit{externdecl}_e}^\ast\)</span></p></li>
 </ul>
 <div class="math notranslate nohighlight">
 \[\frac{
   \href{../valid/conventions.html#syntax-tyctx}{\Gamma}.\href{../valid/conventions.html#syntax-tyctx}{\mathsf{types}}[typeidx] = \exists\href{../valid/types.html#syntax-boundedtyvar}{\mathit{boundedtyvar}}^\ast.\href{../valid/types.html#syntax-eexportdecl}{\mathit{externdecl}_e}^\ast
 }{
-  \href{../valid/conventions.html#syntax-tyctx}{\Gamma} \vdash \href{../syntax/types.html#syntax-importdesc}{\mathsf{instance}}~\href{../syntax/components.html#syntax-typeidx}{\mathit{typeidx}} \leadsto \forall\href{../valid/types.html#syntax-boundedtyvar}{\mathit{boundedtyvar}}^\ast.\href{../valid/types.html#syntax-eexterndesc}{\mathsf{instance}}~\exists\varnothing.\href{../valid/types.html#syntax-eexportdecl}{\mathit{externdecl}_e}^\ast
+  \href{../valid/conventions.html#syntax-tyctx}{\Gamma} \vdash \href{../syntax/types.html#syntax-externdesc}{\mathsf{instance}}~\href{../syntax/components.html#syntax-typeidx}{\mathit{typeidx}} \leadsto \forall\href{../valid/types.html#syntax-boundedtyvar}{\mathit{boundedtyvar}}^\ast.\href{../valid/types.html#syntax-eexterndesc}{\mathsf{instance}}~\exists\varnothing.\href{../valid/types.html#syntax-eexportdecl}{\mathit{externdecl}_e}^\ast
 }\]</div>
 </section>
-<section id="xref-syntax-types-syntax-importdesc-mathsf-component-xref-syntax-components-syntax-typeidx-mathit-typeidx">
-<h3><span class="math notranslate nohighlight">\(\href{../syntax/types.html#syntax-importdesc}{\mathsf{component}}~\href{../syntax/components.html#syntax-typeidx}{\mathit{typeidx}}\)</span><a class="headerlink" href="#xref-syntax-types-syntax-importdesc-mathsf-component-xref-syntax-components-syntax-typeidx-mathit-typeidx" title="Permalink to this headline">¶</a></h3>
+<section id="xref-syntax-types-syntax-externdesc-mathsf-component-xref-syntax-components-syntax-typeidx-mathit-typeidx">
+<h3><span class="math notranslate nohighlight">\(\href{../syntax/types.html#syntax-externdesc}{\mathsf{component}}~\href{../syntax/components.html#syntax-typeidx}{\mathit{typeidx}}\)</span><a class="headerlink" href="#xref-syntax-types-syntax-externdesc-mathsf-component-xref-syntax-components-syntax-typeidx-mathit-typeidx" title="Permalink to this heading">¶</a></h3>
 <ul class="simple">
 <li><p>The type <span class="math notranslate nohighlight">\(\href{../valid/conventions.html#syntax-tyctx}{\Gamma}.\href{../valid/conventions.html#syntax-tyctx}{\mathsf{types}}[\href{../syntax/components.html#syntax-typeidx}{\mathit{typeidx}}]\)</span> must be defined in the
 context, and must be of the form <span class="math notranslate nohighlight">\(\href{../valid/types.html#syntax-ecomponenttype}{\mathit{componenttype}_e}\)</span>.</p></li>
-<li><p>Then the import descriptor <span class="math notranslate nohighlight">\(\href{../syntax/types.html#syntax-importdesc}{\mathsf{component}}~\href{../syntax/components.html#syntax-typeidx}{\mathit{typeidx}}\)</span> elaborates
+<li><p>Then the import descriptor <span class="math notranslate nohighlight">\(\href{../syntax/types.html#syntax-externdesc}{\mathsf{component}}~\href{../syntax/components.html#syntax-typeidx}{\mathit{typeidx}}\)</span> elaborates
 to <span class="math notranslate nohighlight">\(\forall\varnothing.\href{../valid/types.html#syntax-eexterndesc}{\mathsf{component}}~\href{../valid/types.html#syntax-ecomponenttype}{\mathit{componenttype}_e}\)</span></p></li>
 </ul>
 <div class="math notranslate nohighlight">
 \[\frac{
   \href{../valid/conventions.html#syntax-tyctx}{\Gamma}.\href{../valid/conventions.html#syntax-tyctx}{\mathsf{types}}[\href{../syntax/components.html#syntax-typeidx}{\mathit{typeidx}}] = \href{../valid/types.html#syntax-ecomponenttype}{\mathit{componenttype}_e}
 }{
-  \href{../valid/conventions.html#syntax-tyctx}{\Gamma} \vdash \href{../syntax/types.html#syntax-importdesc}{\mathsf{component}}~\href{../syntax/components.html#syntax-typeidx}{\mathit{typeidx}} \leadsto \forall\varnothing.\href{../valid/types.html#syntax-eexterndesc}{\mathsf{component}}~\href{../valid/types.html#syntax-ecomponenttype}{\mathit{componenttype}_e}
+  \href{../valid/conventions.html#syntax-tyctx}{\Gamma} \vdash \href{../syntax/types.html#syntax-externdesc}{\mathsf{component}}~\href{../syntax/components.html#syntax-typeidx}{\mathit{typeidx}} \leadsto \forall\varnothing.\href{../valid/types.html#syntax-eexterndesc}{\mathsf{component}}~\href{../valid/types.html#syntax-ecomponenttype}{\mathit{componenttype}_e}
 }\]</div>
 </section>
 </section>
 <section id="component-types">
-<span id="syntax-ecomponenttype"></span><h2>Component types<a class="headerlink" href="#component-types" title="Permalink to this headline">¶</a></h2>
+<span id="syntax-ecomponenttype"></span><h2>Component types<a class="headerlink" href="#component-types" title="Permalink to this heading">¶</a></h2>
 <p>In a similar manner to instance types above, component types change
 significantly upon elaboration: an elaborated component type is
 described as a mapping from a quantified list of imports to the type
 of the instance that it will produce upon instantiation:</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}\begin{array}{llcl}
-\def\mathdef6317#1{{}}\mathdef6317{(ecomponenttype)} &amp; \href{../valid/types.html#syntax-ecomponenttype}{\mathit{componenttype}_e} &amp;::=&amp;
+\def\mathdef1#1{{}}\mathdef1{(ecomponenttype)} &amp; \href{../valid/types.html#syntax-ecomponenttype}{\mathit{componenttype}_e} &amp;::=&amp;
   \forall \href{../valid/types.html#syntax-boundedtyvar}{\mathit{boundedtyvar}}^\ast. \href{../valid/types.html#syntax-eexportdecl}{\mathit{externdecl}_e}^\ast \to \href{../valid/types.html#syntax-einstancetype}{\mathit{instancetype}_e}\\
 \end{array}\end{split}\]</div>
-<section id="id2">
-<h3>Notational conventions<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
+<section id="id3">
+<h3>Notational conventions<a class="headerlink" href="#id3" title="Permalink to this heading">¶</a></h3>
 <ul class="simple">
 <li><p>Much like with instance types above, we write <span class="math notranslate nohighlight">\(\href{../valid/types.html#syntax-ecomponenttype}{\mathit{componenttype}_e}
 \oplus \href{../valid/types.html#syntax-ecomponenttype}{\mathit{componenttype}_e}'\)</span> to mean the combination of two component
@@ -966,7 +878,7 @@ result (instance) types of <span class="math notranslate nohighlight">\(\href{..
 </ul>
 </section>
 <section id="finalize-xref-valid-types-auxiliary-cfinalize-langle-mkern-5mu-langle-xref-valid-types-syntax-ecomponenttype-mathit-componenttype-e-xref-valid-types-auxiliary-cfinalize-rangle-mkern-5mu-rangle">
-<span id="auxiliary-cfinalize"></span><h3>Finalize: <span class="math notranslate nohighlight">\(\href{../valid/types.html#auxiliary-cfinalize}{\langle\mkern-5mu\langle} \href{../valid/types.html#syntax-ecomponenttype}{\mathit{componenttype}_e} \href{../valid/types.html#auxiliary-cfinalize}{\rangle\mkern-5mu\rangle}\)</span><a class="headerlink" href="#finalize-xref-valid-types-auxiliary-cfinalize-langle-mkern-5mu-langle-xref-valid-types-syntax-ecomponenttype-mathit-componenttype-e-xref-valid-types-auxiliary-cfinalize-rangle-mkern-5mu-rangle" title="Permalink to this headline">¶</a></h3>
+<span id="auxiliary-cfinalize"></span><h3>Finalize: <span class="math notranslate nohighlight">\(\href{../valid/types.html#auxiliary-cfinalize}{\langle\mkern-5mu\langle} \href{../valid/types.html#syntax-ecomponenttype}{\mathit{componenttype}_e} \href{../valid/types.html#auxiliary-cfinalize}{\rangle\mkern-5mu\rangle}\)</span><a class="headerlink" href="#finalize-xref-valid-types-auxiliary-cfinalize-langle-mkern-5mu-langle-xref-valid-types-syntax-ecomponenttype-mathit-componenttype-e-xref-valid-types-auxiliary-cfinalize-rangle-mkern-5mu-rangle" title="Permalink to this heading">¶</a></h3>
 <p>As with instance types above, finalizing a component type eliminates
 unnecessary type variables with equality constraints, ensures that all
 type variables are well-scoped, and that all quantified types are
@@ -1019,7 +931,7 @@ by the type that it is equality-bounded to.</p></li>
 }\end{split}\]</div>
 </section>
 <section id="overline-xref-syntax-types-syntax-componentdecl-mathit-componentdecl-i">
-<h3><span class="math notranslate nohighlight">\(\overline{\href{../syntax/types.html#syntax-componentdecl}{\mathit{componentdecl}}_i}\)</span><a class="headerlink" href="#overline-xref-syntax-types-syntax-componentdecl-mathit-componentdecl-i" title="Permalink to this headline">¶</a></h3>
+<h3><span class="math notranslate nohighlight">\(\overline{\href{../syntax/types.html#syntax-componentdecl}{\mathit{componentdecl}}_i}\)</span><a class="headerlink" href="#overline-xref-syntax-types-syntax-componentdecl-mathit-componentdecl-i" title="Permalink to this heading">¶</a></h3>
 <ul class="simple">
 <li><p><span class="math notranslate nohighlight">\(\href{../syntax/types.html#syntax-componentdecl}{\mathit{componentdecl}}_1\)</span> must elaborate to some
 <span class="math notranslate nohighlight">\({\href{../valid/types.html#syntax-ecomponenttype}{\mathit{componenttype}_e}}_1\)</span> in the context
@@ -1046,11 +958,11 @@ elaborates to the type produced by finalizing <span class="math notranslate nohi
 </section>
 </section>
 <section id="component-declarators">
-<h2>Component declarators<a class="headerlink" href="#component-declarators" title="Permalink to this headline">¶</a></h2>
+<h2>Component declarators<a class="headerlink" href="#component-declarators" title="Permalink to this heading">¶</a></h2>
 <p>Each component declarator elaborates to a (partial)
 <span class="math notranslate nohighlight">\(\href{../valid/types.html#syntax-ecomponenttype}{\mathit{componenttype}_e}\)</span>.</p>
 <section id="xref-syntax-types-syntax-instancedecl-mathit-instancedecl">
-<h3><span class="math notranslate nohighlight">\(\href{../syntax/types.html#syntax-instancedecl}{\mathit{instancedecl}}\)</span><a class="headerlink" href="#xref-syntax-types-syntax-instancedecl-mathit-instancedecl" title="Permalink to this headline">¶</a></h3>
+<h3><span class="math notranslate nohighlight">\(\href{../syntax/types.html#syntax-instancedecl}{\mathit{instancedecl}}\)</span><a class="headerlink" href="#xref-syntax-types-syntax-instancedecl-mathit-instancedecl" title="Permalink to this heading">¶</a></h3>
 <ul class="simple">
 <li><p>The instance declarator <span class="math notranslate nohighlight">\(\href{../syntax/types.html#syntax-instancedecl}{\mathit{instancedecl}}\)</span> must elaborate to some
 instance type <span class="math notranslate nohighlight">\(\href{../valid/types.html#syntax-einstancetype}{\mathit{instancetype}_e}\)</span> (and may affect the context).</p></li>
@@ -1066,7 +978,7 @@ the context in the same way.</p></li>
 }\]</div>
 </section>
 <section id="xref-syntax-types-syntax-importdecl-mathit-importdecl">
-<h3><span class="math notranslate nohighlight">\(\href{../syntax/types.html#syntax-importdecl}{\mathit{importdecl}}\)</span><a class="headerlink" href="#xref-syntax-types-syntax-importdecl-mathit-importdecl" title="Permalink to this headline">¶</a></h3>
+<h3><span class="math notranslate nohighlight">\(\href{../syntax/types.html#syntax-importdecl}{\mathit{importdecl}}\)</span><a class="headerlink" href="#xref-syntax-types-syntax-importdecl-mathit-importdecl" title="Permalink to this heading">¶</a></h3>
 <ul class="simple">
 <li><p>The extern descriptor <span class="math notranslate nohighlight">\(\href{../syntax/types.html#syntax-importdecl}{\mathit{importdecl}}.\href{../syntax/types.html#syntax-importdecl}{\mathsf{desc}}\)</span> must elaborate to
 some <span class="math notranslate nohighlight">\(\forall\href{../valid/types.html#syntax-boundedtyvar}{\mathit{boundedtyvar}}^\ast.\href{../valid/types.html#syntax-eexterndesc}{\mathit{externdesc}_e}\)</span>.</p></li>
@@ -1074,7 +986,7 @@ some <span class="math notranslate nohighlight">\(\forall\href{../valid/types.ht
 component type with no results, the same quantifiers, and a
 singleton list of imports containing
 <span class="math notranslate nohighlight">\(\{\href{../valid/types.html#syntax-eexportdecl}{\mathsf{name}}~\href{../syntax/types.html#syntax-importdecl}{\mathit{importdecl}}.\href{../syntax/types.html#syntax-importdecl}{\mathsf{name}}, \href{../valid/types.html#syntax-eexportdecl}{\mathsf{desc}}~\href{../valid/types.html#syntax-eexterndesc}{\mathit{externdesc}_e}\}\)</span>, and
-does not modify the context.</p></li>
+updates the context with <span class="math notranslate nohighlight">\(\href{../valid/types.html#syntax-eexterndesc}{\mathit{externdesc}_e}\)</span>.</p></li>
 </ul>
 <div class="math notranslate nohighlight">
 \[\begin{split}\frac{
@@ -1083,18 +995,18 @@ does not modify the context.</p></li>
   \begin{aligned}
   \href{../valid/conventions.html#syntax-tyctx}{\Gamma} \vdash{}&amp;\href{../syntax/types.html#syntax-importdecl}{\mathit{importdecl}}\\
   \leadsto{}&amp;\forall\href{../valid/types.html#syntax-boundedtyvar}{\mathit{boundedtyvar}}^\ast. \{\href{../valid/types.html#syntax-eexportdecl}{\mathsf{name}}~\href{../syntax/types.html#syntax-importdecl}{\mathit{importdecl}}.\href{../syntax/types.html#syntax-importdecl}{\mathsf{name}}, \href{../valid/types.html#syntax-eexportdecl}{\mathsf{desc}}~\href{../valid/types.html#syntax-eexterndesc}{\mathit{externdesc}_e}\} \to \varnothing\\
-  \dashv{}&amp;\href{../valid/conventions.html#syntax-tyctx}{\Gamma} \oplus \{ \href{../valid/conventions.html#syntax-tyctx}{\mathsf{vars}}~\href{../valid/types.html#syntax-boundedtyvar}{\mathit{boundedtyvar}}^\ast \}
+  \dashv{}&amp;\href{../valid/conventions.html#syntax-tyctx}{\Gamma} \oplus \{ \href{../valid/conventions.html#syntax-tyctx}{\mathsf{vars}}~\href{../valid/types.html#syntax-boundedtyvar}{\mathit{boundedtyvar}}^\ast, \href{../valid/types.html#syntax-eexterndesc}{\mathit{externdesc}_e} \}
   \end{aligned}
 }\end{split}\]</div>
 </section>
 </section>
 <section id="definition-types">
-<span id="syntax-edeftype"></span><h2>Definition types<a class="headerlink" href="#definition-types" title="Permalink to this headline">¶</a></h2>
+<span id="syntax-edeftype"></span><h2>Definition types<a class="headerlink" href="#definition-types" title="Permalink to this heading">¶</a></h2>
 <p>A <span class="math notranslate nohighlight">\(\href{../syntax/types.html#syntax-deftype}{\mathit{deftype}}\)</span> elaborates to a <span class="math notranslate nohighlight">\(\href{../valid/types.html#syntax-edeftype}{\mathit{deftype}_e}\)</span> with the
 following abstract syntax:</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}\begin{array}{llcl}
-\def\mathdef6317#1{{}}\mathdef6317{(edeftype)} &amp; \href{../valid/types.html#syntax-edeftype}{\mathit{deftype}_e} &amp;::=&amp;
+\def\mathdef1#1{{}}\mathdef1{(edeftype)} &amp; \href{../valid/types.html#syntax-edeftype}{\mathit{deftype}_e} &amp;::=&amp;
 \alpha\\&amp;&amp;|&amp;
 \href{../valid/types.html#syntax-evaltype}{\mathit{valtype}_e}\\&amp;&amp;|&amp;
 \href{../valid/types.html#syntax-efunctype}{\mathit{functype}_e}\\&amp;&amp;|&amp;
@@ -1102,7 +1014,7 @@ following abstract syntax:</p>
 \href{../valid/types.html#syntax-einstancetype}{\mathit{instancetype}_e}\\
 \end{array}\end{split}\]</div>
 <section id="xref-syntax-types-syntax-defvaltype-mathit-defvaltype">
-<h3><span class="math notranslate nohighlight">\(\href{../syntax/types.html#syntax-defvaltype}{\mathit{defvaltype}}\)</span><a class="headerlink" href="#xref-syntax-types-syntax-defvaltype-mathit-defvaltype" title="Permalink to this headline">¶</a></h3>
+<h3><span class="math notranslate nohighlight">\(\href{../syntax/types.html#syntax-defvaltype}{\mathit{defvaltype}}\)</span><a class="headerlink" href="#xref-syntax-types-syntax-defvaltype-mathit-defvaltype" title="Permalink to this heading">¶</a></h3>
 <ul class="simple">
 <li><p>The definition value type <span class="math notranslate nohighlight">\(\href{../syntax/types.html#syntax-defvaltype}{\mathit{defvaltype}}\)</span> must elaborate to some
 <span class="math notranslate nohighlight">\(\href{../valid/types.html#syntax-evaltype}{\mathit{valtype}_e}\)</span>.</p></li>
@@ -1117,7 +1029,7 @@ following abstract syntax:</p>
 }\]</div>
 </section>
 <section id="xref-syntax-types-syntax-functype-mathit-functype">
-<h3><span class="math notranslate nohighlight">\(\href{../syntax/types.html#syntax-functype}{\mathit{functype}}\)</span><a class="headerlink" href="#xref-syntax-types-syntax-functype-mathit-functype" title="Permalink to this headline">¶</a></h3>
+<h3><span class="math notranslate nohighlight">\(\href{../syntax/types.html#syntax-functype}{\mathit{functype}}\)</span><a class="headerlink" href="#xref-syntax-types-syntax-functype-mathit-functype" title="Permalink to this heading">¶</a></h3>
 <ul class="simple">
 <li><p>The function type <span class="math notranslate nohighlight">\(\href{../syntax/types.html#syntax-functype}{\mathit{functype}}\)</span> must elaborate to some
 <span class="math notranslate nohighlight">\(\href{../valid/types.html#syntax-efunctype}{\mathit{functype}_e}\)</span>.</p></li>
@@ -1132,7 +1044,7 @@ following abstract syntax:</p>
 }\]</div>
 </section>
 <section id="xref-syntax-types-syntax-componenttype-mathit-componenttype">
-<h3><span class="math notranslate nohighlight">\(\href{../syntax/types.html#syntax-componenttype}{\mathit{componenttype}}\)</span><a class="headerlink" href="#xref-syntax-types-syntax-componenttype-mathit-componenttype" title="Permalink to this headline">¶</a></h3>
+<h3><span class="math notranslate nohighlight">\(\href{../syntax/types.html#syntax-componenttype}{\mathit{componenttype}}\)</span><a class="headerlink" href="#xref-syntax-types-syntax-componenttype-mathit-componenttype" title="Permalink to this heading">¶</a></h3>
 <ul class="simple">
 <li><p>The component type <span class="math notranslate nohighlight">\(\href{../syntax/types.html#syntax-componenttype}{\mathit{componenttype}}\)</span> must elaborate to some
 <span class="math notranslate nohighlight">\(\href{../valid/types.html#syntax-ecomponenttype}{\mathit{componenttype}_e}\)</span>.</p></li>
@@ -1147,7 +1059,7 @@ following abstract syntax:</p>
 }\]</div>
 </section>
 <section id="xref-syntax-types-syntax-instancetype-mathit-instancetype">
-<h3><span class="math notranslate nohighlight">\(\href{../syntax/types.html#syntax-instancetype}{\mathit{instancetype}}\)</span><a class="headerlink" href="#xref-syntax-types-syntax-instancetype-mathit-instancetype" title="Permalink to this headline">¶</a></h3>
+<h3><span class="math notranslate nohighlight">\(\href{../syntax/types.html#syntax-instancetype}{\mathit{instancetype}}\)</span><a class="headerlink" href="#xref-syntax-types-syntax-instancetype-mathit-instancetype" title="Permalink to this heading">¶</a></h3>
 <ul class="simple">
 <li><p>The instance type <span class="math notranslate nohighlight">\(\href{../syntax/types.html#syntax-instancetype}{\mathit{instancetype}}\)</span> must elaborate to some
 <span class="math notranslate nohighlight">\(\href{../valid/types.html#syntax-einstancetype}{\mathit{instancetype}_e}\)</span>.</p></li>
@@ -1163,7 +1075,7 @@ following abstract syntax:</p>
 </section>
 </section>
 <section id="core-instance-types">
-<span id="syntax-ecoreinstancetype"></span><h2>Core instance types<a class="headerlink" href="#core-instance-types" title="Permalink to this headline">¶</a></h2>
+<span id="syntax-ecoreinstancetype"></span><h2>Core instance types<a class="headerlink" href="#core-instance-types" title="Permalink to this heading">¶</a></h2>
 <p>Although there are no core instance types present at the surface
 level, it is useful to define the abstract syntax of (elaborated) core
 instance types, as they will be needed to characterise the results of
@@ -1172,11 +1084,11 @@ instantiationg core modules. As with a component instance type, an
 exports:</p>
 <div class="math notranslate nohighlight">
 \[\begin{array}{llcl}
-\def\mathdef6317#1{{}}\mathdef6317{(ecoreinstancetype)} &amp; \href{../valid/types.html#syntax-ecoreinstancetype}{\mathit{core{:}instancetype}_e} &amp;::=&amp;
+\def\mathdef1#1{{}}\mathdef1{(ecoreinstancetype)} &amp; \href{../valid/types.html#syntax-ecoreinstancetype}{\mathit{core{:}instancetype}_e} &amp;::=&amp;
   \href{../syntax/types.html#syntax-coreexportdecl}{\mathit{core{:}exportdecl}}^\ast
 \end{array}\]</div>
-<section id="id3">
-<h3>Notational conventions<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
+<section id="id4">
+<h3>Notational conventions<a class="headerlink" href="#id4" title="Permalink to this heading">¶</a></h3>
 <ul class="simple">
 <li><p>We write <span class="math notranslate nohighlight">\(\href{../valid/types.html#syntax-ecoreinstancetype}{\mathit{core{:}instancetype}_e} \oplus \href{../valid/types.html#syntax-ecoreinstancetype}{\mathit{core{:}instancetype}_e}'\)</span> to
 mean the instance type formed by the concationation of the export
@@ -1186,17 +1098,17 @@ declarations of <span class="math notranslate nohighlight">\(\href{../valid/type
 </section>
 </section>
 <section id="core-module-types">
-<span id="syntax-ecoremoduletype"></span><h2>Core module types<a class="headerlink" href="#core-module-types" title="Permalink to this headline">¶</a></h2>
+<span id="syntax-ecoremoduletype"></span><h2>Core module types<a class="headerlink" href="#core-module-types" title="Permalink to this heading">¶</a></h2>
 <p>Core module types are defined much like component types above: as a
 mapping from import descriptions to the type of the instance that will
 be produced upon instantiating the module:</p>
 <div class="math notranslate nohighlight">
 \[\begin{array}{llcl}
-\def\mathdef6317#1{{}}\mathdef6317{(ecoremoduletype)} &amp; \href{../valid/types.html#syntax-ecoremoduletype}{\mathit{core{:}moduletype}_e} &amp;::=&amp;
+\def\mathdef1#1{{}}\mathdef1{(ecoremoduletype)} &amp; \href{../valid/types.html#syntax-ecoremoduletype}{\mathit{core{:}moduletype}_e} &amp;::=&amp;
   \href{../syntax/types.html#syntax-coreimportdecl}{\mathit{core{:}importdecl}}^\ast \to \href{../syntax/types.html#syntax-coreexportdecl}{\mathit{core{:}exportdecl}}^\ast
 \end{array}\]</div>
-<section id="id4">
-<h3>Notational conventions<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
+<section id="id5">
+<h3>Notational conventions<a class="headerlink" href="#id5" title="Permalink to this heading">¶</a></h3>
 <ul class="simple">
 <li><p>Much like with core instance types above, we write
 <span class="math notranslate nohighlight">\(\href{../valid/types.html#syntax-ecoremoduletype}{\mathit{core{:}moduletype}_e} \oplus \href{../valid/types.html#syntax-ecoremoduletype}{\mathit{core{:}moduletype}_e}'\)</span> to mean the
@@ -1209,7 +1121,7 @@ instantiation result (instance) type is the result of applying
 </ul>
 </section>
 <section id="overline-xref-syntax-types-syntax-coremoduledecl-mathit-coremoduledecl-i">
-<h3><span class="math notranslate nohighlight">\(\overline{\href{../syntax/types.html#syntax-coremoduledecl}{\mathit{coremoduledecl}}_i}\)</span><a class="headerlink" href="#overline-xref-syntax-types-syntax-coremoduledecl-mathit-coremoduledecl-i" title="Permalink to this headline">¶</a></h3>
+<h3><span class="math notranslate nohighlight">\(\overline{\href{../syntax/types.html#syntax-coremoduledecl}{\mathit{coremoduledecl}}_i}\)</span><a class="headerlink" href="#overline-xref-syntax-types-syntax-coremoduledecl-mathit-coremoduledecl-i" title="Permalink to this heading">¶</a></h3>
 <ul class="simple">
 <li><p><span class="math notranslate nohighlight">\(\href{../syntax/types.html#syntax-coremoduledecl}{\mathit{coremoduledecl}}_1\)</span> must elaborate to some
 <span class="math notranslate nohighlight">\({\href{../valid/types.html#syntax-ecoremoduletype}{\mathit{core{:}moduletype}_e}}_1\)</span> in the context
@@ -1235,11 +1147,11 @@ the elaboration of <span class="math notranslate nohighlight">\(\href{../syntax/
 </section>
 </section>
 <section id="core-module-declarators">
-<h2>Core module declarators<a class="headerlink" href="#core-module-declarators" title="Permalink to this headline">¶</a></h2>
+<h2>Core module declarators<a class="headerlink" href="#core-module-declarators" title="Permalink to this heading">¶</a></h2>
 <p>Each core module declarator elaborates to a (partial)
 <span class="math notranslate nohighlight">\(\href{../valid/types.html#syntax-ecoremoduletype}{\mathit{core{:}moduletype}_e}\)</span>.</p>
 <section id="xref-syntax-types-syntax-coreimportdecl-mathit-core-importdecl">
-<h3><span class="math notranslate nohighlight">\(\href{../syntax/types.html#syntax-coreimportdecl}{\mathit{core{:}importdecl}}\)</span><a class="headerlink" href="#xref-syntax-types-syntax-coreimportdecl-mathit-core-importdecl" title="Permalink to this headline">¶</a></h3>
+<h3><span class="math notranslate nohighlight">\(\href{../syntax/types.html#syntax-coreimportdecl}{\mathit{core{:}importdecl}}\)</span><a class="headerlink" href="#xref-syntax-types-syntax-coreimportdecl-mathit-core-importdecl" title="Permalink to this heading">¶</a></h3>
 <ul class="simple">
 <li><p>The core module declarator <span class="math notranslate nohighlight">\(\href{../syntax/types.html#syntax-coreimportdecl}{\mathit{core{:}importdecl}}\)</span> elaborates to the
 core module type with no results and a singleton list of imports
@@ -1252,7 +1164,7 @@ containing <span class="math notranslate nohighlight">\(\href{../syntax/types.ht
 }\]</div>
 </section>
 <section id="xref-syntax-types-syntax-coredeftype-mathit-core-deftype">
-<h3><span class="math notranslate nohighlight">\(\href{../syntax/types.html#syntax-coredeftype}{\mathit{core{:}deftype}}\)</span><a class="headerlink" href="#xref-syntax-types-syntax-coredeftype-mathit-core-deftype" title="Permalink to this headline">¶</a></h3>
+<h3><span class="math notranslate nohighlight">\(\href{../syntax/types.html#syntax-coredeftype}{\mathit{core{:}deftype}}\)</span><a class="headerlink" href="#xref-syntax-types-syntax-coredeftype-mathit-core-deftype" title="Permalink to this heading">¶</a></h3>
 <ul class="simple">
 <li><p>The core definition tyep <span class="math notranslate nohighlight">\(\href{../syntax/types.html#syntax-coredeftype}{\mathit{core{:}deftype}}\)</span> must elaborate to some
 elaborated core definition type <span class="math notranslate nohighlight">\(\href{../valid/types.html#syntax-ecoredeftype}{\mathit{core{:}deftype}_e}\)</span>.</p></li>
@@ -1270,7 +1182,7 @@ followed by the <span class="math notranslate nohighlight">\(\href{../valid/type
 }\]</div>
 </section>
 <section id="xref-syntax-types-syntax-corealias-mathit-core-alias">
-<h3><span class="math notranslate nohighlight">\(\href{../syntax/types.html#syntax-corealias}{\mathit{core{:}alias}}\)</span><a class="headerlink" href="#xref-syntax-types-syntax-corealias-mathit-core-alias" title="Permalink to this headline">¶</a></h3>
+<h3><span class="math notranslate nohighlight">\(\href{../syntax/types.html#syntax-corealias}{\mathit{core{:}alias}}\)</span><a class="headerlink" href="#xref-syntax-types-syntax-corealias-mathit-core-alias" title="Permalink to this heading">¶</a></h3>
 <ul class="simple">
 <li><p>The <span class="math notranslate nohighlight">\(\href{../syntax/types.html#syntax-corealias}{\mathit{core{:}alias}}.\href{../syntax/types.html#syntax-corealias}{\mathsf{sort}}\)</span> must be <span class="math notranslate nohighlight">\(\href{../syntax/components.html#syntax-coresort}{\mathsf{type}}\)</span>.</p></li>
 <li><p>The <span class="math notranslate nohighlight">\(\href{../syntax/types.html#syntax-corealias}{\mathit{core{:}alias}}.\href{../syntax/types.html#syntax-alias}{\mathsf{target}}\)</span> must be of the form
@@ -1294,7 +1206,7 @@ context to the original <span class="math notranslate nohighlight">\(\href{../va
 }\end{split}\]</div>
 </section>
 <section id="xref-syntax-types-syntax-coreexportdecl-mathit-core-exportdecl">
-<h3><span class="math notranslate nohighlight">\(\href{../syntax/types.html#syntax-coreexportdecl}{\mathit{core{:}exportdecl}}\)</span><a class="headerlink" href="#xref-syntax-types-syntax-coreexportdecl-mathit-core-exportdecl" title="Permalink to this headline">¶</a></h3>
+<h3><span class="math notranslate nohighlight">\(\href{../syntax/types.html#syntax-coreexportdecl}{\mathit{core{:}exportdecl}}\)</span><a class="headerlink" href="#xref-syntax-types-syntax-coreexportdecl-mathit-core-exportdecl" title="Permalink to this heading">¶</a></h3>
 <ul class="simple">
 <li><p>The core module declarator <span class="math notranslate nohighlight">\(\href{../syntax/types.html#syntax-coreexportdecl}{\mathit{core{:}exportdecl}}\)</span> elaborates to the
 core module type with no imports and a singleton list of exports
@@ -1308,17 +1220,17 @@ containing <span class="math notranslate nohighlight">\(\href{../syntax/types.ht
 </section>
 </section>
 <section id="core-definition-types">
-<span id="syntax-ecoredeftype"></span><h2>Core definition types<a class="headerlink" href="#core-definition-types" title="Permalink to this headline">¶</a></h2>
+<span id="syntax-ecoredeftype"></span><h2>Core definition types<a class="headerlink" href="#core-definition-types" title="Permalink to this heading">¶</a></h2>
 <p>A core definition type elaborates to a <span class="math notranslate nohighlight">\(\href{../valid/types.html#syntax-ecoredeftype}{\mathit{core{:}deftype}_e}\)</span> with the
 following abstract syntax:</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}\begin{array}{llcl}
-\def\mathdef6317#1{{}}\mathdef6317{(ecoredeftype)} &amp; \href{../valid/types.html#syntax-ecoredeftype}{\mathit{core{:}deftype}_e} &amp;::=&amp;
+\def\mathdef1#1{{}}\mathdef1{(ecoredeftype)} &amp; \href{../valid/types.html#syntax-ecoredeftype}{\mathit{core{:}deftype}_e} &amp;::=&amp;
 \href{https://webassembly.github.io/spec/core/syntax/types.html#syntax-functype}{\mathit{core{:}}\mathit{functype}}\\&amp;&amp;|&amp;
 \href{../valid/types.html#syntax-ecoremoduletype}{\mathit{core{:}moduletype}_e}
 \end{array}\end{split}\]</div>
 <section id="core-xref-syntax-types-syntax-functype-mathit-core-mathit-functype">
-<h3><span class="math notranslate nohighlight">\(\href{https://webassembly.github.io/spec/core/syntax/types.html#syntax-functype}{\mathit{core{:}}\mathit{functype}}\)</span><a class="headerlink" href="#core-xref-syntax-types-syntax-functype-mathit-core-mathit-functype" title="Permalink to this headline">¶</a></h3>
+<h3><span class="math notranslate nohighlight">\(\href{https://webassembly.github.io/spec/core/syntax/types.html#syntax-functype}{\mathit{core{:}}\mathit{functype}}\)</span><a class="headerlink" href="#core-xref-syntax-types-syntax-functype-mathit-core-mathit-functype" title="Permalink to this heading">¶</a></h3>
 <ul class="simple">
 <li><p>The core definition type <span class="math notranslate nohighlight">\(\href{https://webassembly.github.io/spec/core/syntax/types.html#syntax-functype}{\mathit{core{:}}\mathit{functype}}\)</span> elaborates to
 <span class="math notranslate nohighlight">\(\href{https://webassembly.github.io/spec/core/syntax/types.html#syntax-functype}{\mathit{core{:}}\mathit{functype}}\)</span>.</p></li>
@@ -1330,7 +1242,7 @@ following abstract syntax:</p>
 }\]</div>
 </section>
 <section id="xref-syntax-types-syntax-coremoduletype-mathit-core-moduletype">
-<h3><span class="math notranslate nohighlight">\(\href{../syntax/types.html#syntax-coremoduletype}{\mathit{core{:}moduletype}}\)</span><a class="headerlink" href="#xref-syntax-types-syntax-coremoduletype-mathit-core-moduletype" title="Permalink to this headline">¶</a></h3>
+<h3><span class="math notranslate nohighlight">\(\href{../syntax/types.html#syntax-coremoduletype}{\mathit{core{:}moduletype}}\)</span><a class="headerlink" href="#xref-syntax-types-syntax-coremoduletype-mathit-core-moduletype" title="Permalink to this heading">¶</a></h3>
 <ul class="simple">
 <li><p>The core module type <span class="math notranslate nohighlight">\(\href{../syntax/types.html#syntax-coremoduletype}{\mathit{core{:}moduletype}}\)</span> must elaborate to some
 <span class="math notranslate nohighlight">\(\href{../valid/types.html#syntax-ecoremoduletype}{\mathit{core{:}moduletype}_e}\)</span>.</p></li>

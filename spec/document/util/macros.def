@@ -80,25 +80,20 @@
 .. |instancedecl| mathdef:: \xref{syntax/types}{syntax-instancedecl}{\X{instancedecl}}
 .. |IDALIAS| mathdef:: \xref{syntax/types}{syntax-instancedecl}{\K{alias}}
 .. |IDEXPORT| mathdef:: \xref{syntax/types}{syntax-instancedecl}{\K{export}}
-.. |IDCOMPONENT| mathdef:: \xref{syntax/types}{syntax-instancedecl}{\K{component}}
-.. |IDINSTANCE| mathdef:: \xref{syntax/types}{syntax-instancedecl}{\K{instance}}
-.. |IDVALUE| mathdef:: \xref{syntax/types}{syntax-instancedecl}{\K{value}}
-.. |IDFUNC| mathdef:: \xref{syntax/types}{syntax-instancedecl}{\K{func}}
-.. |IDCOREMODULE| mathdef:: \xref{syntax/types}{syntax-instancedecl}{\K{core\_module}}
 .. |IDTYPE| mathdef:: \xref{syntax/types}{syntax-instancedecl}{\K{type}}
 .. |IDCORETYPE| mathdef:: \xref{syntax/types}{syntax-instancedecl}{\K{core\_type}}
 
 .. |exportdecl| mathdef:: \xref{syntax/types}{syntax-exportdecl}{\X{exportdecl}}
 .. |EDNAME| mathdef:: \xref{syntax/types}{syntax-exportdecl}{\K{name}}
-.. |EDDEF| mathdef:: \xref{syntax/types}{syntax-exportdecl}{\K{def}}
+.. |EDDESC| mathdef:: \xref{syntax/types}{syntax-exportdecl}{\K{desc}}
 
-.. |importdesc| mathdef:: \xref{syntax/types}{syntax-importdesc}{\X{importdesc}}
-.. |IMDCOMPONENT| mathdef:: \xref{syntax/types}{syntax-importdesc}{\K{component}}
-.. |IMDINSTANCE| mathdef:: \xref{syntax/types}{syntax-importdesc}{\K{instance}}
-.. |IMDTYPE| mathdef:: \xref{syntax/types}{syntax-importdesc}{\K{type}}
-.. |IMDVALUE| mathdef:: \xref{syntax/types}{syntax-importdesc}{\K{value}}
-.. |IMDFUNC| mathdef:: \xref{syntax/types}{syntax-importdesc}{\K{func}}
-.. |IMDCOREMODULE| mathdef:: \xref{syntax/types}{syntax-importdesc}{\K{core\_module}}
+.. |externdesc| mathdef:: \xref{syntax/types}{syntax-externdesc}{\X{externdesc}}
+.. |EDCOMPONENT| mathdef:: \xref{syntax/types}{syntax-externdesc}{\K{component}}
+.. |EDINSTANCE| mathdef:: \xref{syntax/types}{syntax-externdesc}{\K{instance}}
+.. |EDTYPE| mathdef:: \xref{syntax/types}{syntax-externdesc}{\K{type}}
+.. |EDVALUE| mathdef:: \xref{syntax/types}{syntax-externdesc}{\K{value}}
+.. |EDFUNC| mathdef:: \xref{syntax/types}{syntax-externdesc}{\K{func}}
+.. |EDCOREMODULE| mathdef:: \xref{syntax/types}{syntax-externdesc}{\K{core\_module}}
 
 
 .. |typebound| mathdef:: \xref{syntax/types}{syntax-typebound}{\X{typebound}}

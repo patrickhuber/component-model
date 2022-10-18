@@ -1,17 +1,18 @@
 
 <!DOCTYPE html>
 
-<html>
+<html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
-    <title>Types &#8212; WebAssembly Component Model 0.0 (Draft 2022-09-02)</title>
+    <title>Types &#8212; WebAssembly Component Model 0.0 (Draft 2022-10-18)</title>
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../_static/alabaster.css" />
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../_static/doctools.js"></script>
     <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
@@ -86,7 +87,7 @@
     </form>
     </div>
 </div>
-<script>$('#searchbox').show(0);</script>
+<script>document.getElementById('searchbox').style.display = "block"</script>
 
 
 
@@ -104,14 +105,14 @@
           <div class="body" role="main">
             
   <section id="types">
-<span id="syntax-type"></span><h1>Types<a class="headerlink" href="#types" title="Permalink to this headline">¶</a></h1>
+<span id="syntax-type"></span><h1>Types<a class="headerlink" href="#types" title="Permalink to this heading">¶</a></h1>
 <p>The component model introduces two new kinds of types: value types,
 which are used to classify shared-nothing interface values, and
 definition types, which are used to characterize the core and
 component modules, instances, and functions which form part of a a
 component’s interface.</p>
 <section id="value-types">
-<span id="syntax-valtype"></span><span id="syntax-defvaltype"></span><span id="syntax-primvaltype"></span><span id="syntax-variantcase"></span><span id="syntax-recordfield"></span><h2>Value types<a class="headerlink" href="#value-types" title="Permalink to this headline">¶</a></h2>
+<span id="syntax-valtype"></span><span id="syntax-defvaltype"></span><span id="syntax-primvaltype"></span><span id="syntax-variantcase"></span><span id="syntax-recordfield"></span><h2>Value types<a class="headerlink" href="#value-types" title="Permalink to this heading">¶</a></h2>
 <p>A <em>value type</em> classifies a component-level abstract value. Unlike for
 Core WebAssembly values, no specified abstract syntax of component
 values exist; they serve simply to define the interface of lifted
@@ -152,7 +153,7 @@ type index space):</p>
 \end{array}\end{split}\]</div>
 </section>
 <section id="function-types">
-<span id="syntax-funclist"></span><span id="syntax-functype"></span><h2>Function types<a class="headerlink" href="#function-types" title="Permalink to this headline">¶</a></h2>
+<span id="syntax-funclist"></span><span id="syntax-functype"></span><h2>Function types<a class="headerlink" href="#function-types" title="Permalink to this heading">¶</a></h2>
 <p>A component-level shared-nothing function is classified by the types
 of its parameters and return values. Such a function may take as
 parameters zero or more named values, and will return as results zero
@@ -172,7 +173,7 @@ returns a single result, said parameter or result may be unnamed:</p>
 \end{array}n\end{split}\]</div>
 </section>
 <section id="instance-types">
-<span id="syntax-typebound"></span><span id="syntax-exportdecl"></span><span id="syntax-instancedecl"></span><span id="syntax-instancetype"></span><h2>Instance types<a class="headerlink" href="#instance-types" title="Permalink to this headline">¶</a></h2>
+<span id="syntax-typebound"></span><span id="syntax-exportdecl"></span><span id="syntax-instancedecl"></span><span id="syntax-instancetype"></span><h2>Instance types<a class="headerlink" href="#instance-types" title="Permalink to this heading">¶</a></h2>
 <p>A component instance is conceptually classified by the types of its
 exports. However, an instance’s type is concretely represented as a
 series of <em>declarations</em> manipulating index spaces (particular to the
@@ -187,21 +188,23 @@ parent components.</p>
 \def\mathdef3609#1{{}}\mathdef3609{(instancedecl)} &amp; \href{../syntax/types.html#syntax-instancedecl}{\mathit{instancedecl}} &amp;::=&amp;
 \href{../syntax/types.html#syntax-instancedecl}{\mathsf{alias}}~\href{../syntax/types.html#syntax-alias}{\mathit{alias}}\\&amp;&amp;|&amp;
 \href{../syntax/types.html#syntax-instancedecl}{\mathsf{core\_type}}~\href{https://webassembly.github.io/spec/core/syntax/types.html#syntax-functype}{\mathit{core{:}}\mathit{type}}\\&amp;&amp;|&amp;
-\href{../syntax/types.html#syntax-instancedecl}{\mathsf{type}}~\href{../syntax/types.html#syntax-typebound}{\mathit{typebound}}\\&amp;&amp;|&amp;
-\href{../syntax/types.html#syntax-instancedecl}{\mathsf{core\_module}}~\href{https://webassembly.github.io/spec/core/syntax/modules.html#syntax-typeidx}{\mathit{core{:}}\mathit{typeidx}}\\&amp;&amp;|&amp;
-\href{../syntax/types.html#syntax-instancedecl}{\mathsf{func}}~\href{../syntax/components.html#syntax-typeidx}{\mathit{typeidx}}\\&amp;&amp;|&amp;
-\href{../syntax/types.html#syntax-instancedecl}{\mathsf{value}}~\href{../syntax/components.html#syntax-typeidx}{\mathit{typeidx}}\\&amp;&amp;|&amp;
-\href{../syntax/types.html#syntax-instancedecl}{\mathsf{instance}}~\href{../syntax/components.html#syntax-typeidx}{\mathit{typeidx}}\\&amp;&amp;|&amp;
-\href{../syntax/types.html#syntax-instancedecl}{\mathsf{component}}~\href{../syntax/components.html#syntax-typeidx}{\mathit{typeidx}}\\&amp;&amp;|&amp;
+\href{../syntax/types.html#syntax-instancedecl}{\mathsf{type}}~\href{../syntax/types.html#syntax-deftype}{\mathit{deftype}}\\&amp;&amp;|&amp;
 \href{../syntax/types.html#syntax-instancedecl}{\mathsf{export}}~\href{../syntax/types.html#syntax-exportdecl}{\mathit{exportdecl}}\\
+\def\mathdef3609#1{{}}\mathdef3609{(externdesc)} &amp; \href{../syntax/types.html#syntax-externdesc}{\mathit{externdesc}} &amp;::=&amp;
+  \href{../syntax/types.html#syntax-externdesc}{\mathsf{type}}~\href{../syntax/types.html#syntax-typebound}{\mathit{typebound}}\\&amp;&amp;|&amp;
+  \href{../syntax/types.html#syntax-externdesc}{\mathsf{core\_module}}~\href{https://webassembly.github.io/spec/core/syntax/modules.html#syntax-typeidx}{\mathit{core{:}}\mathit{typeidx}}\\&amp;&amp;|&amp;
+  \href{../syntax/types.html#syntax-externdesc}{\mathsf{func}}~\href{../syntax/components.html#syntax-typeidx}{\mathit{typeidx}}\\&amp;&amp;|&amp;
+  \href{../syntax/types.html#syntax-externdesc}{\mathsf{value}}~\href{../syntax/types.html#syntax-valtype}{\mathit{valtype}}\\&amp;&amp;|&amp;
+  \href{../syntax/types.html#syntax-externdesc}{\mathsf{instance}}~\href{../syntax/components.html#syntax-typeidx}{\mathit{typeidx}}\\&amp;&amp;|&amp;
+  \href{../syntax/types.html#syntax-externdesc}{\mathsf{component}}~\href{../syntax/components.html#syntax-typeidx}{\mathit{typeidx}}\\
 \def\mathdef3609#1{{}}\mathdef3609{(typebound)} &amp; \href{../syntax/types.html#syntax-typebound}{\mathit{typebound}} &amp;::=&amp;
 \href{../syntax/types.html#syntax-typebound}{\mathsf{EQ}}~\href{../syntax/types.html#syntax-deftype}{\mathit{deftype}}\\&amp;&amp;|&amp;
 \dots\\
-\def\mathdef3609#1{{}}\mathdef3609{(exportdecl)} &amp; \href{../syntax/types.html#syntax-exportdecl}{\mathit{exportdecl}} &amp;::=&amp; \{ \href{../syntax/types.html#syntax-exportdecl}{\mathsf{name}}~\href{../syntax/values.html#syntax-name}{\mathit{name}}, \href{../syntax/types.html#syntax-exportdecl}{\mathsf{def}}~\href{../syntax/components.html#syntax-sortidx}{\mathit{sortidx}} \}
+\def\mathdef3609#1{{}}\mathdef3609{(exportdecl)} &amp; \href{../syntax/types.html#syntax-exportdecl}{\mathit{exportdecl}} &amp;::=&amp; \{ \href{../syntax/types.html#syntax-exportdecl}{\mathsf{name}}~\href{../syntax/values.html#syntax-name}{\mathit{name}}, \href{../syntax/types.html#syntax-exportdecl}{\mathsf{desc}}~\href{../syntax/types.html#syntax-externdesc}{\mathit{externdesc}} \}
 \end{array}\end{split}\]</div>
 </section>
 <section id="component-types">
-<span id="syntax-importdesc"></span><span id="syntax-importdecl"></span><span id="syntax-componentdecl"></span><span id="syntax-componenttype"></span><h2>Component types<a class="headerlink" href="#component-types" title="Permalink to this headline">¶</a></h2>
+<span id="syntax-externdesc"></span><span id="syntax-importdecl"></span><span id="syntax-componentdecl"></span><span id="syntax-componenttype"></span><h2>Component types<a class="headerlink" href="#component-types" title="Permalink to this heading">¶</a></h2>
 <p>A component is conceptually classified by the types of its imports and
 exports. However, like instances, this is concretely represented as a
 series of declarations; in particular, a similar set of declarations
@@ -212,18 +215,11 @@ allowing also for imports.</p>
 \def\mathdef3609#1{{}}\mathdef3609{(componentdecl)} &amp; \href{../syntax/types.html#syntax-componentdecl}{\mathit{componentdecl}} &amp;::=&amp;
 \href{../syntax/types.html#syntax-instancedecl}{\mathit{instancedecl}}\\&amp;&amp;|&amp;
 \href{../syntax/types.html#syntax-componentdecl}{\mathsf{import}}~\href{../syntax/types.html#syntax-importdecl}{\mathit{importdecl}}\\
-\def\mathdef3609#1{{}}\mathdef3609{(importdecl)} &amp; \href{../syntax/types.html#syntax-importdecl}{\mathit{importdecl}} &amp;::=&amp; \{ \href{../syntax/types.html#syntax-importdecl}{\mathsf{name}}~\href{../syntax/values.html#syntax-name}{\mathit{name}}, \href{../syntax/types.html#syntax-importdecl}{\mathsf{desc}}~\href{../syntax/types.html#syntax-importdesc}{\mathit{importdesc}} \}\\
-\def\mathdef3609#1{{}}\mathdef3609{(importdesc)} &amp; \href{../syntax/types.html#syntax-importdesc}{\mathit{importdesc}} &amp;::=&amp;
-  \href{../syntax/types.html#syntax-importdesc}{\mathsf{type}}~\href{../syntax/types.html#syntax-typebound}{\mathit{typebound}}\\&amp;&amp;|&amp;
-  \href{../syntax/types.html#syntax-importdesc}{\mathsf{core\_module}}~\href{https://webassembly.github.io/spec/core/syntax/modules.html#syntax-typeidx}{\mathit{core{:}}\mathit{typeidx}}\\&amp;&amp;|&amp;
-  \href{../syntax/types.html#syntax-importdesc}{\mathsf{func}}~\href{../syntax/components.html#syntax-typeidx}{\mathit{typeidx}}\\&amp;&amp;|&amp;
-  \href{../syntax/types.html#syntax-importdesc}{\mathsf{value}}~\href{../syntax/types.html#syntax-valtype}{\mathit{valtype}}\\&amp;&amp;|&amp;
-  \href{../syntax/types.html#syntax-importdesc}{\mathsf{instance}}~\href{../syntax/components.html#syntax-typeidx}{\mathit{typeidx}}\\&amp;&amp;|&amp;
-  \href{../syntax/types.html#syntax-importdesc}{\mathsf{component}}~\href{../syntax/components.html#syntax-typeidx}{\mathit{typeidx}}\\
+\def\mathdef3609#1{{}}\mathdef3609{(importdecl)} &amp; \href{../syntax/types.html#syntax-importdecl}{\mathit{importdecl}} &amp;::=&amp; \{ \href{../syntax/types.html#syntax-importdecl}{\mathsf{name}}~\href{../syntax/values.html#syntax-name}{\mathit{name}}, \href{../syntax/types.html#syntax-importdecl}{\mathsf{desc}}~\href{../syntax/types.html#syntax-externdesc}{\mathit{externdesc}} \}\\
 \end{array}\end{split}\]</div>
 </section>
 <section id="definition-types">
-<span id="syntax-deftype"></span><h2>Definition types<a class="headerlink" href="#definition-types" title="Permalink to this headline">¶</a></h2>
+<span id="syntax-deftype"></span><h2>Definition types<a class="headerlink" href="#definition-types" title="Permalink to this heading">¶</a></h2>
 <p>A type definition may name a value, function, component, or instance type:</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}\begin{array}{llcl}
@@ -235,7 +231,7 @@ allowing also for imports.</p>
 \end{array}\end{split}\]</div>
 </section>
 <section id="core-definition-types">
-<span id="syntax-coremoduledecl"></span><span id="syntax-corealiastarget"></span><span id="syntax-corealias"></span><span id="syntax-coreexportdecl"></span><span id="syntax-coreimportdecl"></span><span id="syntax-coremoduletype"></span><span id="syntax-coredeftype"></span><h2>Core definition types<a class="headerlink" href="#core-definition-types" title="Permalink to this headline">¶</a></h2>
+<span id="syntax-coremoduledecl"></span><span id="syntax-corealiastarget"></span><span id="syntax-corealias"></span><span id="syntax-coreexportdecl"></span><span id="syntax-coreimportdecl"></span><span id="syntax-coremoduletype"></span><span id="syntax-coredeftype"></span><h2>Core definition types<a class="headerlink" href="#core-definition-types" title="Permalink to this heading">¶</a></h2>
 <p>The component module specification also defines an expanded notion of
 what a core type is, which may eventually be subsumed by a core module
 linking extension.</p>
