@@ -120,7 +120,7 @@ parent components.
      \EDINSTANCE~\typeidx\\&&|&
      \EDCOMPONENT~\typeidx\\
    \production{(typebound)} & \typebound &::=&
-   \TBEQ~\deftype\\&&|&
+   \TBEQ~\typeidx\\&&|&
    \dots\\
    \production{(exportdecl)} & \exportdecl &::=& \{ \EDNAME~\name, \EDDESC~\externdesc \}
    \end{array}

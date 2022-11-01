@@ -496,12 +496,13 @@ abstract syntax:
 
 * The type :math:`\tyctx.\TCTYPES[\typeidx]` must be defined in the context.
 
-* Then :math:`\typeidx` elaborates to :math:`\ETBEQ~\tyctx.\TCTYPES[\typeidx]`.
+* Then the type bound :math:`\TBEQ~\typeidx` elaborates to
+  :math:`\ETBEQ~\tyctx.\TCTYPES[\typeidx]`.
 
 .. math::
   \frac{
   }{
-    \tyctx \vdash \typeidx \leadsto \ETBEQ~\tyctx.\TCTYPES[\typeidx]
+    \tyctx \vdash \TBEQ~\typeidx \leadsto \ETBEQ~\tyctx.\TCTYPES[\typeidx]
   }
 
 .. _syntax-einstancetype:
@@ -577,7 +578,7 @@ and that all quantified types are exported.
   \begin{array}{@{}c@{}}
   \F{defined}(\tyvar) =
   \begin{cases}
-    \edeftype & \text{if } \exists i, \tyvar_i = \tyvar \land {\etypebound}_i = \TBEQ~\edeftype\\
+    \edeftype & \text{if } \exists i, \tyvar_i = \tyvar \land {\etypebound}_i = \ETBEQ~\edeftype\\
     \bot & \text{otherwise}\\
   \end{cases}\\
   \F{externed}(\tyvar) =
@@ -729,8 +730,6 @@ Each instance declarator elaborates to a (partial)
     \dashv{}&\tyctx \oplus \{ \TCVARS~\boundedtyvar^\ast, \eexterndesc \}
     \end{aligned}
   }
-
-.. _syntax-eexterndesc:
 
 Extern descriptors
 ~~~~~~~~~~~~~~~~~~
@@ -894,8 +893,8 @@ imported or exported.
   \begin{array}{@{}c@{}}
   \F{defined}(\tyvar) =
   \begin{cases}
-    \edeftype & \text{if } \exists i, \tyvar_i = \tyvar \land {\etypebound}^\alpha_i = \TBEQ~\edeftype\\
-    \edeftype & \text{if } \exists k, \tyvarb_k = \tyvar \land {\etypebound}^\beta_k = \TBEQ~\edeftype\\
+    \edeftype & \text{if } \exists i, \tyvar_i = \tyvar \land {\etypebound}^\alpha_i = \ETBEQ~\edeftype\\
+    \edeftype & \text{if } \exists k, \tyvarb_k = \tyvar \land {\etypebound}^\beta_k = \ETBEQ~\edeftype\\
     \bot & \text{otherwise}\\
   \end{cases}\\
   \F{externed}(\tyvar) =

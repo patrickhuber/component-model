@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
-    <title>Types &#8212; WebAssembly Component Model 0.0 (Draft 2022-10-18)</title>
+    <title>Types &#8212; WebAssembly Component Model 0.0 (Draft 2022-11-01)</title>
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../_static/alabaster.css" />
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
@@ -548,12 +548,13 @@ abstract syntax:</p>
 <h3><span class="math notranslate nohighlight">\(\href{../syntax/components.html#syntax-typeidx}{\mathit{typeidx}}\)</span><a class="headerlink" href="#id1" title="Permalink to this heading">¶</a></h3>
 <ul class="simple">
 <li><p>The type <span class="math notranslate nohighlight">\(\href{../valid/conventions.html#syntax-tyctx}{\Gamma}.\href{../valid/conventions.html#syntax-tyctx}{\mathsf{types}}[\href{../syntax/components.html#syntax-typeidx}{\mathit{typeidx}}]\)</span> must be defined in the context.</p></li>
-<li><p>Then <span class="math notranslate nohighlight">\(\href{../syntax/components.html#syntax-typeidx}{\mathit{typeidx}}\)</span> elaborates to <span class="math notranslate nohighlight">\(\href{../valid/types.html#syntax-etypebound}{\mathsf{eq}}~\href{../valid/conventions.html#syntax-tyctx}{\Gamma}.\href{../valid/conventions.html#syntax-tyctx}{\mathsf{types}}[\href{../syntax/components.html#syntax-typeidx}{\mathit{typeidx}}]\)</span>.</p></li>
+<li><p>Then the type bound <span class="math notranslate nohighlight">\(\href{../syntax/types.html#syntax-typebound}{\mathsf{EQ}}~\href{../syntax/components.html#syntax-typeidx}{\mathit{typeidx}}\)</span> elaborates to
+<span class="math notranslate nohighlight">\(\href{../valid/types.html#syntax-etypebound}{\mathsf{eq}}~\href{../valid/conventions.html#syntax-tyctx}{\Gamma}.\href{../valid/conventions.html#syntax-tyctx}{\mathsf{types}}[\href{../syntax/components.html#syntax-typeidx}{\mathit{typeidx}}]\)</span>.</p></li>
 </ul>
 <div class="math notranslate nohighlight">
 \[\frac{
 }{
-  \href{../valid/conventions.html#syntax-tyctx}{\Gamma} \vdash \href{../syntax/components.html#syntax-typeidx}{\mathit{typeidx}} \leadsto \href{../valid/types.html#syntax-etypebound}{\mathsf{eq}}~\href{../valid/conventions.html#syntax-tyctx}{\Gamma}.\href{../valid/conventions.html#syntax-tyctx}{\mathsf{types}}[\href{../syntax/components.html#syntax-typeidx}{\mathit{typeidx}}]
+  \href{../valid/conventions.html#syntax-tyctx}{\Gamma} \vdash \href{../syntax/types.html#syntax-typebound}{\mathsf{EQ}}~\href{../syntax/components.html#syntax-typeidx}{\mathit{typeidx}} \leadsto \href{../valid/types.html#syntax-etypebound}{\mathsf{eq}}~\href{../valid/conventions.html#syntax-tyctx}{\Gamma}.\href{../valid/conventions.html#syntax-tyctx}{\mathsf{types}}[\href{../syntax/components.html#syntax-typeidx}{\mathit{typeidx}}]
 }\]</div>
 </section>
 </section>
@@ -614,7 +615,7 @@ that it is equality-bounded to.</p></li>
 \begin{array}{&#64;{}c&#64;{}}
 \mathrm{defined}(\alpha) =
 \begin{cases}
-  \href{../valid/types.html#syntax-edeftype}{\mathit{deftype}_e} &amp; \text{if } \exists i, \alpha_i = \alpha \land {\href{../valid/types.html#syntax-etypebound}{\mathit{typebound}_e}}_i = \href{../syntax/types.html#syntax-typebound}{\mathsf{EQ}}~\href{../valid/types.html#syntax-edeftype}{\mathit{deftype}_e}\\
+  \href{../valid/types.html#syntax-edeftype}{\mathit{deftype}_e} &amp; \text{if } \exists i, \alpha_i = \alpha \land {\href{../valid/types.html#syntax-etypebound}{\mathit{typebound}_e}}_i = \href{../valid/types.html#syntax-etypebound}{\mathsf{eq}}~\href{../valid/types.html#syntax-edeftype}{\mathit{deftype}_e}\\
   \bot &amp; \text{otherwise}\\
 \end{cases}\\
 \mathrm{externed}(\alpha) =
@@ -759,7 +760,7 @@ entry to the context.</p></li>
 </section>
 </section>
 <section id="extern-descriptors">
-<span id="id2"></span><h2>Extern descriptors<a class="headerlink" href="#extern-descriptors" title="Permalink to this heading">¶</a></h2>
+<h2>Extern descriptors<a class="headerlink" href="#extern-descriptors" title="Permalink to this heading">¶</a></h2>
 <p>An extern descriptor elaborates to a quantified <span class="math notranslate nohighlight">\(\href{../valid/types.html#syntax-eexterndesc}{\mathit{externdesc}_e}\)</span>
 with the following abstract syntax:</p>
 <section id="xref-syntax-types-syntax-externdesc-mathsf-type-xref-syntax-types-syntax-deftype-mathit-deftype">
@@ -864,8 +865,8 @@ of the instance that it will produce upon instantiation:</p>
 \def\mathdef1#1{{}}\mathdef1{(ecomponenttype)} &amp; \href{../valid/types.html#syntax-ecomponenttype}{\mathit{componenttype}_e} &amp;::=&amp;
   \forall \href{../valid/types.html#syntax-boundedtyvar}{\mathit{boundedtyvar}}^\ast. \href{../valid/types.html#syntax-eexportdecl}{\mathit{externdecl}_e}^\ast \to \href{../valid/types.html#syntax-einstancetype}{\mathit{instancetype}_e}\\
 \end{array}\end{split}\]</div>
-<section id="id3">
-<h3>Notational conventions<a class="headerlink" href="#id3" title="Permalink to this heading">¶</a></h3>
+<section id="id2">
+<h3>Notational conventions<a class="headerlink" href="#id2" title="Permalink to this heading">¶</a></h3>
 <ul class="simple">
 <li><p>Much like with instance types above, we write <span class="math notranslate nohighlight">\(\href{../valid/types.html#syntax-ecomponenttype}{\mathit{componenttype}_e}
 \oplus \href{../valid/types.html#syntax-ecomponenttype}{\mathit{componenttype}_e}'\)</span> to mean the combination of two component
@@ -902,8 +903,8 @@ by the type that it is equality-bounded to.</p></li>
 \begin{array}{&#64;{}c&#64;{}}
 \mathrm{defined}(\alpha) =
 \begin{cases}
-  \href{../valid/types.html#syntax-edeftype}{\mathit{deftype}_e} &amp; \text{if } \exists i, \alpha_i = \alpha \land {\href{../valid/types.html#syntax-etypebound}{\mathit{typebound}_e}}^\alpha_i = \href{../syntax/types.html#syntax-typebound}{\mathsf{EQ}}~\href{../valid/types.html#syntax-edeftype}{\mathit{deftype}_e}\\
-  \href{../valid/types.html#syntax-edeftype}{\mathit{deftype}_e} &amp; \text{if } \exists k, \beta_k = \alpha \land {\href{../valid/types.html#syntax-etypebound}{\mathit{typebound}_e}}^\beta_k = \href{../syntax/types.html#syntax-typebound}{\mathsf{EQ}}~\href{../valid/types.html#syntax-edeftype}{\mathit{deftype}_e}\\
+  \href{../valid/types.html#syntax-edeftype}{\mathit{deftype}_e} &amp; \text{if } \exists i, \alpha_i = \alpha \land {\href{../valid/types.html#syntax-etypebound}{\mathit{typebound}_e}}^\alpha_i = \href{../valid/types.html#syntax-etypebound}{\mathsf{eq}}~\href{../valid/types.html#syntax-edeftype}{\mathit{deftype}_e}\\
+  \href{../valid/types.html#syntax-edeftype}{\mathit{deftype}_e} &amp; \text{if } \exists k, \beta_k = \alpha \land {\href{../valid/types.html#syntax-etypebound}{\mathit{typebound}_e}}^\beta_k = \href{../valid/types.html#syntax-etypebound}{\mathsf{eq}}~\href{../valid/types.html#syntax-edeftype}{\mathit{deftype}_e}\\
   \bot &amp; \text{otherwise}\\
 \end{cases}\\
 \mathrm{externed}(\alpha) =
@@ -1087,8 +1088,8 @@ exports:</p>
 \def\mathdef1#1{{}}\mathdef1{(ecoreinstancetype)} &amp; \href{../valid/types.html#syntax-ecoreinstancetype}{\mathit{core{:}instancetype}_e} &amp;::=&amp;
   \href{../syntax/types.html#syntax-coreexportdecl}{\mathit{core{:}exportdecl}}^\ast
 \end{array}\]</div>
-<section id="id4">
-<h3>Notational conventions<a class="headerlink" href="#id4" title="Permalink to this heading">¶</a></h3>
+<section id="id3">
+<h3>Notational conventions<a class="headerlink" href="#id3" title="Permalink to this heading">¶</a></h3>
 <ul class="simple">
 <li><p>We write <span class="math notranslate nohighlight">\(\href{../valid/types.html#syntax-ecoreinstancetype}{\mathit{core{:}instancetype}_e} \oplus \href{../valid/types.html#syntax-ecoreinstancetype}{\mathit{core{:}instancetype}_e}'\)</span> to
 mean the instance type formed by the concationation of the export
@@ -1107,8 +1108,8 @@ be produced upon instantiating the module:</p>
 \def\mathdef1#1{{}}\mathdef1{(ecoremoduletype)} &amp; \href{../valid/types.html#syntax-ecoremoduletype}{\mathit{core{:}moduletype}_e} &amp;::=&amp;
   \href{../syntax/types.html#syntax-coreimportdecl}{\mathit{core{:}importdecl}}^\ast \to \href{../syntax/types.html#syntax-coreexportdecl}{\mathit{core{:}exportdecl}}^\ast
 \end{array}\]</div>
-<section id="id5">
-<h3>Notational conventions<a class="headerlink" href="#id5" title="Permalink to this heading">¶</a></h3>
+<section id="id4">
+<h3>Notational conventions<a class="headerlink" href="#id4" title="Permalink to this heading">¶</a></h3>
 <ul class="simple">
 <li><p>Much like with core instance types above, we write
 <span class="math notranslate nohighlight">\(\href{../valid/types.html#syntax-ecoremoduletype}{\mathit{core{:}moduletype}_e} \oplus \href{../valid/types.html#syntax-ecoremoduletype}{\mathit{core{:}moduletype}_e}'\)</span> to mean the
