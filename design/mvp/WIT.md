@@ -378,6 +378,8 @@ union-cases ::= ty,
 
 ## Item: `resource`
 
+(TODO)
+
 Resources represent a value that has a hidden representation not known to the
 outside world. This means that the resource is operated on through a "handle" (a
 pointer of sorts). Resources also have ownership associated with them and

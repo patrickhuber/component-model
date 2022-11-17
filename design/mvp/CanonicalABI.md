@@ -18,6 +18,8 @@ of modules in Core WebAssembly.
 * [Canonical definitions](#canonical-definitions)
   * [`canon lift`](#canon-lift)
   * [`canon lower`](#canon-lower)
+  * [`canon resource.new`](#canon-resourcenew)
+  * [`canon resource.drop`](#canon-resourcedrop)
 * [Canonical ABI](#canonical-abi)
   * [Canonical Module Type](#canonical-module-type)
   * [Lifting Canonical Modules](#lifting-canonical-modules)
@@ -1312,6 +1314,16 @@ are technically allowed by the above rules (and may arise unintentionally in
 component reexport scenarios). Such cases can be statically distinguished by
 the AOT compiler as requiring an intermediate copy to implement the above
 `lift`-then-`lower` semantics.
+
+
+### `canon resource.new`
+
+TODO
+
+
+### `canon resource.drop`
+
+TODO
 
 
 
